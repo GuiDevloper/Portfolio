@@ -83,6 +83,23 @@ height: 50vh;
 .ls-mid .pro {
   height: 25vh;
 }
+.Titulo-main {
+  width: 50%;
+    padding-top: 20vh;
+    padding-left: 10%;
+    position: absolute;
+}
+.Titulo-main p {
+  margin: 0;
+}
+.sub-title {
+  font-size: 2rem;
+}
+.myName {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #d8d800;
+}
 .logo-nav {
   width: 8vh;
   padding-top: 2vh;
