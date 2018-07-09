@@ -201,6 +201,42 @@ height: 50vh;
   background-color: aquamarine;
   height: inherit;
 }
+.card.arts {
+  margin-bottom: 10vh;
+}
+.t-card.mission {
+  margin: 5vh 0 -10vh 0;
+  color: aliceblue;
+}
+.t-card.way {
+  color: #FFEB3B;
+}
+.card.mission {
+  background-color: #009688;
+}
+.mission.main {
+  height: 20vh;
+  color: aliceblue;
+}
+.mission.main p {
+  text-align: center;
+}
+.card.way {
+  background-color: #795548;
+}
+.card.tools {
+  background-color: #5C6BC0;
+}
+a {
+color: #3F51B5;
+    text-decoration: none;
+    font-size: large;
+}
+.mission p {
+    text-align: justify;
+    font-size: 1.1rem;
+    padding: 10vh 10% 0;
+}
 .sea .pro1 {
   height: 35vh;
 }
@@ -208,6 +244,28 @@ height: 50vh;
   height: 37vh;
   float: right;
   margin: 0;
+}
+.t-card.sea {
+  color: blue;
+}
+.t-card.arts {
+  color: #795548;
+}
+.t-card.tools {
+  margin: 15vh 0 -10vh 0;
+  color: #6b2424;
+}
+.aviso-card {
+float: right;
+    margin-top: 20vh;
+    margin-right: 5%;
+    width: 20%;
+    text-align: center;
+}
+.aviso-card2 {
+    float: left;
+    margin-top: 10vh;
+    padding: 15px;
 }
 .t-card {
   margin: 5vh 0 -8vh 0;
@@ -223,6 +281,20 @@ height: 50vh;
 .pro3 {
   height: 51%;
   margin: 10vh 0 0 -10%;
+}
+.contat {
+    width: 50%;
+    height: 20vh;
+    padding: 10%;
+}
+.contat img {
+  height: 15px;
+}
+.contat div {
+  padding-top: inherit;
+}
+.gmail span {
+  vertical-align: super;
 }
 .Rodape {
   height: 10vh;
