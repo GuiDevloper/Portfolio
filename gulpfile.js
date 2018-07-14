@@ -9,20 +9,20 @@ gulp.task('default', function() {
 
 /* Variaveis */
 // Fonte do Sass
-var sassFile = './src/Sass/style.sass';
+var sassFile = './src/SCSS/style.scss';
 // Destino do CSS compilado
 var cssDest = './CSS';
 
 // Opções para produção - compresso
 var sassProdOptions = {
-  outputStyle: 'compressed'
+  outputStyle: 'expanded'
 }
 
 // Task 'sassprod' - Run with command 'gulp sassprod'
 gulp.task('sass', function() {
   return gulp.src(sassFile)
     .pipe(sass(sassProdOptions).on('error', sass.logError))
-    .pipe(rename('style.min.css'))
+    .pipe(rename('style.css'))
     .pipe(gulp.dest(cssDest));
 });
 
