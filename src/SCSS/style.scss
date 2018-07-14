@@ -152,6 +152,7 @@ height: 50vh;
   width: 15vh;
   margin-left: 20vw;
   float: left;
+  margin-top: -10%;
 }
 #img-logo {
   & .cls-1{
@@ -212,14 +213,18 @@ height: 50vh;
   & .cls-19{
       fill:#6b3f44;
   }
+  & .cuplogo {
+    filter:url(#dropshadow);
+  }
 }
 #keyboard {
-  width: 30%;
-  float: left;
-  margin-left: 30%;
+    width: 30%;
+    float: left;
+    margin-left: 50%;
+    margin-top: -5vh;
 }
 #img-key {
-  transform: rotate(-5deg);
+  transform: rotate(-3deg);
   & .cls-1{
     fill:#423989;
   }
@@ -240,9 +245,6 @@ height: 50vh;
   & .cls-5{
     fill:#fff;
     stroke:#fff;
-  }
-  & path {
-    box-shadow: 0;
   }
 }
 .side1, .side2 {
