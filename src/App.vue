@@ -16,6 +16,21 @@ export default {
 </script>
 
 <style lang="scss">
+body {
+  &::-webkit-scrollbar {
+    width: 4px;
+	}
+	&::-webkit-scrollbar-thumb {
+    background: #3d7bff;
+		border-radius: 10px;
+	}
+	&::-webkit-scrollbar-track {
+    background-color: #0a1c76;
+	}
+}
+* {
+  overflow-x: hidden;
+}
 #app {
   min-height: 100vh;
   background-color: gray;
