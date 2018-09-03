@@ -10,7 +10,7 @@
 		</div>
     <div class="wall c-1o2 m-1o1">
       <div class="neon c-7o12 sec">
-        <h2>{{ final }}</h2>
+        <img class="Dev-center" src="../assets/img/GuiDevloper.png">
       </div>
     </div>
   </div>
@@ -55,6 +55,11 @@ module.exports = {
     margin-top: 20vh;
     overflow: hidden;
   }
+}
+.Dev-center {
+  height: 120%;
+  margin: 10vh 0 0 10px;
+  overflow: hidden;
 }
 #logo {
   height: 15vh;
