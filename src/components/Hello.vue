@@ -125,9 +125,9 @@ module.exports = {
   font-size: 20px;
 }
 .Dev-center {
-  height: 120%;
-  margin: 10vh 0 0 10px;
-  overflow: hidden;
+  height: 90%;
+  margin: 20vh 0 0 5vw;
+  z-index: inherit;
 }
 .logo-center {
   position: absolute;
@@ -202,8 +202,8 @@ module.exports = {
   }
 }
 #img-logo {
-  height: 90%;
-  margin: 10% 18%;
+  height: 70%;
+  margin: 8% 25% 0;
   & .cls-1 {
     fill: none;
   }
