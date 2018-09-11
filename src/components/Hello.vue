@@ -37,15 +37,31 @@ module.exports = {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .all {
-  height: 100vh;
-}
-.wall {
+  min-height: 100vh;
   height: 100%;
+  margin-bottom: 5px;
+}
+.back-inicial-anim {
+  transform: translateX(-100%) translateY(0px) translateZ(0px) scaleX(1)
+    scaleY(1) scaleZ(1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skewX(0deg)
+    skewY(0deg);
+}
+
+.image {
+  height: 100%;
+  width: 100%;
+  box-shadow: inset 0px 0px 50px 0px #001727;
+}
+.column {
+  position: relative;
   float: left;
-  background-color: #171717;
-  &:last-of-type {
-    background-color: black;
-  }
+  height: 100%;
+  width: 50%;
+}
+.r1 .c1,
+.r1 .c2 {
+  width: 50%;
+  background: #ff9e67;
 }
 .neon {
   margin: 20%;
