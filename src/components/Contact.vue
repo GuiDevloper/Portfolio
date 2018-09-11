@@ -44,57 +44,30 @@ module.exports = {
 
 <style lang="scss" scoped>
 #contact {
-  min-height: 60vh;
-  background-color: white;
+  min-height: 40vh;
+  background-color: rgba(71, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0px 0px 50px 0px rgba(0, 0, 0, 0.9);
+  &:before {
+    content: "";
+    position: absolute;
+    width: 150%;
+    height: 100%;
+    left: -50%;
+    z-index: -1;
+    background: url(https://images.homedepot-static.com/productImages/12aacea2-75c3-4f9a-9377-a00f4950978d/svn/swedish-red-newtechwood-tiles-us-qd-zx-sr-64_1000.jpg);
+    background-repeat: round;
+  }
   .email,
   .social {
     height: 100%;
     float: left;
-    padding: 5vh;
-    padding-top: 10%;
+    padding: 3% 5% 1%;
+    width: 50%;
+    /* width: 100%; */
+    box-sizing: border-box;
   }
 }
-.mid {
-  height: 40%;
-  width: 1px;
-  background-color: #42b983;
-  float: left;
-  position: absolute;
-  margin: 5% 0 0 50%;
-}
-fieldset {
-  border-radius: 5px;
-}
-input,
-textarea {
-  width: 50%;
-  margin: 1vh 5%;
-  background-color: rgb(128, 107, 107);
-  font-family: "Raleway";
-  color: white;
-  font-size: 1rem;
-  border: 0;
-  caret-color: red;
-  border-radius: 2px;
-  border-bottom: solid #171717;
-}
-textarea {
-  height: 60px;
-  resize: none;
-}
-.social {
-  height: 20vh;
-}
-.social img {
-  height: 15px;
-}
-.social div {
-  padding-top: inherit;
-}
-.social p {
-  margin: 0;
-}
-.gmail span {
-  vertical-align: super;
-}
+
 </style>
