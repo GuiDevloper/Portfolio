@@ -15,53 +15,57 @@ export default {
   components: {
     contact
   }
-}
+};
 </script>
 
 <style lang="scss">
 body {
+  background: #001727;
   &::-webkit-scrollbar {
     width: 4px;
-	}
-	&::-webkit-scrollbar-thumb {
+  }
+  &::-webkit-scrollbar-thumb {
     background: #3d7bff;
-		border-radius: 10px;
-	}
-	&::-webkit-scrollbar-track {
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-track {
     background-color: #0a1c76;
-	}
+  }
 }
 * {
   overflow-x: hidden;
+  border-radius: 5px;
 }
-div, footer {
-  border-radius: 3px;
-}
-i, p, span {
+i,
+p,
+span {
   text-rendering: optimizeLegibility;
-  -webkit-font-feature-settings: 'liga';
-  -moz-font-feature-settings: 'liga';
-  font-feature-settings: 'liga';
+  -webkit-font-feature-settings: "liga";
+  -moz-font-feature-settings: "liga";
+  font-feature-settings: "liga";
+}
+p {
+  margin: 0;
 }
 #app {
   min-height: 100vh;
-  background-color: gray;
-  font-family: 'Raleway', Helvetica, Arial, sans-serif;
+  font-family: "Raleway", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: white;
+}
+a {
+  color: #ffeb3b;
 }
 footer {
   width: 100%;
-  background-color: #3E2723;
-  color: white;
-  margin: 1vh 0;
   float: left;
   p {
     text-align: center;
-    margin: 0;
-    padding: 1%;
+    width: fit-content;
+    background: linear-gradient(to bottom, transparent 62%, #973333 0);
+    margin: auto;
   }
 }
 </style>
