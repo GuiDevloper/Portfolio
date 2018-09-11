@@ -99,5 +99,26 @@ fieldset {
   width: 90%;
   margin: auto;
 }
-
+.social {
+  height: 20vh;
+  padding-bottom: 3%;
+}
+.social img {
+  height: 15px;
+}
+.social div {
+  padding-top: 5%;
+}
+.social p {
+  margin: 0;
+}
+.gmail span {
+  vertical-align: super;
+}
+@media (max-width: 767px) {
+  .email,
+  .social {
+    width: 100%;
+  }
+}
 </style>
