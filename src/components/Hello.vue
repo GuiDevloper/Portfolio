@@ -141,7 +141,66 @@ module.exports = {
   background: white;
   box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.3);
 }
+@media (max-width: 991px) {
+  .neon {
+    width: 70%;
+    margin-left: 17%;
+    &.n1 {
+      width: 260px;
+      height: 260px;
+      margin-left: 16%;
+    }
+  }
+}
 
+@media (max-width: 767px) {
+  .r2 {
+    height: 130vh;
+    .c1 {
+      height: 60%;
+    }
+    .c2 {
+      position: absolute;
+      left: 0px;
+      top: 60%;
+      height: 70%;
+    }
+  }
+  .row {
+    position: static;
+  }
+  .column {
+    width: 100%;
+  }
+  .neon {
+    width: 50%;
+    height: 80%;
+    margin-top: 10%;
+    margin-left: 33%;
+  }
+
+  .logo-center {
+    margin-top: 375px;
+    margin-right: 40%;
+  }
+}
+
+@media (max-width: 479px) {
+  .neon {
+    width: 60%;
+    height: 60%;
+    margin-top: 15%;
+    margin-left: 30%;
+    &.n1 {
+      width: 58%;
+      height: 39%;
+    }
+  }
+  .logo-center {
+    margin-top: 370px;
+    margin-right: 35%;
+  }
+}
 #img-logo {
   height: 90%;
   margin: 10% 18%;
@@ -206,8 +265,5 @@ module.exports = {
   & .cuplogo {
     filter: url(#dropshadow);
   }
-}
-h3 {
-  margin: 40px 0 0;
 }
 </style>
