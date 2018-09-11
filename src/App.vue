@@ -33,7 +33,10 @@ body {
   }
 }
 * {
-  overflow-x: hidden;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  overflow: hidden auto;
   border-radius: 5px;
 }
 i,
