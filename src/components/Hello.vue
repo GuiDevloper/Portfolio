@@ -106,6 +106,24 @@ module.exports = {
     overflow: hidden;
   }
 }
+.nome,
+.menu {
+  color: #e41212;
+  font-family: "Great Vibes";
+}
+.nome {
+  position: absolute;
+  z-index: 7;
+  margin: 21% 0 0 40%;
+  font-size: 70px;
+  font-weight: 700;
+  opacity: 0;
+}
+.menu {
+  margin-top: -12%;
+  font-weight: bold;
+  font-size: 20px;
+}
 .Dev-center {
   height: 120%;
   margin: 10vh 0 0 10px;
