@@ -129,17 +129,19 @@ module.exports = {
   margin: 10vh 0 0 10px;
   overflow: hidden;
 }
-#logo {
-  height: 15vh;
-  width: 15vh;
-  margin: 40vh 0 0 44vw;
-  float: left;
+.logo-center {
   position: absolute;
-  overflow: hidden;
-  background-color: white;
+  right: 0px;
+  z-index: 2;
+  width: 100px;
+  height: 100px;
+  margin: 40vh 46% 0 0;
   border-radius: 100%;
-  box-shadow: 6px 3px 20px 0px rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+  background: white;
+  box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.3);
 }
+
 #img-logo {
   height: 90%;
   margin: 10% 18%;
