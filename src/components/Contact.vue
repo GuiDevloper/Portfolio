@@ -69,5 +69,35 @@ module.exports = {
     box-sizing: border-box;
   }
 }
+.mid {
+  height: 70%;
+  width: 1px;
+  background-color: #008300;
+  float: left;
+  position: absolute;
+  display: none;
+  margin: 3% 0 0 51%;
+}
+input,
+textarea {
+  width: 50%;
+  margin: 1vh 5%;
+  background-color: transparent;
+  font-family: "Raleway";
+  font-size: 1rem;
+  border: 0;
+  caret-color: red;
+  border-radius: 2px;
+  border-bottom: solid #607d8b;
+  color: white;
+}
+textarea {
+  height: 60px;
+  resize: none;
+}
+fieldset {
+  width: 90%;
+  margin: auto;
+}
 
 </style>
