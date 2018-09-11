@@ -85,6 +85,27 @@ module.exports = {
     filter: saturate(200%) brightness(1.3) blur(1px);
   }
 }
+.row {
+  position: absolute;
+  width: 100%;
+  min-height: 100vh;
+  height: 100vh;
+}
+.r1 {
+  z-index: 6;
+  opacity: 0;
+  display: none;
+}
+.r2 {
+  z-index: 2;
+  .c1 {
+    background: #d8d8d8;
+  }
+  .c2 {
+    background: #001727;
+    overflow: hidden;
+  }
+}
 .Dev-center {
   height: 120%;
   margin: 10vh 0 0 10px;
