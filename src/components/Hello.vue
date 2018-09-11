@@ -64,19 +64,25 @@ module.exports = {
   background: #ff9e67;
 }
 .neon {
-  margin: 20%;
-  height: 60vh;
-  border: 8px solid red;
-  box-shadow: 0px 0px 70px rgba(255, 0, 0, 0.8),
-    0px 0px 40px rgba(255, 0, 0, 0.9), 0px 0px 30px rgba(255, 0, 0, 1);
-  font-size: 30px;
-  text-align: justify;
-  text-shadow: 0px 0px 70px black, 0px 0px 40px black, 0px 0px 30px black;
-  border-radius: 3px;
-  margin-top: 10vh;
-  &.sec {
-    margin-top: 20vh;
-    overflow: hidden;
+  position: absolute;
+  width: 50%;
+  height: 60%;
+  margin-top: 25%;
+  margin-left: 30%;
+  border: 5px solid #ff4949;
+  box-shadow: inset 0 0 30px 0 rgba(255, 68, 68, 0.3),
+    0 0 30px 0px rgba(255, 68, 68, 0.8);
+  filter: blur(1px);
+  &.n1 {
+    width: 55%;
+    height: 50%;
+    margin-top: 15%;
+    margin-left: 20%;
+    border-radius: 300px;
+  }
+  &.n2 {
+    box-shadow: inset 0 0 100px 0 #ff4444, 0 0 100px 0px #ff4444;
+    filter: saturate(200%) brightness(1.3) blur(1px);
   }
 }
 .Dev-center {
