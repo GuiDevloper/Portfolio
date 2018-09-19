@@ -1,6 +1,6 @@
 <template>
-  <div id="contact" class="c-1o1">
-    <div class="email c-1o2">
+  <div id="contact">
+    <div class="email">
       <form>
         <fieldset>
           <legend>Email</legend>
@@ -11,7 +11,7 @@
       </form>
     </div>
     <div class="mid"/>
-    <div class="social c-1o2">
+    <div class="social">
       <div class="git">
 				<p>Likes to see me and my experiments?</p>
 				<a href="https://github.com/GuiDevloper">
@@ -65,8 +65,6 @@ module.exports = {
     float: left;
     padding: 3% 5% 1%;
     width: 50%;
-    /* width: 100%; */
-    box-sizing: border-box;
   }
 }
 .mid {
@@ -118,7 +116,7 @@ fieldset {
 @media (max-width: 767px) {
   .email,
   .social {
-    width: 100%;
+    width: 100% !important;
   }
 }
 </style>
