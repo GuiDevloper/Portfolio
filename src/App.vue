@@ -20,7 +20,7 @@ export default {
 
 <style lang="scss">
 body {
-  background: #001727;
+  background: #1c0e0e;
   &::-webkit-scrollbar {
     width: 4px;
   }
@@ -69,6 +69,11 @@ footer {
     width: fit-content;
     background: linear-gradient(to bottom, transparent 62%, #973333 0);
     margin: auto;
+  }
+}
+@media (max-width: 767px) {
+  #app {
+    font-size: 16px;
   }
 }
 </style>
