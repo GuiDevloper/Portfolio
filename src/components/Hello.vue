@@ -16,8 +16,9 @@
 		  </div>
       <div class="column c2">
         <div class="neon"></div>
-        <div class="neon n2"></div>
-        <img class="Dev-center" src="../assets/img/GuiDevloper.png">
+        <div class="neon n2">
+          <img class="Dev-center" src="../assets/img/GuiDevloper.png">
+        </div>
       </div>
     </div>
   </div>
@@ -37,9 +38,9 @@ module.exports = {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .all {
-  min-height: 100vh;
+  margin-bottom: 1vh;
+  min-height: 98vh;
   height: 100%;
-  margin-bottom: 5px;
 }
 .back-inicial-anim {
   transform: translateX(-100%) translateY(0px) translateZ(0px) scaleX(1)
@@ -50,60 +51,71 @@ module.exports = {
 .image {
   height: 100%;
   width: 100%;
-  box-shadow: inset 0px 0px 50px 0px #001727;
 }
 .column {
-  position: relative;
   float: left;
-  height: 100%;
+  height: 98%;
+  height: calc(100% - 16px);
   width: 50%;
 }
 .r1 .c1,
 .r1 .c2 {
   width: 50%;
   background: #ff9e67;
+  height: 100%;
+  border-radius: 0;
 }
 .neon {
   position: absolute;
-  width: 50%;
-  height: 60%;
-  margin-top: 25%;
-  margin-left: 30%;
-  border: 5px solid #ff4949;
-  box-shadow: inset 0 0 30px 0 rgba(255, 68, 68, 0.3),
-    0 0 30px 0px rgba(255, 68, 68, 0.8);
+  width: 20%;
+  height: 50%;
+  margin-top: 15%;
+  margin-left: 20%;
+  border: 5px solid #ff2525;
+  -webkit-box-shadow: inset 0 0 30px 0 rgba(255, 68, 68, 0),
+    0 0 100px 0px rgba(26, 14, 14, 0.8);
+  box-shadow: inset 0 0 30px 0 rgba(255, 68, 68, 0),
+    0 0 100px 0px rgba(26, 14, 14, 0.8);
+  -webkit-filter: blur(1px);
   filter: blur(1px);
+  border-radius: 10px;
+  z-index: 2;
   &.n1 {
-    width: 55%;
-    height: 50%;
-    margin-top: 15%;
-    margin-left: 20%;
+    width: 30%;
+    height: 40%;
+    margin-top: 5%;
+    margin-left: 10%;
     border-radius: 300px;
   }
   &.n2 {
-    box-shadow: inset 0 0 100px 0 #ff4444, 0 0 100px 0px #ff4444;
-    filter: saturate(200%) brightness(1.3) blur(1px);
+    /* -webkit-box-shadow: inset 0 0 100px 0 #ff4444, 0 0 100px 0px #ff4444; */
+    /* box-shadow: inset 0 0 100px 0 #ff1a1a, 0 0 100px 0px #d52020; */
+    filter: none;
+    overflow: hidden;
   }
 }
 .row {
   position: absolute;
   width: 100%;
-  min-height: 100vh;
-  height: 100vh;
+  height: 100%;
 }
 .r1 {
   z-index: 6;
-  opacity: 0;
   display: none;
+  height: 100vh;
+  width: 100vw;
+  position: fixed !important;
+  margin-top: -8px;
 }
 .r2 {
-  z-index: 2;
   .c1 {
-    background: #d8d8d8;
+    background: rgba(216, 216, 216, 0.5);
   }
   .c2 {
-    background: #001727;
+    background: rgba(23, 23, 23, 0.7);
     overflow: hidden;
+    width: 48.4%;
+    width: calc(50% - 16px);
   }
 }
 .nome,
@@ -125,9 +137,12 @@ module.exports = {
   font-size: 20px;
 }
 .Dev-center {
-  height: 90%;
-  margin: 20vh 0 0 5vw;
-  z-index: inherit;
+  height: 130%;
+  margin: 7vh 0 0 -5vh;
+  -webkit-filter: drop-shadow(0px 5px 10px #171717);
+  filter: drop-shadow(0px 5px 10px #171717);
+  z-index: -1;
+  position: relative;
 }
 .logo-center {
   position: absolute;
@@ -135,7 +150,7 @@ module.exports = {
   z-index: 2;
   width: 100px;
   height: 100px;
-  margin: 40vh 46% 0 0;
+  margin: 40vh 46.3% 0 0;
   border-radius: 100%;
   overflow: hidden;
   background: white;
@@ -146,9 +161,10 @@ module.exports = {
     width: 70%;
     margin-left: 17%;
     &.n1 {
-      width: 260px;
-      height: 260px;
-      margin-left: 16%;
+      width: 35vh;
+      height: 35vh;
+      margin-top: 10%;
+      margin-left: 10%;
     }
   }
 }
@@ -160,10 +176,8 @@ module.exports = {
       height: 60%;
     }
     .c2 {
-      position: absolute;
-      left: 0px;
-      top: 60%;
-      height: 70%;
+      height: 40%;
+      width: 100%;
     }
   }
   .row {
@@ -173,32 +187,38 @@ module.exports = {
     width: 100%;
   }
   .neon {
-    width: 50%;
-    height: 80%;
+    width: 40%;
+    height: 40%;
     margin-top: 10%;
-    margin-left: 33%;
+    margin-left: 50%;
   }
 
   .logo-center {
-    margin-top: 375px;
+    margin-top: 70vh;
     margin-right: 40%;
+  }
+  .menu {
+    font-size: 18px;
   }
 }
 
 @media (max-width: 479px) {
   .neon {
-    width: 60%;
-    height: 60%;
+    width: 50%;
     margin-top: 15%;
-    margin-left: 30%;
+    margin-left: 40%;
     &.n1 {
-      width: 58%;
-      height: 39%;
+      width: 30vh;
+      height: 30vh;
     }
   }
   .logo-center {
-    margin-top: 370px;
-    margin-right: 35%;
+    margin-right: 37%;
+    height: 80px;
+    width: 80px;
+  }
+  .menu {
+    font-size: 16px;
   }
 }
 #img-logo {
