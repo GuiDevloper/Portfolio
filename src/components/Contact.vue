@@ -2,12 +2,10 @@
   <div id="contact">
     <div class="email">
       <form>
-        <fieldset>
-          <legend>Email</legend>
-          <input name=""/>
-          <input name=""/>
-          <textarea name=""/>
-        </fieldset>
+        <legend>Email</legend>
+        <input name=""/>
+        <input name=""/>
+        <textarea name=""/>
       </form>
     </div>
     <div class="mid"/>
@@ -45,20 +43,8 @@ module.exports = {
 <style lang="scss" scoped>
 #contact {
   min-height: 40vh;
-  background-color: rgba(71, 0, 0, 0.3);
+  z-index: 3;
   position: relative;
-  overflow: hidden;
-  box-shadow: inset 0px 0px 50px 0px rgba(0, 0, 0, 0.9);
-  &:before {
-    content: "";
-    position: absolute;
-    width: 150%;
-    height: 100%;
-    left: -50%;
-    z-index: -1;
-    background: url(https://images.homedepot-static.com/productImages/12aacea2-75c3-4f9a-9377-a00f4950978d/svn/swedish-red-newtechwood-tiles-us-qd-zx-sr-64_1000.jpg);
-    background-repeat: round;
-  }
   .email,
   .social {
     height: 100%;
@@ -66,6 +52,10 @@ module.exports = {
     padding: 3% 5% 1%;
     width: 50%;
   }
+}
+.email {
+  color: black !important;
+  font-weight: 600 !important;
 }
 .mid {
   height: 70%;
@@ -87,7 +77,7 @@ textarea {
   caret-color: red;
   border-radius: 2px;
   border-bottom: solid #607d8b;
-  color: white;
+  font-weight: 600 !important;
 }
 textarea {
   height: 60px;
@@ -100,15 +90,15 @@ fieldset {
 .social {
   height: 20vh;
   padding-bottom: 3%;
-}
-.social img {
-  height: 15px;
-}
-.social div {
-  padding-top: 5%;
-}
-.social p {
-  margin: 0;
+  img {
+    height: 15px;
+  }
+  div {
+    padding-top: 5%;
+  }
+  p {
+    margin: 0;
+  }
 }
 .gmail span {
   vertical-align: super;
