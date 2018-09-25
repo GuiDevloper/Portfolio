@@ -1,5 +1,11 @@
 <template>
   <div id="app">
+    <div class="bg-l">
+      <img src="./assets/SVG/back-left.svg">
+    </div>
+    <div class="bg-r">
+      <img src="./assets/SVG/back-right.svg">
+    </div>
     <router-view/>
     <contact/>
     <footer>
@@ -20,7 +26,8 @@ export default {
 
 <style lang="scss">
 body {
-  background: #1c0e0e;
+  background: #171717;
+  margin: 0;
   &::-webkit-scrollbar {
     width: 4px;
   }
@@ -29,8 +36,28 @@ body {
     border-radius: 10px;
   }
   &::-webkit-scrollbar-track {
-    background-color: #0a1c76;
+    background-color: #171717;
   }
+}
+.bg-l,
+.bg-r {
+  height: auto;
+  position: absolute;
+  z-index: -5;
+  margin-top: -2px;
+  margin-bottom: -5px;
+  width: 65%;
+  img {
+    height: 142vh;
+  }
+}
+.bg-l {
+  background: linear-gradient(to right, #e5e5e5 50%, transparent 50%);
+}
+.bg-r {
+  z-index: 1;
+  margin-left: 40%;
+  background: linear-gradient(to left, #171717 50%, transparent 50%);
 }
 * {
   -webkit-box-sizing: border-box;
@@ -60,14 +87,17 @@ p {
 }
 a {
   color: #ffeb3b;
+  background: #761f1f;
+  padding: 0 1px;
 }
 footer {
   width: 100%;
   float: left;
+  z-index: 3;
   p {
     text-align: center;
     width: fit-content;
-    background: linear-gradient(to bottom, transparent 62%, #973333 0);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 62%, #973333 0);
     margin: auto;
   }
 }
