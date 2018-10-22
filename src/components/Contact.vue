@@ -3,32 +3,26 @@
     <div class="email">
       <form>
         <legend>Email</legend>
-        <input name=""/>
-        <input name=""/>
-        <textarea name=""/>
+        <input placeholder="Seu email"/>
+        <input placeholder="Sobre o que deseja conversar?"/>
+        <textarea placeholder="Sua mensagem"/>
       </form>
     </div>
-    <div class="mid"/>
     <div class="social">
+      <p>Likes to see me and my experiments?</p>
       <div class="git">
-				<p>Likes to see me and my experiments?</p>
-				<a href="https://github.com/GuiDevloper">
+				<a target="_blank" href="https://github.com/GuiDevloper">
 					<img src="../assets/img/GitHub.png">
 					<span>/GuiDevloper</span>
 				</a>
         <span> - See me on GitHub</span>
 		  </div>
 			<div class="insta">
-				<a href="https://instagram.com/GuiDevloper">
+				<a target="_blank" href="https://instagram.com/GuiDevloper">
 			  	<img src="../assets/img/insta.png">
 					<span>/GuiDevloper</span>
 				</a>
         <span> - Follow me on Instagram</span>
-			</div>
-			<div class="gmail">
-				<p>Need speak something? Write to me:</p>
-				<img src="../assets/img/Gmail.png">
-				<span>guicorrea384@gmail.com</span>
 			</div>
     </div>
   </div>
@@ -49,43 +43,36 @@ module.exports = {
   .social {
     height: 100%;
     float: left;
-    padding: 3% 5% 1%;
+    padding: 3% 5% 0%;
     width: 50%;
   }
 }
-.email {
-  color: black !important;
-  font-weight: 600 !important;
+$black: #20272f;
+input,
+textarea, legend, a {
+  color: $black !important;
 }
-.mid {
-  height: 70%;
-  width: 1px;
-  background-color: #008300;
-  float: left;
-  position: absolute;
-  display: none;
-  margin: 3% 0 0 51%;
+a,
+legend {
+  font-weight: bold;
+}
+a {
+  background: #e5e5e5;
+  padding: 0 1px;
 }
 input,
 textarea {
   width: 50%;
   margin: 1vh 5%;
   background-color: transparent;
-  font-family: "Raleway";
-  font-size: 1rem;
   border: 0;
   caret-color: red;
   border-radius: 2px;
-  border-bottom: solid #607d8b;
-  font-weight: 600 !important;
+  border-bottom: solid #3b4b5f;
 }
 textarea {
   height: 60px;
   resize: none;
-}
-fieldset {
-  width: 90%;
-  margin: auto;
 }
 .social {
   height: 20vh;
@@ -98,10 +85,8 @@ fieldset {
   }
   p {
     margin: 0;
+    padding-top: 4%;
   }
-}
-.gmail span {
-  vertical-align: super;
 }
 @media (max-width: 767px) {
   .email,
