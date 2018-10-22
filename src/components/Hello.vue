@@ -6,18 +6,87 @@
       <div class="column c2"></div>
     </div>
     <div class="row r2">
-      <div class="column c1">
-        <div class="neon n1"></div>
-        <div class="image"/>
+      <div class="post c-1o3 m-1o1"
+        :class="{mostrado: show.description}">
+        <div class="blur">
+          <div class="column c1"><div class="image"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144 149" class="i1"><title>Triangulo amarelo</title><path d="M110 10l27 132-127-41 100-91m3-10l-7 6L6 97l-6 6 8 3 128 41 8 2-2-8-9-46-18-86-2-9z" class="cls-1"></path><path d="M110 10l28 132-128-41z" class="cls-2"></path></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 115" class="i2"><title>Traço verde</title><path d="M10 111c-4-10-5-20-3-30a37 37 0 0 1 6-14l10-11c13-15 13-36 6-54-2-4-8-2-6 2 4 9 6 20 4 31a37 37 0 0 1-7 15l-9 10C-2 75-2 95 4 113c1 3 7 2 6-2z" class="cls-1"></path></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 135" class="i3"><title>Triangulo azul</title><path d="M27 10l91 77L6 128 27 10M24 0l-2 9L1 127l-1 8 8-3 89-32 23-8 8-3-7-5-31-27L30 6l-6-6z" class="cls-1"></path><path d="M27 9l91 78L6 127 27 9z" class="cls-2"></path></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 112 112" class="i4"><title>Circulo vermelho</title><path d="M56 5a51 51 0 1 1-18 3 51 51 0 0 1 18-3m0-5a56 56 0 1 0 31 10A56 56 0 0 0 56 0z" class="cls-1"></path><circle cx="56" cy="56" r="51" transform="rotate(-19 56 56)" class="cls-2"></circle></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 112 112" class="i5"><title>Quadrado marrom</title><path d="M80 6l26 74-74 26L6 32 80 6m3-6l-5 2L5 28l-5 1 2 5 26 74 1 4 5-1 74-26 4-2-1-5L85 5l-2-5z" class="cls-1"></path><path d="M6 32L80 6l26 74-74 26z" class="cls-2"></path></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 66 99" class="i6"><title>Traço azul</title><path d="M65 93c-9-5-18-12-23-21a37 37 0 0 1-5-15V42C36 23 22 8 5 0 1-1-2 4 2 5c9 5 17 11 23 20s6 18 6 28c0 20 14 36 31 45 3 2 6-3 3-5z" class="cls-1"></path></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 135" class="i7"><title>Triangulo verde</title><path d="M27 10l91 77L6 128 27 10M24 0l-2 9L4 111l-3 16-1 8 8-3 112-40 8-3-7-5-74-64L30 6l-6-6z" class="cls-1"></path><path d="M27 10l91 77L6 128 27 10z" class="cls-2"></path></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 124 124" class="i8"><title>Quadrado azul</title><path d="M34 6l84 28-28 84L6 90 34 6m-3-6l-2 5L2 89l-2 4 5 2 84 27 4 2 2-5 27-84 2-4-5-2L35 2l-4-2z" class="cls-1"></path><path d="M6 90L34 6l84 28-28 83z" class="cls-2"></path></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 112 112" class="i9"><title>Circulo vermelho e amarelo</title><path d="M56 5a51 51 0 1 1-18 3 51 51 0 0 1 18-3m0-5a56 56 0 1 0 31 10A56 56 0 0 0 56 0z" class="cls-1"></path><circle cx="56" cy="56" r="51" transform="rotate(-19 56 56)" class="cls-2"></circle><circle cx="56" cy="56" r="51" transform="rotate(-19 56 56)" class="cls-3"></circle></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 93 96" class="i10"><title>Traço vermelho</title><path d="M6 94c3-11 8-22 17-30a42 42 0 0 1 14-9l16-4c22-6 35-26 40-47 0-4-5-6-6-2-3 12-7 23-16 31-8 9-18 12-30 14C19 52 5 72 0 93c-1 3 5 5 6 1z" class="cls-1"></path></svg></div></div>
+        </div>
+        <div class="text">
+          <p class="author"> {{ titulo }} </p>
+          <p class="postText"> {{ subTitulo }} </p>
+          <div id="btns" :class="{list: !show.project}">
+            <p v-for="op of options"
+              :key="op[0]"
+              @click="openProject(op[0])"
+              v-html="parse(op[1])"></p>
+          </div>
+        </div>
       </div>
-      <div class="logo-center">
-			  <svg id="img-logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 130.12 146.28"><defs><clipPath id="clip-path"><path class="cls-1" d="M51.18,16A61.86,61.86,0,0,1,75,21.16a19.64,19.64,0,0,1,5.7,3.64c3.67,3.41,4.12,7.63,1.11,11.67A34.84,34.84,0,0,1,66.06,48.16C48.47,55,31.6,52.8,15.38,43.71a10.56,10.56,0,0,1-2.65-2.25c-3.07-3.4-3.18-7.31-.16-10.75s7.05-5.86,11.13-8A58.8,58.8,0,0,1,51.18,16Z"></path></clipPath><clipPath id="clip-path-2"><polygon class="cls-1" points="13.68 49.38 17.81 17.89 78.18 17.89 82.3 49.38 13.68 49.38"></polygon></clipPath><clipPath id="clip-path-3"><polygon class="cls-1" points="65.82 99.73 68.79 70.77 84.32 63.53 81.35 92.49 65.82 99.73"></polygon></clipPath><clipPath id="clip-path-4"><polygon class="cls-1" points="20.13 91.95 14.16 66.85 33.95 66.85 39.91 91.95 20.13 91.95"></polygon></clipPath><filter id="dropshadow"> <feGaussianBlur in="SourceAlpha" stdDeviation="1"/> <feOffset dx="2" dy="2" result="offsetblur"/> <feFlood flood-color="rgba(0,0,0,0.5)"/> <feComposite in2="offsetblur" operator="in"/> <feMerge> <feMergeNode/> <feMergeNode in="SourceGraphic"/> </feMerge></filter></defs><title>GuiDevloper-Logo</title><g id="Normal_Code" data-name="Normal Code"><path class="cls-2" d="M47.29,56.23c-10.09.24-19.1-2.91-27.86-7A65.75,65.75,0,0,1,4.65,40.11C-.51,35.72-1.64,28.86,2.6,23.69A65.39,65.39,0,0,1,37.27,1.2a38.46,38.46,0,0,1,21.48.71c8.18,2.58,16.49,4.74,24.14,8.77a20.87,20.87,0,0,1,7.58,6.15,10.35,10.35,0,0,1,1.17,10.76A43.16,43.16,0,0,1,78.58,44.76C69.31,52,59,56.5,47.29,56.23Z"></path><path class="cls-2 cuplogo" d="M52.08,126.28c-7.94.1-16-3.9-23.68-8.72-4.66-2.92-8.78-6.44-11.55-11.34-1.87-3.3-2-7-2.78-10.61C10.15,76.41,7.05,57,1.16,38.27c-1.53-4.83-1.78-9.47.66-14.06a24.1,24.1,0,0,1,6.52-7.15A93.06,93.06,0,0,1,30.65,3.31a41.09,41.09,0,0,1,27.2-1.8,133.19,133.19,0,0,1,25.91,9.77,20.55,20.55,0,0,1,5.35,3.84A12.92,12.92,0,0,1,92.63,28C91,34.63,91.31,41.46,91,48.25c0,1.09.73,1.28,1.48,1.55,4.83,1.78,9.66,3.53,14.48,5.35a20.54,20.54,0,0,1,4.63,2.61c3.61,2.58,5.71,5.86,5.57,10.53-.16,5-.35,9.91-1.67,14.75-2.73,10-9.54,15.62-19.47,17.8-2,.44-4,1.06-6.09,1.37a4.6,4.6,0,0,0-3.66,2.68,41.49,41.49,0,0,1-9.55,12.46C70.08,123.2,62.44,126.33,52.08,126.28Zm53.75-49.61c.34-4-1.47-6.93-4.6-9.22a29.41,29.41,0,0,0-9.47-4.34c-1.13-.32-1.56,0-1.57,1.17,0,3.62-.16,7.23-.19,10.84,0,4.48,0,8.95,0,13.42,0,.74-.15,1.72,1.1,1.72,3.93,0,7.84-.19,11.53-1.79a4.31,4.31,0,0,0,2.89-3.9c.1-1.77.16-3.55.26-5.74C105.82,78.39,105.76,77.52,105.83,76.67Z"></path><path class="cls-3" d="M90.69,63.53c4-.15,9.24,2.47,11.92,5.46,2.5,2.8,3.06,6.54,3.1,10.17,0,2.9.13,6.71-2.48,8.62-3.31,2.42-9.14,2.17-13,1.94-.48,0-.48.72,0,.75,4,.24,10.73.45,14-2.5,2.15-1.94,2.21-5.53,2.2-8.19,0-4.48-.33-8.59-3.79-11.75-3.15-2.88-7.61-5.41-12-5.25-.48,0-.49.77,0,.75Z"></path><path class="cls-4" d="M51.18,16A61.86,61.86,0,0,1,75,21.16a19.64,19.64,0,0,1,5.7,3.64c3.67,3.41,4.12,7.63,1.11,11.67A34.84,34.84,0,0,1,66.06,48.16C48.47,55,31.6,52.8,15.38,43.71a10.56,10.56,0,0,1-2.65-2.25c-3.07-3.4-3.18-7.31-.16-10.75s7.05-5.86,11.13-8A58.8,58.8,0,0,1,51.18,16Z"></path><g class="cls-5"><g class="cls-6"><g class="cls-7"><g class="cls-8"><polyline class="cls-9" points="44.76 17.89 34.42 17.89 34.31 19.68 44.73 19.68 44.76 17.89"></polyline><polyline class="cls-10" points="66.44 17.89 45.69 17.89 45.67 19.68 66.58 19.68 66.44 17.89"></polyline><polyline class="cls-9" points="27.64 23.82 17.03 23.82 16.78 25.71 27.48 25.71 27.64 23.82"></polyline><polyline class="cls-11" points="49.88 23.82 28.59 23.82 28.43 25.71 49.89 25.71 49.88 23.82"></polyline><polyline class="cls-12" points="66.91 23.82 50.92 23.82 50.94 25.71 67.06 25.71 66.91 23.82"></polyline><polyline class="cls-11" points="42.13 26.89 20.56 26.89 20.33 28.84 42.08 28.84 42.13 26.89"></polyline><polyline class="cls-12" points="72.71 26.89 43.18 26.89 43.14 28.84 72.91 28.84 72.71 26.89"></polyline><polyline class="cls-9" points="27.1 30.05 16.21 30.05 15.95 32.05 26.93 32.05 27.1 30.05"></polyline><polyline class="cls-11" points="41.97 33.27 19.82 33.27 19.59 35.32 41.92 35.32 41.97 33.27"></polyline><polyline class="cls-12" points="58.67 33.27 43.05 33.27 43.01 35.32 58.76 35.32 58.67 33.27"></polyline><polyline class="cls-13" points="76.81 33.3 59.63 33.3 59.73 35.35 77.05 35.35 76.81 33.3"></polyline><polyline class="cls-14" points="72.72 20.82 17.55 20.82 17.31 22.66 72.91 22.66 72.72 20.82"></polyline><polyline class="cls-13" points="57.33 36.58 34.9 36.58 34.79 38.68 57.41 38.68 57.33 36.58"></polyline><polyline class="cls-12" points="33.96 36.58 19.45 36.58 19.2 38.68 33.84 38.68 33.96 36.58"></polyline><polyline class="cls-14" points="65.78 39.97 19.06 39.97 18.81 42.13 65.94 42.13 65.78 39.97"></polyline><polyline class="cls-13" points="78.95 23.82 67.76 23.82 67.92 25.71 79.2 25.71 78.95 23.82"></polyline><polyline class="cls-9" points="30.04 43.48 18.55 43.48 18.3 45.7 29.88 45.7 30.04 43.48"></polyline><polyline class="cls-10" points="48.63 43.48 31.07 43.48 30.92 45.7 48.64 45.7 48.63 43.48"></polyline><polyline class="cls-13" points="72.28 43.48 49.23 43.48 49.24 45.7 72.49 45.7 72.28 43.48"></polyline><polyline class="cls-11" points="66.29 47.09 18.24 47.09 17.98 49.38 66.45 49.38 66.29 47.09"></polyline></g></g></g></g><g class="cls-7"><g class="cls-15"><path class="cls-16" d="M76.43,67.21a11.22,11.22,0,0,0-1.67,1,15.81,15.81,0,0,0-5.25,6.74,22.27,22.27,0,0,0-2,9.39l0,4.85c0,3.32.76,5.53,2.2,6.64a3.74,3.74,0,0,0,4.09.17,10.19,10.19,0,0,0,1.42-.83,18.08,18.08,0,0,0,4.29-4.1,16.74,16.74,0,0,0,2.33-4l-.07-9.39-6.68,4.63V84.1l5.1-3.53.06,6.87a11.82,11.82,0,0,1-1.81,2.88,15.29,15.29,0,0,1-3.25,3,7.49,7.49,0,0,1-1.09.64,2.81,2.81,0,0,1-3.29-.26q-1.69-1.49-1.73-5.62l0-4.88a19.26,19.26,0,0,1,1.52-7.69A12.14,12.14,0,0,1,74.77,70a10.81,10.81,0,0,1,1.36-.8,2.56,2.56,0,0,1,2.41-.16c.86.5,1.41,1.56,1.65,3.17l1.46-1,0-.12q-.3-3.23-2.07-4.14a3.52,3.52,0,0,0-3.18.24"></path></g></g><g class="cls-7"><g class="cls-17"><path class="cls-18" d="M20.82,67.09A4,4,0,0,0,16.68,70a4.92,4.92,0,0,1,.64,0c2,0,7.33.72,10,7.9,2.64,7,7.87,7.73,9.86,7.73.37,0,.63,0,.74,0,.58-8.44-8.94-15.28-9-15.35-3.69-2.33-6.28-3.1-8.1-3.1"></path><path class="cls-19" d="M16.68,70a4,4,0,0,1,4.14-2.88c1.82,0,4.41.77,8.1,3.1.09.07,9.61,6.91,9,15.35-.11,0-.37,0-.74,0-2,0-7.22-.7-9.86-7.73-2.7-7.18-8-7.9-10-7.9a4.92,4.92,0,0,0-.64,0m4.08-3.12A4.14,4.14,0,0,0,16.45,70l0,.12.09.06a5.79,5.79,0,0,1,.81,0c2,0,7.18.72,9.8,7.71,2.71,7.22,8.06,7.93,10.08,7.93a7.36,7.36,0,0,0,.8,0l0-.07C38.77,77,29.05,70.05,29,70c-3.72-2.34-6.34-3.13-8.19-3.13"></path><path class="cls-18" d="M16.87,73.23a6.72,6.72,0,0,0-.74,0c-.58,8.44,8.94,15.28,9,15.35,3.68,2.33,6.28,3.1,8.1,3.1a4,4,0,0,0,4.13-2.87l-.63,0c-2,0-7.34-.72-10-7.91-2.64-7-7.88-7.73-9.86-7.73"></path><path class="cls-19" d="M33.26,91.72c-1.82,0-4.42-.77-8.1-3.1-.09-.07-9.61-6.91-9-15.35a6.72,6.72,0,0,1,.74,0c2,0,7.22.71,9.86,7.73,2.69,7.19,8,7.91,10,7.91l.63,0a4,4,0,0,1-4.13,2.87M16.8,73A5.91,5.91,0,0,0,16,73l-.05.08C15.3,81.77,25,88.75,25.13,88.83,28.84,91.18,31.46,92,33.31,92a4.13,4.13,0,0,0,4.31-3.19l0-.13-.09,0a5.91,5.91,0,0,1-.8,0c-2,0-7.18-.71-9.82-7.72C24.17,73.72,18.82,73,16.8,73"></path></g></g></g></svg>
-        <p class="menu">Menu</p>
-		  </div>
+      <div class="column c1" :class="{borrado: show.description}">
+        <p class="type">Design está em tudo</p>
+        <div class="neon n1"></div>
+        <div class="image">
+          <svg xmlns="http://www.w3.org/2000/svg" class="i1" viewBox="0 0 144 149"><title>Triangulo amarelo</title><path d="M110 10l27 132-127-41 100-91m3-10l-7 6L6 97l-6 6 8 3 128 41 8 2-2-8-9-46-18-86-2-9z" class="cls-1"/><path d="M110 10l28 132-128-41z" class="cls-2"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" class="i2" viewBox="0 0 33 115"><title>Traço verde</title><path d="M10 111c-4-10-5-20-3-30a37 37 0 0 1 6-14l10-11c13-15 13-36 6-54-2-4-8-2-6 2 4 9 6 20 4 31a37 37 0 0 1-7 15l-9 10C-2 75-2 95 4 113c1 3 7 2 6-2z" class="cls-1"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" class="i3" viewBox="0 -20 228 235"><title>Triangulo azul</title><path d="M27 10l91 77L6 128 27 10M24 0l-2 9L1 127l-1 8 8-3 89-32 23-8 8-3-7-5-31-27L30 6l-6-6z" class="cls-1"/><path d="M27 9l91 78L6 127 27 9z" class="cls-2"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" class="i4" viewBox="0 0 112 112"><title>Circulo vermelho</title><path d="M56 5a51 51 0 1 1-18 3 51 51 0 0 1 18-3m0-5a56 56 0 1 0 31 10A56 56 0 0 0 56 0z" class="cls-1"/><circle cx="56" cy="56" r="51" class="cls-2" transform="rotate(-19 56 56)"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" class="i5" viewBox="0 0 112 112"><title>Quadrado marrom</title><path d="M80 6l26 74-74 26L6 32 80 6m3-6l-5 2L5 28l-5 1 2 5 26 74 1 4 5-1 74-26 4-2-1-5L85 5l-2-5z" class="cls-1"/><path d="M6 32L80 6l26 74-74 26z" class="cls-2"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" class="i6" viewBox="0 0 66 99"><title>Traço azul</title><path d="M65 93c-9-5-18-12-23-21a37 37 0 0 1-5-15V42C36 23 22 8 5 0 1-1-2 4 2 5c9 5 17 11 23 20s6 18 6 28c0 20 14 36 31 45 3 2 6-3 3-5z" class="cls-1"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" class="i7" viewBox="0 -20 228 235"><title>Triangulo verde</title><path d="M27 10l91 77L6 128 27 10M24 0l-2 9L4 111l-3 16-1 8 8-3 112-40 8-3-7-5-74-64L30 6l-6-6z" class="cls-1"/><path d="M27 10l91 77L6 128 27 10z" class="cls-2"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" class="i8" viewBox="0 -20 200 150"><title>Quadrado azul</title><path d="M34 6l84 28-28 84L6 90 34 6m-3-6l-2 5L2 89l-2 4 5 2 84 27 4 2 2-5 27-84 2-4-5-2L35 2l-4-2z" class="cls-1"/><path d="M6 90L34 6l84 28-28 83z" class="cls-2"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" class="i9" viewBox="0 0 112 112"><title>Circulo vermelho e amarelo</title><path d="M56 5a51 51 0 1 1-18 3 51 51 0 0 1 18-3m0-5a56 56 0 1 0 31 10A56 56 0 0 0 56 0z" class="cls-1"/><circle cx="56" cy="56" r="51" class="cls-2" transform="rotate(-19 56 56)"/><circle cx="56" cy="56" r="51" class="cls-3" transform="rotate(-19 56 56)"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" class="i10" viewBox="0 0 93 96"><title>Traço vermelho</title><path d="M6 94c3-11 8-22 17-30a42 42 0 0 1 14-9l16-4c22-6 35-26 40-47 0-4-5-6-6-2-3 12-7 23-16 31-8 9-18 12-30 14C19 52 5 72 0 93c-1 3 5 5 6 1z" class="cls-1"/></svg>
+        </div>
+      </div>
+      <div id="menu">
+        <div class="menu">
+          <div id="item1" @click="openWorks(0)">Trabalhos</div>
+          <div></div>
+          <div></div>
+        </div>
+        <div class="logo-center">
+          <svg xmlns="http://www.w3.org/2000/svg" id="img-logo" viewBox="0 0 130.1 146.3"><defs><clipPath id="clip-path"><path d="M51.2 16A61.9 61.9 0 0 1 75 21.2a19.6 19.6 0 0 1 5.7 3.6c3.7 3.4 4.1 7.6 1.1 11.7a34.8 34.8 0 0 1-15.7 11.7 57 57 0 0 1-50.7-4.5 10.6 10.6 0 0 1-2.7-2.2c-3-3.4-3.1-7.3-.1-10.8s7-5.8 11.1-8A58.8 58.8 0 0 1 51.2 16z" class="cls-1"/></clipPath><clipPath id="clip-path-2"><path d="M13.7 49.4l4.1-31.5h60.4l4.1 31.5H13.7z" class="cls-1"/></clipPath><clipPath id="clip-path-3"><path d="M65.8 99.7l3-29 15.5-7.2-3 29-15.5 7.2z" class="cls-1"/></clipPath><clipPath id="clip-path-4"><path d="M20.1 92l-6-25.2H34L40 92H20z" class="cls-1"/></clipPath><filter id="dropshadow"><feGaussianBlur in="SourceAlpha" stdDeviation="1"/><feOffset dx="2" dy="2" result="offsetblur"/><feFlood flood-color="rgba(0,0,0,0.5)"/><feComposite in2="offsetblur" operator="in"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><g id="Normal_Code" data-name="Normal Code"><path d="M47.3 56.2c-10.1.3-19.1-2.9-27.9-7a65.8 65.8 0 0 1-14.7-9c-5.2-4.5-6.3-11.3-2.1-16.5A65.4 65.4 0 0 1 37.3 1.2a38.5 38.5 0 0 1 21.5.7c8.1 2.6 16.4 4.8 24 8.8a20.9 20.9 0 0 1 7.7 6.1 10.3 10.3 0 0 1 1.1 10.8 43.2 43.2 0 0 1-13 17.2 48.4 48.4 0 0 1-31.3 11.4z" class="cls-2"/><path d="M52 126.3c-7.9 0-16-4-23.6-8.7-4.7-3-8.8-6.5-11.6-11.4-1.8-3.3-2-7-2.7-10.6C10 76.4 7 57 1 38.3c-1.5-4.9-1.7-9.5.7-14A24.1 24.1 0 0 1 8.3 17 93 93 0 0 1 30.6 3.3a41 41 0 0 1 27.2-1.8 133.2 133.2 0 0 1 26 9.8A20.6 20.6 0 0 1 89 15 13 13 0 0 1 92.6 28C91 34.6 91.3 41.5 91 48.3c0 1 .7 1.2 1.5 1.5l14.5 5.3a20.5 20.5 0 0 1 4.6 2.7c3.6 2.5 5.7 5.8 5.6 10.5-.2 5-.4 9.9-1.7 14.7-2.7 10-9.6 15.7-19.5 17.8-2 .5-4 1.1-6 1.4a4.6 4.6 0 0 0-3.7 2.7 41.5 41.5 0 0 1-9.6 12.4c-6.6 5.9-14.3 9-24.6 9zm53.8-49.6c.4-4-1.4-7-4.6-9.3a29.4 29.4 0 0 0-9.4-4.3c-1.2-.3-1.6 0-1.6 1.2L90 75v13.4c0 .8-.1 1.8 1.1 1.8 4 0 7.8-.2 11.5-1.8a4.3 4.3 0 0 0 3-4c0-1.7 0-3.5.2-5.7v-2.1z" filter="url(#dropshadow)" class="cls-2"/><path fill="#daa662" d="M90.7 63.5c4-.1 9.2 2.5 12 5.5 2.4 2.8 3 6.5 3 10.2 0 2.9.1 6.7-2.5 8.6-3.3 2.4-9.1 2.2-13 2-.5 0-.5.6 0 .7 4 .2 10.8.4 14-2.5 2.2-2 2.2-5.6 2.2-8.2 0-4.5-.3-8.6-3.8-11.8a18 18 0 0 0-12-5.2c-.4 0-.5.8 0 .7z"/><path fill="#523035" d="M51.2 16A61.9 61.9 0 0 1 75 21.2a19.6 19.6 0 0 1 5.7 3.6c3.7 3.4 4.1 7.6 1.1 11.7a34.8 34.8 0 0 1-15.7 11.7 57 57 0 0 1-50.7-4.5 10.6 10.6 0 0 1-2.7-2.2c-3-3.4-3.1-7.3-.1-10.8s7-5.8 11.1-8A58.8 58.8 0 0 1 51.2 16z" opacity=".8"/><g clip-path="url(#clip-path)"><g clip-path="url(#clip-path-2)" opacity=".7"><path d="M44.8 17.9H34.4v1.8h10.3v-1.8" class="cls-9"/><path d="M66.4 17.9H45.7v1.8h20.9l-.2-1.8" class="cls-10"/><path d="M27.6 23.8H17l-.2 2h10.7l.1-2" class="cls-9"/><path d="M49.9 23.8H28.6l-.2 2H50v-2" class="cls-11"/><path d="M67 23.8H51v2h16v-2" class="cls-12"/><path d="M42.1 26.9H20.6l-.3 2h21.8v-2" class="cls-11"/><path d="M72.7 26.9H43.2v2h29.7l-.2-2" class="cls-12"/><path d="M27.1 30H16.2l-.3 2h11l.2-2" class="cls-9"/><path d="M42 33.3H19.8l-.2 2h22.3v-2" class="cls-11"/><path d="M58.7 33.3H43v2h15.8l-.1-2" class="cls-12"/><path d="M76.8 33.3H59.6l.1 2H77l-.2-2" class="cls-13"/><path d="M72.7 20.8H17.5l-.2 1.9H73l-.2-1.9" class="cls-14"/><path d="M57.3 36.6H35l-.1 2h22.6v-2" class="cls-13"/><path d="M34 36.6H19.4l-.2 2h14.6l.2-2" class="cls-12"/><path d="M65.8 40H19l-.3 2.1H66l-.1-2.1" class="cls-14"/><path d="M79 23.8H67.8l.1 2h11.3l-.3-2" class="cls-13"/><path d="M30 43.5H18.6l-.3 2.2h11.6l.1-2.2" class="cls-9"/><path d="M48.6 43.5H31.1l-.2 2.2h17.7v-2.2" class="cls-10"/><path d="M72.3 43.5h-23v2.2h23.2l-.2-2.2" class="cls-13"/><path d="M66.3 47h-48l-.3 2.4h48.5l-.2-2.3" class="cls-11"/></g></g><g clip-path="url(#clip-path-3)"><path fill="#daa663" d="M76.4 67.2a11.2 11.2 0 0 0-1.6 1 15.8 15.8 0 0 0-5.3 6.7 22.3 22.3 0 0 0-2 9.4v4.9c0 3.3.8 5.5 2.2 6.6a3.7 3.7 0 0 0 4.1.2 10.2 10.2 0 0 0 1.4-.8 18 18 0 0 0 4.3-4.1 16.7 16.7 0 0 0 2.3-4v-9.4L75 82.3v1.8l5-3.5.2 6.8a11.8 11.8 0 0 1-1.9 3 15.3 15.3 0 0 1-3.2 3 7.5 7.5 0 0 1-1.1.6 2.8 2.8 0 0 1-3.3-.3q-1.7-1.5-1.7-5.6v-4.9a19.3 19.3 0 0 1 1.5-7.7 12.1 12.1 0 0 1 4.2-5.5 10.8 10.8 0 0 1 1.3-.8 2.6 2.6 0 0 1 2.4-.2c.9.5 1.4 1.6 1.7 3.2l1.4-1v-.1q-.3-3.2-2-4.1a3.5 3.5 0 0 0-3.2.2"/></g><g clip-path="url(#clip-path-4)"><path d="M20.8 67a4 4 0 0 0-4.1 3 5 5 0 0 1 .6 0c2 0 7.3.7 10 7.9 2.7 7 7.9 7.7 9.9 7.7h.7c.6-8.4-9-15.2-9-15.3a16.1 16.1 0 0 0-8-3.1" class="cls-18"/><path d="M16.7 70a4 4 0 0 1 4.1-2.9c1.8 0 4.4.8 8.1 3.1.1 0 9.6 7 9 15.4h-.7c-2 0-7.2-.7-9.9-7.8s-8-7.9-10-7.9a5 5 0 0 0-.6 0m4-3a4.1 4.1 0 0 0-4.3 3.1v.1h.1a5.8 5.8 0 0 1 .8 0c2 0 7.2.8 9.8 7.8 2.8 7.2 8.1 8 10.1 8a7.4 7.4 0 0 0 .8 0v-.2C38.8 77 29 70 29 70a16.4 16.4 0 0 0-8.2-3.1" class="cls-19"/><path d="M16.9 73.2a6.7 6.7 0 0 0-.8 0c-.5 8.5 9 15.3 9 15.4a16 16 0 0 0 8.1 3 4 4 0 0 0 4.2-2.8h-.7c-2 0-7.3-.7-10-7.9-2.6-7-7.8-7.7-9.8-7.7" class="cls-18"/><path d="M33.3 91.7a16 16 0 0 1-8.1-3c-.1-.1-9.7-7-9-15.4a6.7 6.7 0 0 1 .7 0c2 0 7.2.7 9.9 7.7 2.6 7.2 8 8 10 8h.6a4 4 0 0 1-4.1 2.8M16.8 73a6 6 0 0 0-.8 0c-.7 8.8 9 15.8 9.1 15.8 3.7 2.4 6.4 3.2 8.2 3.2a4.1 4.1 0 0 0 4.3-3.2v-.1a6 6 0 0 1-.9 0c-2 0-7.1-.7-9.8-7.7-2.7-7.3-8-8-10.1-8" class="cls-19"/></g></g></svg>
+          <p class="t-menu">Menu</p>
+        </div>
+      </div>
       <div class="column c2">
-        <div class="neon"></div>
-        <div class="neon n2">
-          <img class="Dev-center" src="../assets/img/GuiDevloper.png">
+        <img class="sea1" src="../assets/img/TheSea.jpg"
+          :class="{ direitado: !options1[0][0][2] }">
+        <img class="sea2" src="../assets/img/TheSea2.jpg"
+          :class="{ direitado: !options1[0][0][2] }">
+          <img class="sea1" src="../assets/img/Inspiration-d.jpg"
+            :class="{ direitado: !options1[0][1][2] }">
+          <img class="sea2" src="../assets/img/Inspiration-w.jpg"
+            :class="{ direitado: !options1[0][1][2] }">
+        <div id="colr" :class="{direitado: show.project}">
+          <div class="codes">
+            <p class="cd1 red">Guilherme</p>
+            <p class="cd2">Correia ou GuiDevloper</p>
+            <p class="cd3 grey">and i like to code great things since the</p>
+            <p class="cd4 red">infancia</p>
+            <p class="cd5 blue">a minha boa infancia</p>
+            <div class="cd6 green"></div>
+            <div class="cd7 red"></div>
+            <div class="cd8 blue"></div>
+            <div class="cd9 green"></div>
+            <div class="cd10 red"></div>
+            <div class="cd11 blue"></div>
+            <div class="cd12 green"></div>
+            <div class="cd13 yellow"></div>
+            <div class="cd14 green"></div>
+            <div class="cd15 yellow"></div>
+            <div class="cd16 grey"></div>
+            <div class="cd17 red"></div>
+            <div class="cd18"></div>
+            <div class="cd19 yellow"></div>
+            <div class="cd20 blue"></div>
+            <div class="cd21 red"></div>
+          </div>
+          <div class="neon"></div>
+          <div class="neon n2">
+            <img class="Dev-center" src="../assets/img/GuiDevloper.png">
+          </div>
+          <p class="type tw">Código também</p>
         </div>
       </div>
     </div>
@@ -25,17 +94,88 @@
 </template>
 
 <script>
-module.exports = {
+export default {
   name: "Hello",
   data: function() {
     return {
-      final: "Este é o final do começo"
+      show: {
+        description: false,
+        project: false,
+      },
+      titulo: "Projetos",
+      subTitulo: "",
+      options1: [
+        [
+          [0, 'The Sea', false],
+          [1, 'The Inspiration', false],
+          [2, 'The Dreamity', false],
+          [3, 'The Portfolio', false]
+        ],
+        [
+          [0, `<-`],
+          [1, `<a class="lik" target="_blank" href='https://github.com/guidevloper'>Ver no GitHub</a>`],
+          [2, `<a class="lik" target="_blank" href='https://guidevloper.github.io/'>Ver Online</a>`]
+        ]
+      ],
+      options: [],
+      anterior: 0,
+      descriptions: [
+        `Actually i work with diverse tools and
+        continually learn others, in ancient i has edit images in Photoshop
+        and create some films with After Effects. Now i am focused to craft
+        my criativity in Illustrator and too code my ideas using JS, SCSS,
+        PHP, MySQL and eventually Gulp.js to optimize my workflow between
+        compilations and rebuilds.`,
+        `Actually i work with diverse tools and
+        continually learn others, in ancient i has edit images in Photoshop
+        and create some films with After Effects.`
+      ]
     };
+  },
+  created: function() {
+    this.options = this.options1[0];
+  },
+  methods: {
+    openWorks(key) {
+      // inverte showDesc
+      this.show.description = !this.show.description;
+      this.restart();
+      this.show.project = false;
+      this.options1[0][this.anterior][2] = false;
+    },
+    openProject(key) {
+      // inverte showProj
+      this.show.project = !this.show.project;
+      if (this.show.project) {
+        // troca subT pela desc
+        this.subTitulo = this.descriptions[key];
+        // troca title
+        this.titulo = this.options1[0][key][1];
+        // troca options pela especifica
+        this.options = this.options1[1];
+        this.anterior = key;
+        this.options1[0][key][2] = true;
+      }
+      else {
+        this.restart();
+        this.options1[0][this.anterior][2] = false;
+      }
+    },
+    restart() {
+      this.subTitulo = "";
+      this.titulo = "Projetos";
+      this.options = this.options1[0];
+    },
+    parse(op) {
+      return op.indexOf('GitHub') !== -1 ?
+        op.replace(`loper`, `loper/${this.titulo.replace(' ', '')}`) : (
+          op.indexOf('Online') !== -1 ?
+            op.replace(`io/`, `io/${this.titulo.replace(' ', '')}`) : op);
+    }
   }
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .all {
   margin-bottom: 1vh;
@@ -47,16 +187,364 @@ module.exports = {
     scaleY(1) scaleZ(1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skewX(0deg)
     skewY(0deg);
 }
+$black: #20272f;
+$darken: #405165;
+.type {
+  font-family: "Special Elite", Raleway;
+  font-size: 2.2rem;
+  color: $darken;
+  position: absolute;
+  margin: 15vh 5%;
+  z-index: 5;
+  text-shadow: 15px 8px 10px rgba(0, 0, 0, 0.2);
+  width: auto;
+  padding: 2%;
+  &.tw {
+    margin: 85vh 0 0 5%;
+    color: inherit;
+    text-shadow: 15px 8px 10px #171717;
+  }
+}
+
+.mostrado {
+  opacity: 1 !important;
+}
+.borrado {
+  filter: blur(1px);
+}
+.direitado {
+  margin-left: 100vw !important;
+}
+@keyframes moveSVG {
+  0% {
+    transform: scale(1.02) translate(-1px, -1px);
+  }
+  50% {
+    transform: scale(1.02) translate(50px, -40px) rotate(20deg);
+  }
+  100% {
+    transform: scale(1.02) translate(-1px, -1px);
+  }
+}
+.sea1, .sea2 {
+  height: 40%;
+  z-index: 8;
+  position: absolute;
+  left: 0;
+  margin: 5% 10% 0;
+  border-radius: 10px;
+}
+.sea2 {
+  margin-top: 28%;
+}
 
 .image {
   height: 100%;
   width: 100%;
+  z-index: -3;
+  text-align: justify;
+  svg {
+    height: 10%;
+    position: absolute;
+    filter: drop-shadow(5px 5px 4px rgba(57, 60, 62, 0.5));
+  }
+  .cls-2, .cls-3 {
+    transform: scale(1.02) translate(-1px, -1px);
+  }
+  .i1, .i3, .i7, .i8 {
+    .cls-2, .cls-3 {
+      animation: moveSVG 25s 2s infinite;
+    }
+  }
+  .i1 {
+    margin: 2vw 0 0 2vw;
+    .cls-1 {
+      fill: $darken;
+    }
+    .cls-2 {
+      fill: #c5a76f;
+    }
+  }
+  .i2 {
+    margin: 13vh 0 0 20%;
+    height: 5%;
+    .cls-1 {
+      fill: #76a880;
+    }
+  }
+  .i3 {
+    margin: 6vh 0 0 35%;
+    height: 8%;
+    .cls-1 {
+      fill: $darken;
+    }
+    .cls-2 {
+      fill: #54769b;
+    }
+  }
+  .i4 {
+    margin: 40vh 0 0 4%;
+    height: 6%;
+    .cls-1 {
+      fill: $darken;
+    }
+    .cls-2 {
+      fill: #c35b53;
+    }
+  }
+  .i5 {
+    margin: 40vh 0 0 25%;
+    .cls-1 {
+      fill: $darken;
+    }
+    .cls-2 {
+      fill: #654344;
+    }
+  }
+  .i6 {
+    margin: 45vh 0 0 40%;
+    height: 6%;
+    .cls-1 {
+      fill: #54769b;
+    }
+  }
+  .i7 {
+    margin: 65vh 0 0 5%;
+    height: 10%;
+    .cls-1 {
+      fill: $darken;
+    }
+    .cls-2 {
+      fill: #76a880;
+    }
+  }
+  .i8 {
+    margin: 65vh 0 0 25%;
+    height: 8%;
+    .cls-1 {
+      fill: $darken;
+    }
+    .cls-2 {
+      fill: #54769b;
+    }
+  }
+  .i9 {
+    margin: 76vh 0 0 40%;
+    height: 7%;
+    .cls-1 {
+      fill: $darken;
+    }
+    .cls-2 {
+      fill: #c5a76f;
+    }
+    .cls-3 {
+      fill: #76a880;
+    }
+  }
+  .i10 {
+    margin: 85vh 0 0 10%;
+    height: 7%;
+    .cls-1 {
+      fill: #c35b53;
+    }
+  }
 }
+
+.codes {
+  z-index: 1;
+  position: absolute;
+  height: 70%;
+  width: 30%;
+  margin: 5% 0 0 5%;
+  overflow: hidden;
+  div, p {
+    height: 3%;
+    width: 45%;
+    margin: 1.5% 1%;
+    float: left;
+    font-size: 0.8rem;
+    transition: 1000ms;
+    background-color: transparent !important;
+  }
+  .cd7 {
+    width: 10% !important;
+  }
+  .cd8,
+  .cd11,
+  .cd18,
+  .cd19 {
+    width: 30%;
+  }
+  .cd8,
+  .cd11,
+  .cd14,
+  .cd16,
+  .cd17,
+  .cd20 {
+    margin-left: 5%;
+  }
+  .cd9 {
+    width: 50%;
+  }
+  .cd10 {
+    margin-right: 60%;
+  }
+  .cd14 {
+    width: 25%;
+  }
+  .cd16 {
+    width: 60%;
+    margin-right: 20%;
+  }
+  .cd20 {
+    width: 70%;
+    margin-right: 10%;
+  }
+  .cd12,
+  .cd15 {
+    width: 40%;
+  }
+  .cd3 {
+    width: 75%;
+  }
+  .cd3,
+  .cd15 {
+    margin-right: 15%;
+  }
+  .cd5 {
+    width: 35%;
+  }
+  .cd6,
+  .cd13,
+  .red {
+    width: 20%;
+  }
+  $red: rgb(195, 91, 83);
+  $brown: rgb(101, 67, 68);
+  $grey: rgb(145, 150, 154);
+  $blue: rgb(81, 113, 148);
+  $green: rgb(115, 161, 123);
+  $yellow: rgb(192, 163, 109);
+  $cd18: rgb(176, 129, 105);
+  .red {
+    background-color: $red;
+    color: $red;
+  }
+  .cd2 {
+    background-color: $brown;
+    color: $brown;
+  }
+  .grey {
+    background-color: $grey;
+    color: $grey;
+  }
+  .blue {
+    background-color: $blue;
+    color: $blue;
+  }
+  .green {
+    background-color: $green;
+    color: $green;
+  }
+  .yellow {
+    background-color: $yellow;
+    color: $yellow;
+  }
+  .cd18 {
+    background-color: $cd18;
+    color: $cd18;
+  }
+}
+.post {
+  min-height: 80vh;
+  border-radius: 3px;
+  margin: 5% 10%;
+  position: absolute;
+  padding-right: 0px !important;
+  z-index: 5;
+  opacity: 0;
+  transition: all 500ms;
+  .blur {
+    background: #e5e5e5;
+    position: absolute;
+    filter: blur(6px);
+    height: 90%;
+    width: 95%;
+    .c1 {
+      width: 200%;
+      margin: -10%;
+      overflow: hidden;
+    }
+  }
+  p {
+    padding: 4%;
+  }
+  .text {
+    position: relative;
+    background: rgba(250, 250, 250, 0.4);
+    box-shadow: 10px 10px 20px rgba(32, 39, 47, 0.1);
+    color: #252525;
+    min-height: 75vh;
+    font-weight: 100;
+    width: 95%;
+  }
+  .author {
+    font-size: 1.3rem;
+    font-weight: 600;
+    padding-bottom: 1px;
+    color: #3b699b;
+  }
+  .postText {
+    text-align: justify;
+    line-height: 1.6rem;
+    padding: 8%;
+    font-weight: 400;
+    color: #143a61;
+  }
+  #btns {
+    height: 10vh;
+    width: 94%;
+    margin: 3%;
+    bottom: 0;
+    position: absolute;
+    display: flex;
+    transition: 250ms;
+    p {
+      color: #e5e5e5;
+      background-color: $black;
+      padding-top: 4vh;
+      transition: 400ms;
+      cursor: pointer;
+      border-radius: 0px;
+      flex: 1;
+      font-weight: 600;
+      &:hover {
+        color: #20272f;
+        background-color: transparent;
+      }
+    }
+    &.list {
+      height: 50%;
+      bottom: 30%;
+      flex-direction: column;
+      p {
+        padding: 5% 0 0;
+        background-color: transparent;
+        color: inherit;
+        &:hover {
+          background-color: $black;
+          color: #e5e5e5;
+        }
+      }
+    }
+  }
+}
+
 .column {
   float: left;
-  height: 98%;
-  height: calc(100% - 16px);
-  width: 50%;
+  height: 100%;
+  width: 100%;
+  position: absolute;
 }
 .r1 .c1,
 .r1 .c2 {
@@ -65,18 +553,15 @@ module.exports = {
   height: 100%;
   border-radius: 0;
 }
+$neon-color: "rgba(255, 37, 37";
 .neon {
   position: absolute;
   width: 20%;
   height: 50%;
   margin-top: 15%;
   margin-left: 20%;
-  border: 5px solid #ff2525;
-  -webkit-box-shadow: inset 0 0 30px 0 rgba(255, 68, 68, 0),
-    0 0 100px 0px rgba(26, 14, 14, 0.8);
-  box-shadow: inset 0 0 30px 0 rgba(255, 68, 68, 0),
-    0 0 100px 0px rgba(26, 14, 14, 0.8);
-  -webkit-filter: blur(1px);
+  border: 4px solid #{$neon-color + ", 1)"};
+  box-shadow: 0 0 40px 0px #{$neon-color + ", 0.2)"};
   filter: blur(1px);
   border-radius: 10px;
   z-index: 2;
@@ -86,18 +571,21 @@ module.exports = {
     margin-top: 5%;
     margin-left: 10%;
     border-radius: 300px;
+    box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.1);
   }
   &.n2 {
     /* -webkit-box-shadow: inset 0 0 100px 0 #ff4444, 0 0 100px 0px #ff4444; */
     /* box-shadow: inset 0 0 100px 0 #ff1a1a, 0 0 100px 0px #d52020; */
     filter: none;
     overflow: hidden;
+    background: rgba(18, 22, 27, 0.6);
   }
 }
 .row {
   position: absolute;
   width: 100%;
   height: 100%;
+  overflow: hidden;
 }
 .r1 {
   z-index: 6;
@@ -109,17 +597,18 @@ module.exports = {
 }
 .r2 {
   .c1 {
-    background: rgba(216, 216, 216, 0.5);
+    z-index: 0;
   }
   .c2 {
-    background: rgba(23, 23, 23, 0.7);
     overflow: hidden;
-    width: 48.4%;
-    width: calc(50% - 16px);
+    margin-left: 50%;
+  }
+  .c2, #colr, .sea1, .sea2 {
+    transition: all 400ms;
   }
 }
 .nome,
-.menu {
+.t-menu {
   color: #e41212;
   font-family: "Great Vibes";
 }
@@ -130,8 +619,9 @@ module.exports = {
   font-size: 70px;
   font-weight: 700;
   opacity: 0;
+  display: none;
 }
-.menu {
+.t-menu {
   margin-top: -12%;
   font-weight: bold;
   font-size: 20px;
@@ -139,26 +629,53 @@ module.exports = {
 .Dev-center {
   height: 130%;
   margin: 7vh 0 0 -5vh;
-  -webkit-filter: drop-shadow(0px 5px 10px #171717);
-  filter: drop-shadow(0px 5px 10px #171717);
   z-index: -1;
   position: relative;
 }
-.logo-center {
-  position: absolute;
-  right: 0px;
+.logo-center,
+.menu {
   z-index: 2;
-  width: 100px;
-  height: 100px;
-  margin: 40vh 46.3% 0 0;
+  cursor: pointer;
+  box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.3);
+}
+.logo-center {
+  width: 90px;
+  height: 90px;
+  margin: 15px 5px;
   border-radius: 100%;
   overflow: hidden;
-  background: white;
-  box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.3);
+  background: #e5e5e5;
+}
+.menu {
+  height: 100px;
+  width: 100px;
+  background: aliceblue;
+  position: fixed;
+  border-radius: 100px;
+  margin-top: -10px;
+  transition: 250ms ease-in;
+  display: flex;
+  flex-direction: column;
+  div {
+    background: black;
+    flex: 1;
+  }
+}
+#menu {
+  margin: 0 47vw;
+  z-index: 2;
+  width: 120px;
+  height: 55vh;
+  position: fixed;
+  display: flex;
+  align-items: flex-end;
+  &:hover .menu {
+    height: 50vh;
+  }
 }
 @media (max-width: 991px) {
   .neon {
-    width: 70%;
+    width: 30%;
     margin-left: 17%;
     &.n1 {
       width: 35vh;
@@ -197,7 +714,7 @@ module.exports = {
     margin-top: 70vh;
     margin-right: 40%;
   }
-  .menu {
+  .t-menu {
     font-size: 18px;
   }
 }
@@ -217,72 +734,72 @@ module.exports = {
     height: 80px;
     width: 80px;
   }
-  .menu {
+  .t-menu {
     font-size: 16px;
   }
 }
 #img-logo {
   height: 70%;
   margin: 8% 25% 0;
-  & .cls-1 {
+  .cls-1 {
     fill: none;
   }
-  & .cls-2 {
+  .cls-2 {
     fill: #c54845;
   }
-  & .cls-3 {
+  .cls-3 {
     fill: #daa662;
   }
-  & .cls-4 {
+  .cls-4 {
     fill: #523035;
     opacity: 0.8;
   }
-  & .cls-5 {
+  .cls-5 {
     clip-path: url(#clip-path);
   }
-  & .cls-6 {
+  .cls-6 {
     opacity: 0.7;
   }
-  & .cls-7 {
+  .cls-7 {
     isolation: isolate;
   }
-  & .cls-8 {
+  .cls-8 {
     clip-path: url(#clip-path-2);
   }
-  & .cls-9 {
+  .cls-9 {
     fill: #b95a51;
   }
-  & .cls-10 {
+  .cls-10 {
     fill: #b08168;
   }
-  & .cls-11 {
+  .cls-11 {
     fill: #517194;
   }
-  & .cls-12 {
+  .cls-12 {
     fill: #73a17b;
   }
-  & .cls-13 {
+  .cls-13 {
     fill: #c0a36d;
   }
-  & .cls-14 {
+  .cls-14 {
     fill: #91969a;
   }
-  & .cls-15 {
+  .cls-15 {
     clip-path: url(#clip-path-3);
   }
-  & .cls-16 {
+  .cls-16 {
     fill: #daa663;
   }
-  & .cls-17 {
+  .cls-17 {
     clip-path: url(#clip-path-4);
   }
-  & .cls-18 {
+  .cls-18 {
     fill: #6d4045;
   }
-  & .cls-19 {
+  .cls-19 {
     fill: #6b3f44;
   }
-  & .cuplogo {
+  .cuplogo {
     filter: url(#dropshadow);
   }
 }
