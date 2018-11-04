@@ -15,10 +15,11 @@
           <p class="author"> {{ titulo }} </p>
           <p class="postText"> {{ subTitulo }} </p>
           <div id="btns" :class="{list: !show.project}">
-            <p v-for="op of options"
-              :key="op[0]"
-              @click="openProject(op[0])"
-              v-html="parse(op[1])"></p>
+            <a v-for="op of options" :key="op[0]"
+              @click="op[1].indexOf('Ver') === -1 ? openProject(op[0]) : ''"
+              v-html="op[1]"
+              :target="op[2]"
+              :href="parse(op[3])">a</a>
           </div>
         </div>
       </div>
@@ -60,27 +61,16 @@
             :class="{ direitado: !options1[0][1][2] }">
         <div id="colr" :class="{direitado: show.project}">
           <div class="codes">
-            <p class="cd1 red">Guilherme</p>
-            <p class="cd2">Correia ou GuiDevloper</p>
-            <p class="cd3 grey">and i like to code great things since the</p>
-            <p class="cd4 red">infancia</p>
-            <p class="cd5 blue">a minha boa infancia</p>
-            <div class="cd6 green"></div>
-            <div class="cd7 red"></div>
-            <div class="cd8 blue"></div>
-            <div class="cd9 green"></div>
-            <div class="cd10 red"></div>
-            <div class="cd11 blue"></div>
-            <div class="cd12 green"></div>
-            <div class="cd13 yellow"></div>
-            <div class="cd14 green"></div>
-            <div class="cd15 yellow"></div>
-            <div class="cd16 grey"></div>
-            <div class="cd17 red"></div>
-            <div class="cd18"></div>
-            <div class="cd19 yellow"></div>
-            <div class="cd20 blue"></div>
-            <div class="cd21 red"></div>
+            <div class="codes2">
+              <div v-for="code of codes" :key="code[0][0]"
+                :class="{ up: code[0] == codes[0][0] ?
+                    upMargin : false }">
+                <p v-for="c of code" :key="c[0]"
+                  :class="c[0]"  data-v-361a4bd2>
+                  {{ c[1] }}
+                </p>
+              </div>
+            </div>
           </div>
           <div class="neon"></div>
           <div class="neon n2">
@@ -113,8 +103,8 @@ export default {
         ],
         [
           [0, `<-`],
-          [1, `<a class="lik" target="_blank" href='https://github.com/guidevloper'>Ver no GitHub</a>`],
-          [2, `<a class="lik" target="_blank" href='https://guidevloper.github.io/'>Ver Online</a>`]
+          [1, 'Ver no GitHub', '_blank', 'https://github.com/guidevloper/'],
+          [2, 'Ver Online', '_blank', 'https://guidevloper.github.io/']
         ]
       ],
       options: [],
@@ -129,6 +119,50 @@ export default {
         `Actually i work with diverse tools and
         continually learn others, in ancient i has edit images in Photoshop
         and create some films with After Effects.`
+      ],
+      upMargin: false,
+      codes: [
+        [
+          ["cd1 red", "Guilherme"],
+          ["cd2", "Correia ou GuiDevloper"]
+        ],
+        [
+          ["cd3 grey", "desde pequeno se via transformando"]
+        ],
+        [
+          ["cd4 red", "coisas,"]
+        ],
+        [
+          ["cd5 blue", "desmontando brinquedos"],
+          ["cd6 green", "e os"],
+          ["cd7 red", "estudando"]
+        ],
+        [
+          ["cd8 blue", "percebia que"],
+          ["cd9 green", "eles tinham novos usos,"]
+        ],
+        [
+          ["cd10 red", "estimulando"]
+        ],
+        [
+          ["cd11 blue", "a criatividade"],
+          ["cd12 green", "que logo receberia"],
+          ["cd13 yellow", "um alvo"]
+        ],
+        [
+          ["cd16 grey", "ao se formar um técnico em informática."]
+        ],
+        [
+          ["cd17 red", "Desde"],
+          ["cd18", "então soube o caminho"],
+          ["cd19 yellow", "que seria necessário seguir"]
+        ],
+        [
+          ["cd20 blue", "a fim de expressar sua paixão criativa"]
+        ],
+        [
+          ["cd21 red", "por desenvolvimento"]
+        ]
       ]
     };
   },
@@ -166,12 +200,22 @@ export default {
       this.titulo = "Projetos";
       this.options = this.options1[0];
     },
-    parse(op) {
-      return op.indexOf('GitHub') !== -1 ?
-        op.replace(`loper`, `loper/${this.titulo.replace(' ', '')}`) : (
-          op.indexOf('Online') !== -1 ?
-            op.replace(`io/`, `io/${this.titulo.replace(' ', '')}`) : op);
+    parse(op = '') {
+      return op.indexOf('/') !== -1 ?
+        `${op + this.titulo.replace(' ', '')}` : null;
     }
+  },
+  mounted: function() {
+    var tis = this;
+    setInterval(function() {
+      var last = tis.codes[0];
+      tis.upMargin = true;
+      setTimeout(function() {
+        tis.codes.shift();
+        tis.codes.push(last);
+        tis.upMargin = false;
+      }, 500);
+    }, 2000);
   }
 };
 </script>
@@ -353,108 +397,124 @@ $darken: #405165;
 .codes {
   z-index: 1;
   position: absolute;
-  height: 70%;
-  width: 30%;
-  margin: 5% 0 0 5%;
   overflow: hidden;
-  div, p {
-    height: 3%;
+  width: 100%;
+  .codes2 {
+    height: 110px;
+    width: 30%;
+    margin: 50px 0 0 5%;
+    overflow: hidden;
+  }
+  .up {
+    margin-top: -40%;
+  }
+  p {
+    float: left;
+    background: transparent !important;
+    margin: 0 1%;
+    width: auto !important;
+  }
+  div {
+    height: 17px;
     width: 45%;
     margin: 1.5% 1%;
     float: left;
     font-size: 0.8rem;
-    transition: 1000ms;
-    background-color: transparent !important;
-  }
-  .cd7 {
-    width: 10% !important;
-  }
-  .cd8,
-  .cd11,
-  .cd18,
-  .cd19 {
-    width: 30%;
-  }
-  .cd8,
-  .cd11,
-  .cd14,
-  .cd16,
-  .cd17,
-  .cd20 {
-    margin-left: 5%;
-  }
-  .cd9 {
-    width: 50%;
-  }
-  .cd10 {
-    margin-right: 60%;
-  }
-  .cd14 {
-    width: 25%;
-  }
-  .cd16 {
-    width: 60%;
-    margin-right: 20%;
-  }
-  .cd20 {
-    width: 70%;
-    margin-right: 10%;
-  }
-  .cd12,
-  .cd15 {
-    width: 40%;
-  }
-  .cd3 {
-    width: 75%;
-  }
-  .cd3,
-  .cd15 {
-    margin-right: 15%;
-  }
-  .cd5 {
-    width: 35%;
-  }
-  .cd6,
-  .cd13,
-  .red {
-    width: 20%;
-  }
-  $red: rgb(195, 91, 83);
-  $brown: rgb(101, 67, 68);
-  $grey: rgb(145, 150, 154);
-  $blue: rgb(81, 113, 148);
-  $green: rgb(115, 161, 123);
-  $yellow: rgb(192, 163, 109);
-  $cd18: rgb(176, 129, 105);
-  .red {
-    background-color: $red;
-    color: $red;
-  }
-  .cd2 {
-    background-color: $brown;
-    color: $brown;
-  }
-  .grey {
-    background-color: $grey;
-    color: $grey;
-  }
-  .blue {
-    background-color: $blue;
-    color: $blue;
-  }
-  .green {
-    background-color: $green;
-    color: $green;
-  }
-  .yellow {
-    background-color: $yellow;
-    color: $yellow;
-  }
-  .cd18 {
-    background-color: $cd18;
-    color: $cd18;
+    -webkit-transition: 1000ms;
+    transition: 4000ms;
+    /* background-color: transparent !important; */
+    width: 100%;
+    text-align: justify;
   }
 }
+.cd7 {
+      width: 10% !important;
+    }
+    .cd8,
+    .cd11,
+    .cd18,
+    .cd19 {
+      width: 30%;
+    }
+    .cd8,
+    .cd11,
+    .cd14,
+    .cd16,
+    .cd17,
+    .cd20 {
+      margin-left: 5%;
+    }
+    .cd9 {
+      width: 50%;
+    }
+    .cd10 {
+      margin-right: 60%;
+    }
+    .cd14 {
+      width: 25%;
+    }
+    .cd16 {
+      width: 60%;
+      margin-right: 20%;
+    }
+    .cd20 {
+      width: 70%;
+      margin-right: 10%;
+    }
+    .cd12,
+    .cd15 {
+      width: 40%;
+    }
+    .cd3 {
+      width: 75%;
+    }
+    .cd3,
+    .cd15 {
+      margin-right: 15%;
+    }
+    .cd5 {
+      width: 35%;
+    }
+    .cd6,
+    .cd13,
+    .red {
+      width: 20%;
+    }
+    $red: rgb(195, 91, 83);
+    $brown: rgb(101, 67, 68);
+    $grey: rgb(145, 150, 154);
+    $blue: rgb(81, 113, 148);
+    $green: rgb(115, 161, 123);
+    $yellow: rgb(192, 163, 109);
+    $cd18: rgb(176, 129, 105);
+    .red {
+      background-color: $red;
+      color: $red;
+    }
+    .cd2 {
+      background-color: $brown;
+      color: $brown;
+    }
+    .grey {
+      background-color: $grey;
+      color: $grey;
+    }
+    .blue {
+      background-color: $blue;
+      color: $blue;
+    }
+    .green {
+      background-color: $green;
+      color: $green;
+    }
+    .yellow {
+      background-color: $yellow;
+      color: $yellow;
+    }
+    .cd18 {
+      background-color: $cd18;
+      color: $cd18;
+    }
 .post {
   min-height: 80vh;
   border-radius: 3px;
@@ -476,7 +536,7 @@ $darken: #405165;
       overflow: hidden;
     }
   }
-  p {
+  p, a {
     padding: 4%;
   }
   .text {
@@ -509,7 +569,7 @@ $darken: #405165;
     position: absolute;
     display: flex;
     transition: 250ms;
-    p {
+    p, a {
       color: #e5e5e5;
       background-color: $black;
       padding-top: 4vh;
@@ -527,14 +587,23 @@ $darken: #405165;
       height: 50%;
       bottom: 30%;
       flex-direction: column;
-      p {
+      p, a {
         padding: 5% 0 0;
         background-color: transparent;
         color: inherit;
         &:hover {
           background-color: $black;
           color: #e5e5e5;
+          background-size: cover;
+          background-position: center;
+          background-blend-mode: lighten;
         }
+      }
+      a:nth-child(1):hover {
+        background-image: url('../assets/img/TheSea.jpg');
+      }
+      a:nth-child(2):hover {
+        background-image: url('../assets/img/Inspiration-d.jpg');
       }
     }
   }
