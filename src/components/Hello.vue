@@ -51,14 +51,9 @@
         </div>
       </div>
       <div class="column c2">
-        <img class="sea1" src="../assets/img/TheSea.jpg"
-          :class="{ direitado: !options1[0][0][2] }">
-        <img class="sea2" src="../assets/img/TheSea2.jpg"
-          :class="{ direitado: !options1[0][0][2] }">
-          <img class="sea1" src="../assets/img/Inspiration-d.jpg"
-            :class="{ direitado: !options1[0][1][2] }">
-          <img class="sea2" src="../assets/img/Inspiration-w.jpg"
-            :class="{ direitado: !options1[0][1][2] }">
+        <img v-for="(img, i) of imgs" :key="img[1]"
+          :class="['img-pro' + img[0], { direitado: toBool(i) }]"
+          :src="require(`@/assets/img/${img[1]}.jpg`)">
         <div id="colr" :class="{direitado: show.project}">
           <div class="codes">
             <div v-for="(code, i) of codes" :key="code[0][0]"
@@ -160,6 +155,10 @@ export default {
         [
           ["cd21 red", "por desenvolvimento"]
         ]
+      ],
+      imgs: [
+        [1, 'TheSea'], [2, 'TheSea2'],
+        [1, 'Inspiration-d'], [2, 'Inspiration-w']
       ]
     };
   },
@@ -200,15 +199,23 @@ export default {
     parse(op = '') {
       return op.indexOf('/') !== -1 ?
         `${op + this.titulo.replace(' ', '')}` : null;
+    },
+    toBool: function(i) {
+      // Sendo par, diminui caso != 0
+      i = i%2 == 0 ? (i==0 ? 0 : --i) :
+      // sendo impar, diminui a divisão arredondada
+        i - Math.round(i/2);
+      // retorna booleano armazenado
+      return !this.options1[0][i][2];
     }
   },
   mounted: function() {
     var tis = this;
     setInterval(function() {
-      var last = tis.codes[0];
       tis.upMargin = true;
+      var last = tis.codes[0];
+      setTimeout(() => { tis.codes.shift() }, 490);
       setTimeout(function() {
-        tis.codes.shift();
         tis.codes.push(last);
         tis.upMargin = false;
       }, 500);
@@ -256,7 +263,7 @@ $darken: #405165;
 .direitado {
   margin-left: 100vw !important;
 }
-.sea1, .sea2 {
+.img-pro1, .img-pro2 {
   height: 40%;
   z-index: 8;
   position: absolute;
@@ -264,7 +271,7 @@ $darken: #405165;
   margin: 5% 10% 0;
   border-radius: 10px;
 }
-.sea2 {
+.img-pro2 {
   margin-top: 28%;
 }
 
@@ -589,7 +596,7 @@ $neon-color: "rgba(255, 37, 37";
     overflow: hidden;
     margin-left: 50%;
   }
-  .c2, #colr, .sea1, .sea2 {
+  .c2, #colr, .img-pro1, .img-pro2 {
     transition: all 400ms;
   }
 }
