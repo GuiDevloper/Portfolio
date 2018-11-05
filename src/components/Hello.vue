@@ -62,11 +62,11 @@
         <div id="colr" :class="{direitado: show.project}">
           <div class="codes">
             <div class="codes2">
-              <div v-for="code of codes" :key="code[0][0]"
+              <div v-for="(code, i) of codes" :key="code[0][0]"
                 :class="{ up: code[0] == codes[0][0] ?
                     upMargin : false }">
                 <p v-for="c of code" :key="c[0]"
-                  :class="c[0]"  data-v-361a4bd2>
+                  :class="[{ cd: i < 5 }, c[0]]">
                   {{ c[1] }}
                 </p>
               </div>
@@ -215,7 +215,7 @@ export default {
         tis.codes.push(last);
         tis.upMargin = false;
       }, 500);
-    }, 2000);
+    }, 4000);
   }
 };
 </script>
@@ -259,17 +259,6 @@ $darken: #405165;
 .direitado {
   margin-left: 100vw !important;
 }
-@keyframes moveSVG {
-  0% {
-    transform: scale(1.02) translate(-1px, -1px);
-  }
-  50% {
-    transform: scale(1.02) translate(50px, -40px) rotate(20deg);
-  }
-  100% {
-    transform: scale(1.02) translate(-1px, -1px);
-  }
-}
 .sea1, .sea2 {
   height: 40%;
   z-index: 8;
@@ -294,11 +283,6 @@ $darken: #405165;
   }
   .cls-2, .cls-3 {
     transform: scale(1.02) translate(-1px, -1px);
-  }
-  .i1, .i3, .i7, .i8 {
-    .cls-2, .cls-3 {
-      animation: moveSVG 25s 2s infinite;
-    }
   }
   .i1 {
     margin: 2vw 0 0 2vw;
@@ -400,121 +384,77 @@ $darken: #405165;
   overflow: hidden;
   width: 100%;
   .codes2 {
-    height: 110px;
-    width: 30%;
+    height: 200px;
+    width: auto;
     margin: 50px 0 0 5%;
     overflow: hidden;
   }
   .up {
     margin-top: -40%;
   }
+  .cd {
+    background: transparent !important;
+  }
   p {
     float: left;
-    background: transparent !important;
-    margin: 0 1%;
+    margin: 0 3px;
     width: auto !important;
+    transition: .5s;
   }
   div {
     height: 17px;
-    width: 45%;
-    margin: 1.5% 1%;
+    margin: 4px 3px;
     float: left;
     font-size: 0.8rem;
-    -webkit-transition: 1000ms;
-    transition: 4000ms;
-    /* background-color: transparent !important; */
+    transition: 3s;
     width: 100%;
     text-align: justify;
   }
+  .cd8,
+  .cd11,
+  .cd14,
+  .cd16,
+  .cd17,
+  .cd20 {
+    margin-left: 30px;
+  }
+  $red: rgb(195, 91, 83);
+  $brown: rgb(101, 67, 68);
+  $grey: rgb(145, 150, 154);
+  $blue: rgb(81, 113, 148);
+  $green: rgb(115, 161, 123);
+  $yellow: rgb(192, 163, 109);
+  $cd18: rgb(176, 129, 105);
+  .red {
+    background-color: $red;
+    color: $red;
+  }
+  .cd2 {
+    background-color: $brown;
+    color: $brown;
+  }
+  .grey {
+    background-color: $grey;
+    color: $grey;
+  }
+  .blue {
+    background-color: $blue;
+    color: $blue;
+  }
+  .green {
+    background-color: $green;
+    color: $green;
+  }
+  .yellow {
+    background-color: $yellow;
+    color: $yellow;
+  }
+  .cd18 {
+    background-color: $cd18;
+    color: $cd18;
+  }
 }
-.cd7 {
-      width: 10% !important;
-    }
-    .cd8,
-    .cd11,
-    .cd18,
-    .cd19 {
-      width: 30%;
-    }
-    .cd8,
-    .cd11,
-    .cd14,
-    .cd16,
-    .cd17,
-    .cd20 {
-      margin-left: 5%;
-    }
-    .cd9 {
-      width: 50%;
-    }
-    .cd10 {
-      margin-right: 60%;
-    }
-    .cd14 {
-      width: 25%;
-    }
-    .cd16 {
-      width: 60%;
-      margin-right: 20%;
-    }
-    .cd20 {
-      width: 70%;
-      margin-right: 10%;
-    }
-    .cd12,
-    .cd15 {
-      width: 40%;
-    }
-    .cd3 {
-      width: 75%;
-    }
-    .cd3,
-    .cd15 {
-      margin-right: 15%;
-    }
-    .cd5 {
-      width: 35%;
-    }
-    .cd6,
-    .cd13,
-    .red {
-      width: 20%;
-    }
-    $red: rgb(195, 91, 83);
-    $brown: rgb(101, 67, 68);
-    $grey: rgb(145, 150, 154);
-    $blue: rgb(81, 113, 148);
-    $green: rgb(115, 161, 123);
-    $yellow: rgb(192, 163, 109);
-    $cd18: rgb(176, 129, 105);
-    .red {
-      background-color: $red;
-      color: $red;
-    }
-    .cd2 {
-      background-color: $brown;
-      color: $brown;
-    }
-    .grey {
-      background-color: $grey;
-      color: $grey;
-    }
-    .blue {
-      background-color: $blue;
-      color: $blue;
-    }
-    .green {
-      background-color: $green;
-      color: $green;
-    }
-    .yellow {
-      background-color: $yellow;
-      color: $yellow;
-    }
-    .cd18 {
-      background-color: $cd18;
-      color: $cd18;
-    }
+
 .post {
   min-height: 80vh;
   border-radius: 3px;
@@ -718,7 +658,7 @@ $neon-color: "rgba(255, 37, 37";
 .menu {
   height: 100px;
   width: 100px;
-  background: aliceblue;
+  background: black;
   position: fixed;
   border-radius: 100px;
   margin-top: -10px;
@@ -726,7 +666,7 @@ $neon-color: "rgba(255, 37, 37";
   display: flex;
   flex-direction: column;
   div {
-    background: black;
+    background: aliceblue;
     flex: 1;
   }
 }
