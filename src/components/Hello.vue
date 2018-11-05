@@ -61,15 +61,12 @@
             :class="{ direitado: !options1[0][1][2] }">
         <div id="colr" :class="{direitado: show.project}">
           <div class="codes">
-            <div class="codes2">
-              <div v-for="(code, i) of codes" :key="code[0][0]"
-                :class="{ up: code[0] == codes[0][0] ?
-                    upMargin : false }">
-                <p v-for="c of code" :key="c[0]"
-                  :class="[{ cd: i < 5 }, c[0]]">
-                  {{ c[1] }}
-                </p>
-              </div>
+            <div v-for="(code, i) of codes" :key="code[0][0]"
+              :class="{ up: i == 0 ? upMargin : false }">
+              <p v-for="c of code" :key="c[0]"
+                :class="[{ cd: i < 5 }, c[0]]"
+                v-text="c[1]">
+              </p>
             </div>
           </div>
           <div class="neon"></div>
@@ -381,14 +378,10 @@ $darken: #405165;
 .codes {
   z-index: 1;
   position: absolute;
+  height: 200px;
+  width: auto;
+  margin: 50px 0 0 5%;
   overflow: hidden;
-  width: 100%;
-  .codes2 {
-    height: 200px;
-    width: auto;
-    margin: 50px 0 0 5%;
-    overflow: hidden;
-  }
   .up {
     margin-top: -40%;
   }
@@ -408,7 +401,6 @@ $darken: #405165;
     font-size: 0.8rem;
     transition: 3s;
     width: 100%;
-    text-align: justify;
   }
   .cd8,
   .cd11,
@@ -418,40 +410,25 @@ $darken: #405165;
   .cd20 {
     margin-left: 30px;
   }
-  $red: rgb(195, 91, 83);
-  $brown: rgb(101, 67, 68);
-  $grey: rgb(145, 150, 154);
-  $blue: rgb(81, 113, 148);
-  $green: rgb(115, 161, 123);
-  $yellow: rgb(192, 163, 109);
-  $cd18: rgb(176, 129, 105);
-  .red {
-    background-color: $red;
-    color: $red;
-  }
-  .cd2 {
-    background-color: $brown;
-    color: $brown;
-  }
-  .grey {
-    background-color: $grey;
-    color: $grey;
-  }
-  .blue {
-    background-color: $blue;
-    color: $blue;
-  }
-  .green {
-    background-color: $green;
-    color: $green;
-  }
-  .yellow {
-    background-color: $yellow;
-    color: $yellow;
-  }
-  .cd18 {
-    background-color: $cd18;
-    color: $cd18;
+  $red: #c35b53;
+  $brown: #654344;
+  $grey: #91969a;
+  $blue: #517194;
+  $green: #73a17b;
+  $yellow: #c0a36d;
+  $cd18: #b08169;
+  $class-colors: ('red', 'cd2', 'grey', 'blue', 'green', 'yellow', 'cd18');
+  $colors: ($red, $brown, $grey, $blue, $green, $yellow, $cd18);
+  // percorrendo lists
+  @each $class in $class-colors {
+    // index atual
+    $i: index($class-colors, $class);
+    // valor
+		$color: nth($colors, $i);
+    .#{$class} {
+      background-color: $color;
+      color: $color;
+    }
   }
 }
 
