@@ -9,7 +9,7 @@
       <div class="post c-1o3 m-1o1"
         :class="{mostrado: show.description}">
         <div class="blur">
-          <div class="column c1"><div class="image"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144 149" class="i1"><title>Triangulo amarelo</title><path d="M110 10l27 132-127-41 100-91m3-10l-7 6L6 97l-6 6 8 3 128 41 8 2-2-8-9-46-18-86-2-9z" class="cls-1"></path><path d="M110 10l28 132-128-41z" class="cls-2"></path></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 115" class="i2"><title>Traço verde</title><path d="M10 111c-4-10-5-20-3-30a37 37 0 0 1 6-14l10-11c13-15 13-36 6-54-2-4-8-2-6 2 4 9 6 20 4 31a37 37 0 0 1-7 15l-9 10C-2 75-2 95 4 113c1 3 7 2 6-2z" class="cls-1"></path></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 135" class="i3"><title>Triangulo azul</title><path d="M27 10l91 77L6 128 27 10M24 0l-2 9L1 127l-1 8 8-3 89-32 23-8 8-3-7-5-31-27L30 6l-6-6z" class="cls-1"></path><path d="M27 9l91 78L6 127 27 9z" class="cls-2"></path></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 112 112" class="i4"><title>Circulo vermelho</title><path d="M56 5a51 51 0 1 1-18 3 51 51 0 0 1 18-3m0-5a56 56 0 1 0 31 10A56 56 0 0 0 56 0z" class="cls-1"></path><circle cx="56" cy="56" r="51" transform="rotate(-19 56 56)" class="cls-2"></circle></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 112 112" class="i5"><title>Quadrado marrom</title><path d="M80 6l26 74-74 26L6 32 80 6m3-6l-5 2L5 28l-5 1 2 5 26 74 1 4 5-1 74-26 4-2-1-5L85 5l-2-5z" class="cls-1"></path><path d="M6 32L80 6l26 74-74 26z" class="cls-2"></path></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 66 99" class="i6"><title>Traço azul</title><path d="M65 93c-9-5-18-12-23-21a37 37 0 0 1-5-15V42C36 23 22 8 5 0 1-1-2 4 2 5c9 5 17 11 23 20s6 18 6 28c0 20 14 36 31 45 3 2 6-3 3-5z" class="cls-1"></path></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 135" class="i7"><title>Triangulo verde</title><path d="M27 10l91 77L6 128 27 10M24 0l-2 9L4 111l-3 16-1 8 8-3 112-40 8-3-7-5-74-64L30 6l-6-6z" class="cls-1"></path><path d="M27 10l91 77L6 128 27 10z" class="cls-2"></path></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 124 124" class="i8"><title>Quadrado azul</title><path d="M34 6l84 28-28 84L6 90 34 6m-3-6l-2 5L2 89l-2 4 5 2 84 27 4 2 2-5 27-84 2-4-5-2L35 2l-4-2z" class="cls-1"></path><path d="M6 90L34 6l84 28-28 83z" class="cls-2"></path></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 112 112" class="i9"><title>Circulo vermelho e amarelo</title><path d="M56 5a51 51 0 1 1-18 3 51 51 0 0 1 18-3m0-5a56 56 0 1 0 31 10A56 56 0 0 0 56 0z" class="cls-1"></path><circle cx="56" cy="56" r="51" transform="rotate(-19 56 56)" class="cls-2"></circle><circle cx="56" cy="56" r="51" transform="rotate(-19 56 56)" class="cls-3"></circle></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 93 96" class="i10"><title>Traço vermelho</title><path d="M6 94c3-11 8-22 17-30a42 42 0 0 1 14-9l16-4c22-6 35-26 40-47 0-4-5-6-6-2-3 12-7 23-16 31-8 9-18 12-30 14C19 52 5 72 0 93c-1 3 5 5 6 1z" class="cls-1"></path></svg></div></div>
+          <img src="../assets/img/shapes.jpg" height="100%">
         </div>
         <div class="text">
           <p class="author"> {{ titulo }} </p>
@@ -242,10 +242,9 @@ $darken: #405165;
   font-size: 2.2rem;
   color: $darken;
   position: absolute;
-  margin: 15vh 5%;
+  margin: 110px 5%;
   z-index: 5;
   text-shadow: 15px 8px 10px rgba(0, 0, 0, 0.2);
-  width: auto;
   padding: 2%;
   &.tw {
     margin: 85vh 0 0 5%;
@@ -276,8 +275,6 @@ $darken: #405165;
 }
 
 .image {
-  height: 100%;
-  width: 100%;
   z-index: -3;
   text-align: justify;
   svg {
@@ -440,53 +437,60 @@ $darken: #405165;
 }
 
 .post {
-  min-height: 80vh;
-  border-radius: 3px;
-  margin: 5% 10%;
+  height: 620px;
+  margin: 60px 10%;
   position: absolute;
   padding-right: 0px !important;
   z-index: 5;
   opacity: 0;
   transition: all 500ms;
   .blur {
-    background: #e5e5e5;
     position: absolute;
-    filter: blur(6px);
-    height: 90%;
-    width: 95%;
-    .c1 {
-      width: 200%;
-      margin: -10%;
-      overflow: hidden;
+    height: 95%;
+    width: 94%;
+    overflow: hidden;
+    background: #e5e5e5;
+    img {
+      filter: blur(6px);
+      opacity: 0.95;
     }
   }
-  p, a {
-    padding: 4%;
+  p {
+    padding: 20px;
   }
   .text {
     position: relative;
     background: rgba(250, 250, 250, 0.4);
     box-shadow: 10px 10px 20px rgba(32, 39, 47, 0.1);
     color: #252525;
-    min-height: 75vh;
-    font-weight: 100;
-    width: 95%;
+    height: 95%;
+    width: 94%;
   }
   .author {
     font-size: 1.3rem;
     font-weight: 600;
-    padding-bottom: 1px;
+    padding-bottom: 0;
     color: #3b699b;
   }
   .postText {
     text-align: justify;
     line-height: 1.6rem;
     padding: 8%;
-    font-weight: 400;
     color: #143a61;
+    max-height: 70%;
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: grey;
+      border-radius: 10px;
+    }
+    &::-webkit-scrollbar-track {
+      background-color: #eeeeee;
+    }
   }
   #btns {
-    height: 10vh;
+    height: 60px;
     width: 94%;
     margin: 3%;
     bottom: 0;
@@ -495,13 +499,14 @@ $darken: #405165;
     transition: 250ms;
     p, a {
       color: #e5e5e5;
-      background-color: $black;
-      padding-top: 4vh;
+      background-color: #20272f;
       transition: 400ms;
       cursor: pointer;
       border-radius: 0px;
       flex: 1;
       font-weight: 600;
+      padding: 0px;
+      padding-top: 9px;
       &:hover {
         color: #20272f;
         background-color: transparent;
@@ -512,7 +517,7 @@ $darken: #405165;
       bottom: 30%;
       flex-direction: column;
       p, a {
-        padding: 5% 0 0;
+        padding-top: 25px;
         background-color: transparent;
         color: inherit;
         &:hover {
@@ -546,12 +551,12 @@ $darken: #405165;
   height: 100%;
   border-radius: 0;
 }
-$neon-color: "rgba(255, 37, 37";
+$neon-color: "rgba(240, 74, 74";
 .neon {
   position: absolute;
   width: 20%;
-  height: 50%;
-  margin-top: 15%;
+  height: 450px;
+  margin-top: 200px;
   margin-left: 20%;
   border: 4px solid #{$neon-color + ", 1)"};
   box-shadow: 0 0 40px 0px #{$neon-color + ", 0.2)"};
@@ -560,14 +565,13 @@ $neon-color: "rgba(255, 37, 37";
   z-index: 2;
   &.n1 {
     width: 30%;
-    height: 40%;
-    margin-top: 5%;
+    height: 350px;
+    margin-top: 50px;
     margin-left: 10%;
     border-radius: 300px;
     box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.1);
   }
   &.n2 {
-    /* -webkit-box-shadow: inset 0 0 100px 0 #ff4444, 0 0 100px 0px #ff4444; */
     /* box-shadow: inset 0 0 100px 0 #ff1a1a, 0 0 100px 0px #d52020; */
     filter: none;
     overflow: hidden;
@@ -602,26 +606,26 @@ $neon-color: "rgba(255, 37, 37";
 }
 .nome,
 .t-menu {
-  color: #e41212;
+  color: #c35b53;
   font-family: "Great Vibes";
 }
 .nome {
   position: absolute;
   z-index: 7;
-  margin: 21% 0 0 40%;
+  margin: 250px 0 0 40%;
   font-size: 70px;
   font-weight: 700;
   opacity: 0;
   display: none;
 }
 .t-menu {
-  margin-top: -12%;
+  margin-top: -10px;
   font-weight: bold;
   font-size: 20px;
 }
 .Dev-center {
   height: 130%;
-  margin: 7vh 0 0 -5vh;
+  margin: 50px 0 0 -30px;
   z-index: -1;
   position: relative;
 }
@@ -642,7 +646,7 @@ $neon-color: "rgba(255, 37, 37";
 .menu {
   height: 100px;
   width: 100px;
-  background: black;
+  background: aliceblue;
   position: fixed;
   border-radius: 100px;
   margin-top: -10px;
@@ -650,7 +654,6 @@ $neon-color: "rgba(255, 37, 37";
   display: flex;
   flex-direction: column;
   div {
-    background: aliceblue;
     flex: 1;
   }
 }
