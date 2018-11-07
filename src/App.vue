@@ -138,14 +138,23 @@ footer {
     border-radius: 5px 0;
   }
 }
-@media (max-width: 767px) {
-  #app {
+@import './assets/CSS/breakpoints';
+#app {
+  @include for-phone {
     font-size: 16px;
   }
 }
-@media (max-width: 991px) {
-  .p1 {
-    margin-left: 5%;
+.bg-r {
+  @include for-phone {
+    transform: rotate(90deg);
+    margin-left: 0;
+    margin-top: 200px;
+    width: 550px;
+  }
+}
+footer p {
+  @include for-phone {
+    font-size: 1rem;
   }
 }
 </style>

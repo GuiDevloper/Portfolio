@@ -239,7 +239,7 @@ $black: #20272f;
 $darken: #405165;
 .type {
   font-family: "Special Elite", Raleway;
-  font-size: 2.2rem;
+  font-size: 2rem;
   color: $darken;
   position: absolute;
   margin: 110px 5%;
@@ -255,6 +255,7 @@ $darken: #405165;
 
 .mostrado {
   opacity: 1 !important;
+  display: block !important;
 }
 .borrado {
   filter: blur(1px);
@@ -444,6 +445,7 @@ $darken: #405165;
   z-index: 5;
   opacity: 0;
   transition: all 500ms;
+  display: none;
   .blur {
     position: absolute;
     height: 95%;
@@ -565,8 +567,8 @@ $neon-color: "rgba(240, 74, 74";
   z-index: 2;
   &.n1 {
     width: 30%;
-    height: 350px;
-    margin-top: 50px;
+    height: 320px;
+    margin-top: 70px;
     margin-left: 10%;
     border-radius: 300px;
     box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.1);
@@ -669,71 +671,162 @@ $neon-color: "rgba(240, 74, 74";
     height: 50vh;
   }
 }
-@media (max-width: 991px) {
-  .neon {
-    width: 30%;
-    margin-left: 17%;
+
+@import '../assets/CSS/breakpoints';
+
+// for tablet landscaped style
+.neon {
+  @include for-tablet-landscape {
+    width: 25%;
     &.n1 {
-      width: 35vh;
-      height: 35vh;
-      margin-top: 10%;
-      margin-left: 10%;
+      margin-top: 70px;
+      margin-left: 8%;
     }
   }
 }
 
-@media (max-width: 767px) {
-  .r2 {
-    height: 130vh;
-    .c1 {
-      height: 60%;
+// for tablet styles
+  .neon {
+    @include for-tablet-portrait {
+      width: 30%;
+      margin-left: 15%;
     }
-    .c2 {
-      height: 40%;
-      width: 100%;
+  }
+  .t-menu {
+    @include for-tablet-portrait {
+      font-size: 18px;
+    }
+  }
+  .type {
+    @include for-tablet-portrait {
+      font-size: 4vw;
+    }
+  }
+  .code div {
+    @include for-tablet-portrait {
+      font-size: 0.7rem;
+      .cd8, .cd11, .cd14, .cd16, .cd17, .cd20 {
+        margin-left: 20px;
+      }
+    }
+  }
+
+// for phone and tablet styles
+  .r2 {
+    @include for-phone-tablet {
+      .c1 {
+        height: 50%;
+      }
+      .c2 {
+        height: 60%;
+        margin: 0;
+      }
     }
   }
   .row {
-    position: static;
+    @include for-phone-tablet {
+      position: static;
+    }
   }
   .column {
-    width: 100%;
+    @include for-phone-tablet {
+      width: 100%;
+      position: relative;
+    }
   }
-  .neon {
-    width: 40%;
-    height: 40%;
-    margin-top: 10%;
-    margin-left: 50%;
-  }
-
-  .logo-center {
-    margin-top: 70vh;
-    margin-right: 40%;
-  }
-  .t-menu {
-    font-size: 18px;
-  }
-}
-
-@media (max-width: 479px) {
-  .neon {
-    width: 50%;
-    margin-top: 15%;
-    margin-left: 40%;
-    &.n1 {
-      width: 30vh;
-      height: 30vh;
+  .menu {
+    @include for-phone-tablet {
+      height: 90px;
+      width: 90px;
     }
   }
   .logo-center {
-    margin-right: 37%;
+    @include for-phone-tablet {
+      width: 80px;
+      height: 80px;
+    }
+  }
+  .codes {
+    @include for-phone-tablet {
+      height: 210px;
+      margin: 50px 0 0 8%;
+      div {
+        height: 15px;
+        margin: 3px 3px;
+        font-size: 12px;
+      }
+      .cd8, .cd11, .cd14, .cd16, .cd17, .cd20 {
+        margin-left: 10px;
+      }
+    }
+  }
+  .type {
+    @include for-phone-tablet {
+      font-size: 1.5rem;
+    }
+  }
+
+// for phone styles
+.all {
+  @include for-phone {
+    height: 150vh;
+  }
+}
+.neon {
+  @include for-phone {
+    width: 50%;
+    height: 300px;
+    margin-top: 130px;
+    margin-left: 40%;
+    &.n1 {
+      width: 50vw;
+      height: 50vw;
+    }
+    .Dev-center {
+      height: 120%;
+    }
+  }
+}
+.logo-center {
+  @include for-phone {
     height: 80px;
     width: 80px;
   }
-  .t-menu {
-    font-size: 16px;
+}
+#menu {
+  @include for-phone {
+    margin: 0 42vw;
+    .t-menu {
+      font-size: 16px;
+    }
   }
 }
+body {
+  @include for-phone {
+    width: 100vw;
+    overflow-x: hidden;
+  }
+}
+.post {
+  @include for-phone {
+    height: 400px;
+    padding-right: 15% !important;
+    .blur {
+      width: 80%;
+    }
+  }
+}
+.codes {
+  @include for-phone {
+    margin: 0 0 0 5%;
+  }
+}
+.type.tw {
+  @include for-phone {
+    margin: 400px 0 0 5%;
+  }
+}
+
 #img-logo {
   height: 70%;
   margin: 8% 25% 0;
