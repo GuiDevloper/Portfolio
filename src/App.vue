@@ -32,51 +32,20 @@ $white: #e5e5e5;
 body {
   background: $white;
   margin: 0;
+}
+* {
   &::-webkit-scrollbar {
-    width: 4px;
+    width: 5px;
   }
   &::-webkit-scrollbar-thumb {
-    background: #3d7bff;
+    background: grey;
     border-radius: 10px;
   }
   &::-webkit-scrollbar-track {
-    background-color: $black;
+    background-color: transparent;
   }
 }
-.bg-l,
-.bg-r {
-  height: auto;
-  position: absolute;
-  z-index: -5;
-  margin-top: -2px;
-  margin-bottom: -5px;
-  width: 60%;
-  img, svg {
-    height: 142vh;
-    flex: 1;
-    min-height: 700px;
-  }
-}
-.bg-l {
-  background: linear-gradient(to right, $white 50%, transparent 50%);
-  display: none;
-  div {
-    background: url("./assets/SVG/back-left.svg");
-  }
-}
-.bg-r {
-  z-index: 1;
-  margin-left: 47vw;
-  background: linear-gradient(to left, $black 70%, transparent 50%);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  align-content: flex-start;
-  svg {
-    .cls-2{fill:$black}
-  }
-}
+
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -117,7 +86,7 @@ textarea, legend, a {
   font-weight: normal;
 }
 footer {
-  margin-top: -10px;
+  margin: 5px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -144,17 +113,60 @@ footer {
     font-size: 16px;
   }
 }
-.bg-r {
-  @include for-phone {
-    transform: rotate(90deg);
-    margin-left: 0;
-    margin-top: 200px;
-    width: 550px;
-  }
-}
+
 footer p {
   @include for-phone {
     font-size: 1rem;
   }
 }
+
+// back
+  .bg-l,
+  .bg-r {
+    min-height: 1158px;
+    height: auto;
+    position: absolute;
+    z-index: -5;
+    margin-top: -2px;
+    margin-bottom: -5px;
+    width: 60%;
+    img, svg {
+      min-height: 1158px;
+      height: 138vh;
+      flex: 1;
+    }
+  }
+  .bg-l {
+    background: linear-gradient(to right, $white 50%, transparent 50%);
+    display: none;
+  }
+  .bg-r {
+    z-index: 0;
+    margin-left: 47vw;
+    background: linear-gradient(to left, $black 70%, transparent 50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+    svg {
+      .cls-2{fill:$black}
+    }
+  }
+  .bg-r {
+    @include for-phone-tablet {
+      transform: rotate(90deg);
+      margin-left: 0;
+      margin-top: -160px;
+      min-height: auto;
+      width: 540px;
+      height: 740px;
+      overflow: hidden;
+      display: none;
+      svg {
+        min-height: auto;
+        height: 1000px;
+      }
+    }
+  }
 </style>

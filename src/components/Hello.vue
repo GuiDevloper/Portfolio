@@ -51,6 +51,9 @@
         </div>
       </div>
       <div class="column c2">
+        <div class="bg-r">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1409 2749"><path d="M110 10c-1-1-10 22-19 47a1336 1336 0 0 0-52 168 648 648 0 0 0-9 366c14 59 27 80 44 128 32 93 38 169 43 243 7 94 12 167-11 260-19 77-45 114-62 220-3 23-9 59-10 105-4 229 91 267 77 527-6 117-30 127-37 246-4 63 12 218 64 422l1264-3-3-2731-1289 2z" class="cls-2"/><path d="M104 4a1600 1600 0 0 0-21 52l-21 58c-17 53-31 107-43 161a642 642 0 0 0 36 416 741 741 0 0 1 43 159c8 50 11 102 14 153 4 55 6 112-3 167-7 45-21 89-36 132s-28 87-35 133c-14 88-16 177 3 265 15 68 41 133 54 202 16 91 15 188-6 278-16 69-26 136-21 207 6 91 23 181 42 270l21 87a8 8 0 0 0 7 5l986-2 278-1a8 8 0 0 0 7-7v-617l-1-703-1-668V83 11 7a8 8 0 0 0-8-7h-128L964 1 592 2H112c-1 0-4 0 0 0-10-2-14 13-4 15 11 2 24 0 36 0h401l372-1 323-1h157a10 10 0 0 1 2 0l-7-7v670l1 654 1 705v702l8-8-986 2-278 1 7 6c-25-100-46-202-57-305-8-70-9-139 6-209 7-35 17-70 21-106a795 795 0 0 0 3-156c-6-72-27-141-47-210a680 680 0 0 1-2-390c10-38 25-75 37-113a582 582 0 0 0 24-154c2-53-3-107-7-160-4-49-9-98-20-146-12-49-30-94-47-140-34-90-48-189-38-284 6-54 20-108 33-160A1344 1344 0 0 1 93 70l12-30a1154 1154 0 0 1 10-25c6-7-4-18-11-11z" class="cls-2"/></svg>
+        </div>
         <img v-for="(img, i) of imgs" :key="img[1]"
           :class="['img-pro' + img[0], { direitado: toBool(i) }]"
           :src="require(`@/assets/img/${img[1]}.jpg`)">
@@ -214,12 +217,12 @@ export default {
     setInterval(function() {
       tis.upMargin = true;
       var last = tis.codes[0];
-      setTimeout(() => { tis.codes.shift() }, 490);
+      setTimeout(() => { tis.codes.shift() }, 780);
       setTimeout(function() {
         tis.codes.push(last);
         tis.upMargin = false;
-      }, 500);
-    }, 4000);
+      }, 800);
+    }, 5000);
   }
 };
 </script>
@@ -228,7 +231,7 @@ export default {
 .all {
   margin-bottom: 1vh;
   min-height: 98vh;
-  height: 100%;
+  height: 790px;
 }
 .back-inicial-anim {
   transform: translateX(-100%) translateY(0px) translateZ(0px) scaleX(1)
@@ -236,18 +239,19 @@ export default {
     skewY(0deg);
 }
 $black: #20272f;
+$white: #e5e5e5;
 $darken: #405165;
 .type {
   font-family: "Special Elite", Raleway;
   font-size: 2rem;
   color: $darken;
   position: absolute;
-  margin: 110px 5%;
+  margin: 120px 5%;
   z-index: 5;
   text-shadow: 15px 8px 10px rgba(0, 0, 0, 0.2);
-  padding: 2%;
+  padding: 0 5% 5% 0;
   &.tw {
-    margin: 85vh 0 0 5%;
+    margin: 730px 0 0 5%;
     color: inherit;
     text-shadow: 15px 8px 10px #171717;
   }
@@ -264,15 +268,16 @@ $darken: #405165;
   margin-left: 100vw !important;
 }
 .img-pro1, .img-pro2 {
-  height: 40%;
+  width: 40%;
   z-index: 8;
   position: absolute;
   left: 0;
-  margin: 5% 10% 0;
+  margin: 5% 0 0 7%;
   border-radius: 10px;
+  max-width: 540px;
 }
 .img-pro2 {
-  margin-top: 28%;
+  margin-top: 31%;
 }
 
 .image {
@@ -286,11 +291,11 @@ $darken: #405165;
   .cls-2, .cls-3 {
     transform: scale(1.02) translate(-1px, -1px);
   }
+  .cls-1 {
+    fill: $darken;
+  }
   .i1 {
     margin: 2vw 0 0 2vw;
-    .cls-1 {
-      fill: $darken;
-    }
     .cls-2 {
       fill: #c5a76f;
     }
@@ -305,9 +310,6 @@ $darken: #405165;
   .i3 {
     margin: 6vh 0 0 35%;
     height: 8%;
-    .cls-1 {
-      fill: $darken;
-    }
     .cls-2 {
       fill: #54769b;
     }
@@ -315,18 +317,12 @@ $darken: #405165;
   .i4 {
     margin: 40vh 0 0 4%;
     height: 6%;
-    .cls-1 {
-      fill: $darken;
-    }
     .cls-2 {
       fill: #c35b53;
     }
   }
   .i5 {
     margin: 40vh 0 0 25%;
-    .cls-1 {
-      fill: $darken;
-    }
     .cls-2 {
       fill: #654344;
     }
@@ -341,9 +337,6 @@ $darken: #405165;
   .i7 {
     margin: 65vh 0 0 5%;
     height: 10%;
-    .cls-1 {
-      fill: $darken;
-    }
     .cls-2 {
       fill: #76a880;
     }
@@ -351,9 +344,6 @@ $darken: #405165;
   .i8 {
     margin: 65vh 0 0 25%;
     height: 8%;
-    .cls-1 {
-      fill: $darken;
-    }
     .cls-2 {
       fill: #54769b;
     }
@@ -361,9 +351,6 @@ $darken: #405165;
   .i9 {
     margin: 76vh 0 0 40%;
     height: 7%;
-    .cls-1 {
-      fill: $darken;
-    }
     .cls-2 {
       fill: #c5a76f;
     }
@@ -404,7 +391,7 @@ $darken: #405165;
     margin: 4px 3px;
     float: left;
     font-size: 0.8rem;
-    transition: 3s;
+    transition: 4s;
     width: 100%;
   }
   .cd8,
@@ -480,16 +467,6 @@ $darken: #405165;
     padding: 8%;
     color: #143a61;
     max-height: 70%;
-    &::-webkit-scrollbar {
-      width: 4px;
-    }
-    &::-webkit-scrollbar-thumb {
-      background: grey;
-      border-radius: 10px;
-    }
-    &::-webkit-scrollbar-track {
-      background-color: #eeeeee;
-    }
   }
   #btns {
     height: 60px;
@@ -515,13 +492,16 @@ $darken: #405165;
       }
     }
     &.list {
-      height: 50%;
-      bottom: 30%;
+      height: auto;
+      max-height: 60%;
+      top: 50px;
       flex-direction: column;
       p, a {
-        padding-top: 25px;
         background-color: transparent;
         color: inherit;
+        padding: 20px 0;
+        overflow: hidden;
+        flex: 1 0 auto;
         &:hover {
           background-color: $black;
           color: #e5e5e5;
@@ -542,7 +522,8 @@ $darken: #405165;
 
 .column {
   float: left;
-  height: 100%;
+  min-height: 100vh;
+  height: 810px;
   width: 100%;
   position: absolute;
 }
@@ -583,8 +564,8 @@ $neon-color: "rgba(240, 74, 74";
 .row {
   position: absolute;
   width: 100%;
-  height: 100%;
-  overflow: hidden;
+  min-height: 100vh;
+  height: 810px;
 }
 .r1 {
   z-index: 6;
@@ -596,7 +577,7 @@ $neon-color: "rgba(240, 74, 74";
 }
 .r2 {
   .c1 {
-    z-index: 0;
+    z-index: 1;
   }
   .c2 {
     overflow: hidden;
@@ -648,7 +629,8 @@ $neon-color: "rgba(240, 74, 74";
 .menu {
   height: 100px;
   width: 100px;
-  background: aliceblue;
+  background: linear-gradient(rgba(215, 65, 119, 0.8),
+    rgba(255, 233, 138, 0.8));
   position: fixed;
   border-radius: 100px;
   margin-top: -10px;
@@ -661,7 +643,7 @@ $neon-color: "rgba(240, 74, 74";
 }
 #menu {
   margin: 0 47vw;
-  z-index: 2;
+  z-index: 10;
   width: 120px;
   height: 55vh;
   position: fixed;
@@ -674,24 +656,31 @@ $neon-color: "rgba(240, 74, 74";
 
 @import '../assets/CSS/breakpoints';
 
+@include for-greater-desktop {
+  .img-pro2 {
+    margin-top: 430px;
+    margin-top: calc(420px + 2%);
+  }
+}
+
 // for tablet landscaped style
-.neon {
-  @include for-tablet-landscape {
+@include for-tablet-landscape {
+  .neon {
     width: 25%;
     &.n1 {
       margin-top: 70px;
       margin-left: 8%;
     }
   }
+  .code div {
+    font-size: 0.7rem;
+    .cd8, .cd11, .cd14, .cd16, .cd17, .cd20 {
+      margin-left: 20px;
+    }
+  }
 }
 
 // for tablet styles
-  .neon {
-    @include for-tablet-portrait {
-      width: 30%;
-      margin-left: 15%;
-    }
-  }
   .t-menu {
     @include for-tablet-portrait {
       font-size: 18px;
@@ -702,82 +691,111 @@ $neon-color: "rgba(240, 74, 74";
       font-size: 4vw;
     }
   }
-  .code div {
-    @include for-tablet-portrait {
-      font-size: 0.7rem;
-      .cd8, .cd11, .cd14, .cd16, .cd17, .cd20 {
-        margin-left: 20px;
-      }
-    }
-  }
 
 // for phone and tablet styles
+@include for-phone-tablet {
+  .all {
+    height: 960px;
+  }
   .r2 {
-    @include for-phone-tablet {
-      .c1 {
-        height: 50%;
-      }
-      .c2 {
-        height: 60%;
-        margin: 0;
-      }
+    .c1 {
+      height: 600px;
+      position: absolute;
+    }
+    .c2 {
+      margin: 0;
+      height: 530px;
+      margin-top: 480px;
     }
   }
   .row {
-    @include for-phone-tablet {
-      position: static;
-    }
+    position: static;
   }
   .column {
-    @include for-phone-tablet {
-      width: 100%;
-      position: relative;
-    }
+    width: 100%;
+    position: absolute;
   }
-  .menu {
-    @include for-phone-tablet {
-      height: 90px;
-      width: 90px;
-    }
-  }
-  .logo-center {
-    @include for-phone-tablet {
-      width: 80px;
-      height: 80px;
-    }
-  }
-  .codes {
-    @include for-phone-tablet {
-      height: 210px;
-      margin: 50px 0 0 8%;
-      div {
-        height: 15px;
-        margin: 3px 3px;
-        font-size: 12px;
-      }
-      .cd8, .cd11, .cd14, .cd16, .cd17, .cd20 {
-        margin-left: 10px;
-      }
-    }
-  }
-  .type {
-    @include for-phone-tablet {
-      font-size: 1.5rem;
-    }
-  }
-
-// for phone styles
-.all {
-  @include for-phone {
-    height: 150vh;
-  }
-}
-.neon {
-  @include for-phone {
+  .neon {
     width: 50%;
     height: 300px;
     margin-top: 130px;
-    margin-left: 40%;
+    margin-left: 45%;
+    max-width: 200px;
+  }
+  #menu {
+    margin: 0;
+    right: 0;
+    width: 85px;
+    .t-menu {
+      font-size: 16px;
+    }
+  }
+  .menu {
+    height: 80px;
+    width: 80px;
+    top: 15px;
+  }
+  .logo-center {
+    height: 70px;
+    width: 70px;
+    top: -5px;
+    position: absolute;
+  }
+  .post {
+    height: 400px;
+    width: 85%;
+    .blur {
+      width: 94%;
+    }
+  }
+  .codes {
+    height: 200px;
+    margin: 60px 0 0 3%;
+    div {
+      height: auto;
+      margin: 0px;
+      font-size: 12px;
+    }
+    .cd8, .cd11, .cd14, .cd16, .cd17, .cd20 {
+      margin-left: 10px;
+    }
+    p {
+      margin: 3px;
+    }
+  }
+  .img-pro1, .img-pro2 {
+    width: 85%;
+    max-width: 400px;
+  }
+  .img-pro1 {
+    margin-top: 50px;
+  }
+  .img-pro2 {
+    margin-top: 250px;
+    margin-left: 30%;
+  }
+  .type {
+    font-size: 1.5rem;
+    &.tw {
+      margin: 400px 0 0 5%;
+    }
+  }
+  .image {
+    .i2 {margin: 100px 0 0 45%;}
+    .i3 {margin: 20px 0 0 80%;}
+    .i4 {margin: 190px 0 0 5%;}
+    .i5 {margin: 250px 0 0 35%;}
+    .i6 {margin: 150px 0 0 85%;}
+    .i7 {margin: 350px 0 0 5%;}
+    .i8 {margin: 420px 0 0 45%;}
+    .i9 {margin: 340px 0 0 85%;}
+    .i10 {margin: 500px 0 0 10%;}
+  }
+}
+
+// for phone styles
+@include for-phone {
+  .neon {
     &.n1 {
       width: 50vw;
       height: 50vw;
@@ -786,46 +804,51 @@ $neon-color: "rgba(240, 74, 74";
       height: 120%;
     }
   }
-}
-.logo-center {
-  @include for-phone {
-    height: 80px;
-    width: 80px;
-  }
-}
-#menu {
-  @include for-phone {
-    margin: 0 42vw;
-    .t-menu {
-      font-size: 16px;
-    }
-  }
-}
-body {
-  @include for-phone {
+  body {
     width: 100vw;
     overflow-x: hidden;
   }
+  .img-pro2 {
+    margin-top: 250px;
+    margin-left: 10%;
+  }
 }
-.post {
-  @include for-phone {
-    height: 400px;
-    padding-right: 15% !important;
-    .blur {
-      width: 80%;
+// back
+  .bg-l,
+  .bg-r {
+    position: absolute;
+    margin-bottom: -5px;
+    img, svg {
+      flex: 1;
     }
   }
-}
-.codes {
-  @include for-phone {
-    margin: 0 0 0 5%;
+  .bg-r {
+    z-index: 0;
+    background: linear-gradient(to left, $black 70%, transparent 50%);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+    display: none;
+    svg {
+      .cls-2{fill:$black}
+    }
   }
-}
-.type.tw {
-  @include for-phone {
-    margin: 400px 0 0 5%;
+  .bg-r {
+    @include for-phone-tablet {
+      transform: rotate(90deg);
+      margin-left: 200px;
+      margin-top: -250px;
+      width: 500px;
+      height: 1000px;
+      overflow: hidden;
+      display: flex;
+      svg {
+        min-height: auto;
+        height: 1000px;
+      }
+    }
   }
-}
 
 #img-logo {
   height: 70%;

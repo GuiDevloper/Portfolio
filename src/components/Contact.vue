@@ -36,7 +36,7 @@ export default {
 
 <style lang="scss" scoped>
 #contact {
-  min-height: 40vh;
+  min-height: 300px;
   z-index: 3;
   position: relative;
   .email,
@@ -88,10 +88,21 @@ textarea {
     padding-top: 4%;
   }
 }
-@media (max-width: 767px) {
+@import '../assets/CSS/breakpoints';
+@include for-phone-tablet {
   .email,
   .social {
     width: 100% !important;
+    padding: 30px 5% 0% !important;
+  }
+  #contact {
+    min-height: 330px;
+    margin-top: 20px;
+  }
+  input,
+  textarea {
+    width: 100%;
+    margin: 2% 0;
   }
 }
 </style>

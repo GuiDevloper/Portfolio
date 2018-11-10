@@ -13,6 +13,9 @@
 @mixin for-desktop {
   @media (min-width: 1200px) and (max-width: 1799px) { @content; }
 }
+@mixin for-greater-desktop {
+  @media (min-width: 1200px) { @content; }
+}
 @mixin for-big-desktop {
   @media (min-width: 1800px) { @content; }
 }
