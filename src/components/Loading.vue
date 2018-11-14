@@ -41,8 +41,13 @@ export default {
         // durações dinamicas
         var dur = this.loaded ? [0.7, 0.7, 1400] : [2, 3, 4500];
         // ativa animações
-        this.animNeon = `animation: vanishIn-data-v-efe9d588 ${dur[0]}s forwards running ease-In-Out;`;
-        this.animDraw = `animation: draw-data-v-efe9d588 ${dur[1]}s ${dur[0]}s forwards ease-in running;`;
+        var anim = [
+          "animation-delay:",
+          "animation-duration:",
+          "animation-play-state: running;"
+        ];
+        this.animNeon = `${anim[1]} ${dur[0]}s; ${anim[2]}`;
+        this.animDraw = `${anim[1]} ${dur[1]}s; ${anim[0]} ${dur[0]}s; ${anim[2]}`;
         // espera fim das animações
         setTimeout(() => {
           if (!this.loaded) {
@@ -99,13 +104,18 @@ export default {
   transform-origin: center;
   font-family: 'Raleway' !important;
   text-shadow: 0px 0px 5px #388E3C !important;
+  animation-name: vanishIn;
 }
 #text-logo {
   text-anchor: middle;
   font-family: 'Great Vibes';
+  animation-name: draw;
 }
 #text-logo, #nameNeon {
   opacity: 0;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-In-Out;
+  animation-play-state: paused;
 }
 @keyframes draw {
   0%, 100% {
