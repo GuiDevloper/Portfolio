@@ -1,5 +1,6 @@
 <template>
   <div class="all">
+    <loading :loaded="Loaded"/>
     <div class="nome">GuiDevloper</div>
     <div class="row r1">
       <div class="column c1"></div>
@@ -57,7 +58,7 @@
         </div>
         <img v-for="(img, i) of imgs" :key="img[1]"
           :class="['img-pro' + img[0], { direitado: toBool(i) }]"
-          :src="imgs[i][1]">
+          :src="imgs[i][1]" @load="addLoad">
         <div id="colr" :class="{direitado: show.project}">
           <div class="codes">
             <div v-for="(code, i) of codes" :key="code[0][0]"
@@ -70,7 +71,7 @@
           </div>
           <div class="neon"></div>
           <div class="neon n2">
-            <img class="Dev-center" src="../assets/img/GuiDevloper.png">
+            <img class="Dev-center" src="../assets/img/GuiDevloper.png" @load="addLoad">
           </div>
           <p class="type tw">Código também</p>
         </div>
@@ -80,8 +81,13 @@
 </template>
 
 <script>
+import loading from '@/components/Loading.vue';
+
 export default {
   name: "Hello",
+  components: {
+    loading
+  },
   data: function() {
     return {
       show: {
@@ -163,7 +169,9 @@ export default {
       imgs: [
         [1, "/img/TheSea.34953e45.jpg"], [2, "/img/TheSea2.f70b81b5.jpg"],
         [1, "/img/Inspiration-d.f81d39da.jpg"], [2, "/img/Inspiration-w.170dfdd3.jpg"]
-      ]
+      ],
+      loadeds: 0,
+      Loaded: false
     };
   },
   created: function() {
@@ -218,6 +226,10 @@ export default {
     },
     bring(file) {
       return require(`@/assets/img/${file}.jpg`);
+    },
+    addLoad() {
+      // Acrescenta e testa se todas imgs carregaram
+      this.Loaded = ++this.loadeds > 4;
     }
   },
   mounted: function() {
