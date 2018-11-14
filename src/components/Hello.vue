@@ -17,8 +17,9 @@
           <div id="btns" :class="{list: !show.project}">
             <a v-for="op of options" :key="op[0]"
               @click="op[1].indexOf('Ver') === -1 ? openProject(op[0]) : ''"
-              v-html="op[1]"
-              :target="op[2]"
+              v-html="op[1]" :target="op[2]"
+              :style="[!show.project ?
+                {backgroundImage: `url(${imgs[op[0] < 2 ? op[0]*2 : 2][1]})`} : '']"
               :href="parse(op[3])">a</a>
           </div>
         </div>
@@ -56,7 +57,7 @@
         </div>
         <img v-for="(img, i) of imgs" :key="img[1]"
           :class="['img-pro' + img[0], { direitado: toBool(i) }]"
-          :src="require(`@/assets/img/${img[1]}.jpg`)">
+          :src="imgs[i][1]">
         <div id="colr" :class="{direitado: show.project}">
           <div class="codes">
             <div v-for="(code, i) of codes" :key="code[0][0]"
@@ -160,13 +161,17 @@ export default {
         ]
       ],
       imgs: [
-        [1, 'TheSea'], [2, 'TheSea2'],
-        [1, 'Inspiration-d'], [2, 'Inspiration-w']
+        [1, "/img/TheSea.34953e45.jpg"], [2, "/img/TheSea2.f70b81b5.jpg"],
+        [1, "/img/Inspiration-d.f81d39da.jpg"], [2, "/img/Inspiration-w.170dfdd3.jpg"]
       ]
     };
   },
   created: function() {
     this.options = this.options1[0];
+    /*for (let [i, img] of this.imgs.entries()) {
+      this.imgs[i][1] = this.bring(img[1]);
+    }
+    console.log(this.imgs);*/
   },
   methods: {
     openWorks(key) {
@@ -203,13 +208,16 @@ export default {
       return op.indexOf('/') !== -1 ?
         `${op + this.titulo.replace(' ', '')}` : null;
     },
-    toBool: function(i) {
+    toBool(i) {
       // Sendo par, diminui caso != 0
       i = i%2 == 0 ? (i==0 ? 0 : --i) :
       // sendo impar, diminui a divisão arredondada
         i - Math.round(i/2);
       // retorna booleano armazenado
       return !this.options1[0][i][2];
+    },
+    bring(file) {
+      return require(`@/assets/img/${file}.jpg`);
     }
   },
   mounted: function() {
@@ -258,8 +266,10 @@ $darken: #405165;
 }
 
 .mostrado {
-  opacity: 1 !important;
-  display: block !important;
+  margin-left: 10% !important;
+  margin-right: 0 !important;
+  /*opacity: 1 !important;
+  display: block !important;*/
 }
 .borrado {
   filter: blur(1px);
@@ -430,9 +440,10 @@ $darken: #405165;
   position: absolute;
   padding-right: 0px !important;
   z-index: 5;
-  opacity: 0;
-  transition: all 500ms;
-  display: none;
+  //opacity: 0;
+  transition: all 700ms;
+  //display: none;
+  margin-left: -100vw;
   .blur {
     position: absolute;
     height: 95%;
@@ -497,25 +508,28 @@ $darken: #405165;
       top: 50px;
       flex-direction: column;
       p, a {
+        background-image: url(/img/TheSea.34953e45.jpg);
         background-color: transparent;
+        background-position: 0 100px;
+        background-size: cover;
+        background-repeat: no-repeat;
         color: inherit;
         padding: 20px 0;
         overflow: hidden;
         flex: 1 0 auto;
         &:hover {
-          background-color: $black;
           color: #e5e5e5;
           background-size: cover;
           background-position: center;
           background-blend-mode: lighten;
         }
       }
-      a:nth-child(1):hover {
+      /*a:nth-child(1):hover {
         background-image: url('../assets/img/TheSea.jpg');
       }
       a:nth-child(2):hover {
         background-image: url('../assets/img/Inspiration-d.jpg');
-      }
+      }*/
     }
   }
 }
