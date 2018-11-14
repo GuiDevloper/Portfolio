@@ -174,7 +174,7 @@ export default {
       Loaded: false
     };
   },
-  created: function() {
+  created() {
     this.options = this.options1[0];
     /*for (let [i, img] of this.imgs.entries()) {
       this.imgs[i][1] = this.bring(img[1]);
@@ -232,15 +232,18 @@ export default {
       this.Loaded = ++this.loadeds > 4;
     }
   },
-  mounted: function() {
+  mounted() {
     var tis = this;
-    setInterval(function() {
+    setInterval(() => {
       tis.upMargin = true;
       var last = tis.codes[0];
-      setTimeout(() => { tis.codes.shift() }, 780);
-      setTimeout(function() {
-        tis.codes.push(last);
-        tis.upMargin = false;
+      setTimeout(() => {
+        tis.codes.shift();
+        // ao alterar data
+        tis.$nextTick(() => {
+          tis.codes.push(last);
+          tis.upMargin = false;
+        });
       }, 800);
     }, 5000);
   }
