@@ -94,6 +94,7 @@ footer {
     background: linear-gradient(to bottom, transparent 62%, #973333 0);
     z-index: 999;
     font-size: large;
+    font-weight: 600;
   }
   .p1 {
     color: #000000;

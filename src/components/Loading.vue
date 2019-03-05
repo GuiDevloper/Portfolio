@@ -1,6 +1,7 @@
 <template>
   <div id="loading" :style="back">
     <div id="placa">
+      <logo width="160px"></logo>
       <p id="type" v-text="typed"></p>
       <p id="nameNeon" :style="animNeon">グイデベロッパー</p>
       <svg width="100%">
@@ -13,9 +14,14 @@
 </template>
 
 <script>
+import logo from '@/components/Logo.vue';
+
 export default {
   name: 'loading',
   props: ['loaded'],
+  components: {
+    logo
+  },
   data: function() {
     return {
       typed: '',
@@ -83,7 +89,7 @@ export default {
   transition: 500ms ease-in;
 }
 #placa {
-  margin-top: 35vh;
+  margin-top: 20vh;
   text-align: center;
 }
 #text-logo, #placa p {
@@ -96,6 +102,7 @@ export default {
   width: 100%;
   position: absolute;
   margin-top: 52px;
+  margin-top: 20px;
   font-family: "Special Elite";
   text-shadow: 0px 0px 5px #cc4e4e;
 }
@@ -110,6 +117,7 @@ export default {
   text-anchor: middle;
   font-family: 'Great Vibes';
   animation-name: draw;
+  font-size: 3.5rem;
 }
 #text-logo, #nameNeon {
   opacity: 0;

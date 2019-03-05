@@ -14,7 +14,7 @@
         </div>
         <div class="text">
           <p class="author"> {{ titulo }} </p>
-          <p class="postText"> {{ subTitulo }} </p>
+          <p class="postText" v-html="subTitulo"></p>
           <div id="btns" :class="{list: !show.project}">
             <a v-for="op of options" :key="op[0]"
               @click="op[1].indexOf('Ver') === -1 ? openProject(op[0]) : ''"
@@ -28,18 +28,7 @@
       <div class="column c1" :class="{borrado: show.description}">
         <p class="type">Design está em tudo</p>
         <div class="neon n1"></div>
-        <div class="image">
-          <svg xmlns="http://www.w3.org/2000/svg" class="i1" viewBox="0 0 144 149"><title>Triangulo amarelo</title><path d="M110 10l27 132-127-41 100-91m3-10l-7 6L6 97l-6 6 8 3 128 41 8 2-2-8-9-46-18-86-2-9z" class="cls-1"/><path d="M110 10l28 132-128-41z" class="cls-2"/></svg>
-          <svg xmlns="http://www.w3.org/2000/svg" class="i2" viewBox="0 0 33 115"><title>Traço verde</title><path d="M10 111c-4-10-5-20-3-30a37 37 0 0 1 6-14l10-11c13-15 13-36 6-54-2-4-8-2-6 2 4 9 6 20 4 31a37 37 0 0 1-7 15l-9 10C-2 75-2 95 4 113c1 3 7 2 6-2z" class="cls-1"/></svg>
-          <svg xmlns="http://www.w3.org/2000/svg" class="i3" viewBox="0 -20 228 235"><title>Triangulo azul</title><path d="M27 10l91 77L6 128 27 10M24 0l-2 9L1 127l-1 8 8-3 89-32 23-8 8-3-7-5-31-27L30 6l-6-6z" class="cls-1"/><path d="M27 9l91 78L6 127 27 9z" class="cls-2"/></svg>
-          <svg xmlns="http://www.w3.org/2000/svg" class="i4" viewBox="0 0 112 112"><title>Circulo vermelho</title><path d="M56 5a51 51 0 1 1-18 3 51 51 0 0 1 18-3m0-5a56 56 0 1 0 31 10A56 56 0 0 0 56 0z" class="cls-1"/><circle cx="56" cy="56" r="51" class="cls-2" transform="rotate(-19 56 56)"/></svg>
-          <svg xmlns="http://www.w3.org/2000/svg" class="i5" viewBox="0 0 112 112"><title>Quadrado marrom</title><path d="M80 6l26 74-74 26L6 32 80 6m3-6l-5 2L5 28l-5 1 2 5 26 74 1 4 5-1 74-26 4-2-1-5L85 5l-2-5z" class="cls-1"/><path d="M6 32L80 6l26 74-74 26z" class="cls-2"/></svg>
-          <svg xmlns="http://www.w3.org/2000/svg" class="i6" viewBox="0 0 66 99"><title>Traço azul</title><path d="M65 93c-9-5-18-12-23-21a37 37 0 0 1-5-15V42C36 23 22 8 5 0 1-1-2 4 2 5c9 5 17 11 23 20s6 18 6 28c0 20 14 36 31 45 3 2 6-3 3-5z" class="cls-1"/></svg>
-          <svg xmlns="http://www.w3.org/2000/svg" class="i7" viewBox="0 -20 228 235"><title>Triangulo verde</title><path d="M27 10l91 77L6 128 27 10M24 0l-2 9L4 111l-3 16-1 8 8-3 112-40 8-3-7-5-74-64L30 6l-6-6z" class="cls-1"/><path d="M27 10l91 77L6 128 27 10z" class="cls-2"/></svg>
-          <svg xmlns="http://www.w3.org/2000/svg" class="i8" viewBox="0 -20 200 150"><title>Quadrado azul</title><path d="M34 6l84 28-28 84L6 90 34 6m-3-6l-2 5L2 89l-2 4 5 2 84 27 4 2 2-5 27-84 2-4-5-2L35 2l-4-2z" class="cls-1"/><path d="M6 90L34 6l84 28-28 83z" class="cls-2"/></svg>
-          <svg xmlns="http://www.w3.org/2000/svg" class="i9" viewBox="0 0 112 112"><title>Circulo vermelho e amarelo</title><path d="M56 5a51 51 0 1 1-18 3 51 51 0 0 1 18-3m0-5a56 56 0 1 0 31 10A56 56 0 0 0 56 0z" class="cls-1"/><circle cx="56" cy="56" r="51" class="cls-2" transform="rotate(-19 56 56)"/><circle cx="56" cy="56" r="51" class="cls-3" transform="rotate(-19 56 56)"/></svg>
-          <svg xmlns="http://www.w3.org/2000/svg" class="i10" viewBox="0 0 93 96"><title>Traço vermelho</title><path d="M6 94c3-11 8-22 17-30a42 42 0 0 1 14-9l16-4c22-6 35-26 40-47 0-4-5-6-6-2-3 12-7 23-16 31-8 9-18 12-30 14C19 52 5 72 0 93c-1 3 5 5 6 1z" class="cls-1"/></svg>
-        </div>
+        <shapes></shapes>
       </div>
       <div id="menu">
         <div class="menu">
@@ -48,7 +37,7 @@
           <div></div>
         </div>
         <div class="logo-center">
-          <svg xmlns="http://www.w3.org/2000/svg" id="img-logo" viewBox="0 0 130.1 146.3"><defs><clipPath id="clip-path"><path d="M51.2 16A61.9 61.9 0 0 1 75 21.2a19.6 19.6 0 0 1 5.7 3.6c3.7 3.4 4.1 7.6 1.1 11.7a34.8 34.8 0 0 1-15.7 11.7 57 57 0 0 1-50.7-4.5 10.6 10.6 0 0 1-2.7-2.2c-3-3.4-3.1-7.3-.1-10.8s7-5.8 11.1-8A58.8 58.8 0 0 1 51.2 16z" class="cls-1"/></clipPath><clipPath id="clip-path-2"><path d="M13.7 49.4l4.1-31.5h60.4l4.1 31.5H13.7z" class="cls-1"/></clipPath><clipPath id="clip-path-3"><path d="M65.8 99.7l3-29 15.5-7.2-3 29-15.5 7.2z" class="cls-1"/></clipPath><clipPath id="clip-path-4"><path d="M20.1 92l-6-25.2H34L40 92H20z" class="cls-1"/></clipPath><filter id="dropshadow"><feGaussianBlur in="SourceAlpha" stdDeviation="1"/><feOffset dx="2" dy="2" result="offsetblur"/><feFlood flood-color="rgba(0,0,0,0.5)"/><feComposite in2="offsetblur" operator="in"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><g id="Normal_Code" data-name="Normal Code"><path d="M47.3 56.2c-10.1.3-19.1-2.9-27.9-7a65.8 65.8 0 0 1-14.7-9c-5.2-4.5-6.3-11.3-2.1-16.5A65.4 65.4 0 0 1 37.3 1.2a38.5 38.5 0 0 1 21.5.7c8.1 2.6 16.4 4.8 24 8.8a20.9 20.9 0 0 1 7.7 6.1 10.3 10.3 0 0 1 1.1 10.8 43.2 43.2 0 0 1-13 17.2 48.4 48.4 0 0 1-31.3 11.4z" class="cls-2"/><path d="M52 126.3c-7.9 0-16-4-23.6-8.7-4.7-3-8.8-6.5-11.6-11.4-1.8-3.3-2-7-2.7-10.6C10 76.4 7 57 1 38.3c-1.5-4.9-1.7-9.5.7-14A24.1 24.1 0 0 1 8.3 17 93 93 0 0 1 30.6 3.3a41 41 0 0 1 27.2-1.8 133.2 133.2 0 0 1 26 9.8A20.6 20.6 0 0 1 89 15 13 13 0 0 1 92.6 28C91 34.6 91.3 41.5 91 48.3c0 1 .7 1.2 1.5 1.5l14.5 5.3a20.5 20.5 0 0 1 4.6 2.7c3.6 2.5 5.7 5.8 5.6 10.5-.2 5-.4 9.9-1.7 14.7-2.7 10-9.6 15.7-19.5 17.8-2 .5-4 1.1-6 1.4a4.6 4.6 0 0 0-3.7 2.7 41.5 41.5 0 0 1-9.6 12.4c-6.6 5.9-14.3 9-24.6 9zm53.8-49.6c.4-4-1.4-7-4.6-9.3a29.4 29.4 0 0 0-9.4-4.3c-1.2-.3-1.6 0-1.6 1.2L90 75v13.4c0 .8-.1 1.8 1.1 1.8 4 0 7.8-.2 11.5-1.8a4.3 4.3 0 0 0 3-4c0-1.7 0-3.5.2-5.7v-2.1z" filter="url(#dropshadow)" class="cls-2"/><path fill="#daa662" d="M90.7 63.5c4-.1 9.2 2.5 12 5.5 2.4 2.8 3 6.5 3 10.2 0 2.9.1 6.7-2.5 8.6-3.3 2.4-9.1 2.2-13 2-.5 0-.5.6 0 .7 4 .2 10.8.4 14-2.5 2.2-2 2.2-5.6 2.2-8.2 0-4.5-.3-8.6-3.8-11.8a18 18 0 0 0-12-5.2c-.4 0-.5.8 0 .7z"/><path fill="#523035" d="M51.2 16A61.9 61.9 0 0 1 75 21.2a19.6 19.6 0 0 1 5.7 3.6c3.7 3.4 4.1 7.6 1.1 11.7a34.8 34.8 0 0 1-15.7 11.7 57 57 0 0 1-50.7-4.5 10.6 10.6 0 0 1-2.7-2.2c-3-3.4-3.1-7.3-.1-10.8s7-5.8 11.1-8A58.8 58.8 0 0 1 51.2 16z" opacity=".8"/><g clip-path="url(#clip-path)"><g clip-path="url(#clip-path-2)" opacity=".7"><path d="M44.8 17.9H34.4v1.8h10.3v-1.8" class="cls-9"/><path d="M66.4 17.9H45.7v1.8h20.9l-.2-1.8" class="cls-10"/><path d="M27.6 23.8H17l-.2 2h10.7l.1-2" class="cls-9"/><path d="M49.9 23.8H28.6l-.2 2H50v-2" class="cls-11"/><path d="M67 23.8H51v2h16v-2" class="cls-12"/><path d="M42.1 26.9H20.6l-.3 2h21.8v-2" class="cls-11"/><path d="M72.7 26.9H43.2v2h29.7l-.2-2" class="cls-12"/><path d="M27.1 30H16.2l-.3 2h11l.2-2" class="cls-9"/><path d="M42 33.3H19.8l-.2 2h22.3v-2" class="cls-11"/><path d="M58.7 33.3H43v2h15.8l-.1-2" class="cls-12"/><path d="M76.8 33.3H59.6l.1 2H77l-.2-2" class="cls-13"/><path d="M72.7 20.8H17.5l-.2 1.9H73l-.2-1.9" class="cls-14"/><path d="M57.3 36.6H35l-.1 2h22.6v-2" class="cls-13"/><path d="M34 36.6H19.4l-.2 2h14.6l.2-2" class="cls-12"/><path d="M65.8 40H19l-.3 2.1H66l-.1-2.1" class="cls-14"/><path d="M79 23.8H67.8l.1 2h11.3l-.3-2" class="cls-13"/><path d="M30 43.5H18.6l-.3 2.2h11.6l.1-2.2" class="cls-9"/><path d="M48.6 43.5H31.1l-.2 2.2h17.7v-2.2" class="cls-10"/><path d="M72.3 43.5h-23v2.2h23.2l-.2-2.2" class="cls-13"/><path d="M66.3 47h-48l-.3 2.4h48.5l-.2-2.3" class="cls-11"/></g></g><g clip-path="url(#clip-path-3)"><path fill="#daa663" d="M76.4 67.2a11.2 11.2 0 0 0-1.6 1 15.8 15.8 0 0 0-5.3 6.7 22.3 22.3 0 0 0-2 9.4v4.9c0 3.3.8 5.5 2.2 6.6a3.7 3.7 0 0 0 4.1.2 10.2 10.2 0 0 0 1.4-.8 18 18 0 0 0 4.3-4.1 16.7 16.7 0 0 0 2.3-4v-9.4L75 82.3v1.8l5-3.5.2 6.8a11.8 11.8 0 0 1-1.9 3 15.3 15.3 0 0 1-3.2 3 7.5 7.5 0 0 1-1.1.6 2.8 2.8 0 0 1-3.3-.3q-1.7-1.5-1.7-5.6v-4.9a19.3 19.3 0 0 1 1.5-7.7 12.1 12.1 0 0 1 4.2-5.5 10.8 10.8 0 0 1 1.3-.8 2.6 2.6 0 0 1 2.4-.2c.9.5 1.4 1.6 1.7 3.2l1.4-1v-.1q-.3-3.2-2-4.1a3.5 3.5 0 0 0-3.2.2"/></g><g clip-path="url(#clip-path-4)"><path d="M20.8 67a4 4 0 0 0-4.1 3 5 5 0 0 1 .6 0c2 0 7.3.7 10 7.9 2.7 7 7.9 7.7 9.9 7.7h.7c.6-8.4-9-15.2-9-15.3a16.1 16.1 0 0 0-8-3.1" class="cls-18"/><path d="M16.7 70a4 4 0 0 1 4.1-2.9c1.8 0 4.4.8 8.1 3.1.1 0 9.6 7 9 15.4h-.7c-2 0-7.2-.7-9.9-7.8s-8-7.9-10-7.9a5 5 0 0 0-.6 0m4-3a4.1 4.1 0 0 0-4.3 3.1v.1h.1a5.8 5.8 0 0 1 .8 0c2 0 7.2.8 9.8 7.8 2.8 7.2 8.1 8 10.1 8a7.4 7.4 0 0 0 .8 0v-.2C38.8 77 29 70 29 70a16.4 16.4 0 0 0-8.2-3.1" class="cls-19"/><path d="M16.9 73.2a6.7 6.7 0 0 0-.8 0c-.5 8.5 9 15.3 9 15.4a16 16 0 0 0 8.1 3 4 4 0 0 0 4.2-2.8h-.7c-2 0-7.3-.7-10-7.9-2.6-7-7.8-7.7-9.8-7.7" class="cls-18"/><path d="M33.3 91.7a16 16 0 0 1-8.1-3c-.1-.1-9.7-7-9-15.4a6.7 6.7 0 0 1 .7 0c2 0 7.2.7 9.9 7.7 2.6 7.2 8 8 10 8h.6a4 4 0 0 1-4.1 2.8M16.8 73a6 6 0 0 0-.8 0c-.7 8.8 9 15.8 9.1 15.8 3.7 2.4 6.4 3.2 8.2 3.2a4.1 4.1 0 0 0 4.3-3.2v-.1a6 6 0 0 1-.9 0c-2 0-7.1-.7-9.8-7.7-2.7-7.3-8-8-10.1-8" class="cls-19"/></g></g></svg>
+          <logo></logo>
           <p class="t-menu">Menu</p>
         </div>
       </div>
@@ -82,11 +71,15 @@
 
 <script>
 import loading from '@/components/Loading.vue';
+import shapes from '@/components/Shapes.vue';
+import logo from '@/components/Logo.vue';
 
 export default {
   name: "Hello",
   components: {
-    loading
+    loading,
+    shapes,
+    logo
   },
   data: function() {
     return {
@@ -120,7 +113,14 @@ export default {
         compilations and rebuilds.`,
         `Actually i work with diverse tools and
         continually learn others, in ancient i has edit images in Photoshop
-        and create some films with After Effects.`
+        and create some films with After Effects.`,
+        `A missão é principalmente oferecer uma forma de pessoas compartilharem o que tem sonhado,
+          dormindo ou não.<br>
+          O sonhador cria sua conta e customizará seu perfil.<br>
+          Após isso, pode escrever seus sonhos em estilo de post, podendo adicionar imagem de fundo.<br>
+          Outros sonhadores ao lerem este sonho, podem demonstrar simples opiniões com um slider estilo:<br>
+          <code>Sonho Bem Imaginado -> Pode Ser Realizado</code>.<br>
+          Ou com comentários possivelmente complexos usando texto.`
       ],
       upMargin: false,
       codes: [
@@ -305,92 +305,7 @@ $darken: #405165;
   margin-top: 31%;
 }
 
-.image {
-  z-index: -3;
-  text-align: justify;
-  svg {
-    height: 10%;
-    position: absolute;
-    filter: drop-shadow(5px 5px 4px rgba(57, 60, 62, 0.5));
-  }
-  .cls-2, .cls-3 {
-    transform: scale(1.02) translate(-1px, -1px);
-  }
-  .cls-1 {
-    fill: $darken;
-  }
-  .i1 {
-    margin: 2vw 0 0 2vw;
-    .cls-2 {
-      fill: #c5a76f;
-    }
-  }
-  .i2 {
-    margin: 13vh 0 0 20%;
-    height: 5%;
-    .cls-1 {
-      fill: #76a880;
-    }
-  }
-  .i3 {
-    margin: 6vh 0 0 35%;
-    height: 8%;
-    .cls-2 {
-      fill: #54769b;
-    }
-  }
-  .i4 {
-    margin: 40vh 0 0 4%;
-    height: 6%;
-    .cls-2 {
-      fill: #c35b53;
-    }
-  }
-  .i5 {
-    margin: 40vh 0 0 25%;
-    .cls-2 {
-      fill: #654344;
-    }
-  }
-  .i6 {
-    margin: 45vh 0 0 40%;
-    height: 6%;
-    .cls-1 {
-      fill: #54769b;
-    }
-  }
-  .i7 {
-    margin: 65vh 0 0 5%;
-    height: 10%;
-    .cls-2 {
-      fill: #76a880;
-    }
-  }
-  .i8 {
-    margin: 65vh 0 0 25%;
-    height: 8%;
-    .cls-2 {
-      fill: #54769b;
-    }
-  }
-  .i9 {
-    margin: 76vh 0 0 40%;
-    height: 7%;
-    .cls-2 {
-      fill: #c5a76f;
-    }
-    .cls-3 {
-      fill: #76a880;
-    }
-  }
-  .i10 {
-    margin: 85vh 0 0 10%;
-    height: 7%;
-    .cls-1 {
-      fill: #c35b53;
-    }
-  }
-}
+
 
 .codes {
   z-index: 1;
@@ -809,17 +724,7 @@ $neon-color: "rgba(240, 74, 74";
       margin: 400px 0 0 5%;
     }
   }
-  .image {
-    .i2 {margin: 100px 0 0 45%;}
-    .i3 {margin: 20px 0 0 80%;}
-    .i4 {margin: 190px 0 0 5%;}
-    .i5 {margin: 250px 0 0 35%;}
-    .i6 {margin: 150px 0 0 85%;}
-    .i7 {margin: 350px 0 0 5%;}
-    .i8 {margin: 420px 0 0 45%;}
-    .i9 {margin: 340px 0 0 85%;}
-    .i10 {margin: 500px 0 0 10%;}
-  }
+
 }
 
 // for phone styles
@@ -878,70 +783,4 @@ $neon-color: "rgba(240, 74, 74";
       }
     }
   }
-
-#img-logo {
-  height: 70%;
-  margin: 8% 25% 0;
-  .cls-1 {
-    fill: none;
-  }
-  .cls-2 {
-    fill: #c54845;
-  }
-  .cls-3 {
-    fill: #daa662;
-  }
-  .cls-4 {
-    fill: #523035;
-    opacity: 0.8;
-  }
-  .cls-5 {
-    clip-path: url(#clip-path);
-  }
-  .cls-6 {
-    opacity: 0.7;
-  }
-  .cls-7 {
-    isolation: isolate;
-  }
-  .cls-8 {
-    clip-path: url(#clip-path-2);
-  }
-  .cls-9 {
-    fill: #b95a51;
-  }
-  .cls-10 {
-    fill: #b08168;
-  }
-  .cls-11 {
-    fill: #517194;
-  }
-  .cls-12 {
-    fill: #73a17b;
-  }
-  .cls-13 {
-    fill: #c0a36d;
-  }
-  .cls-14 {
-    fill: #91969a;
-  }
-  .cls-15 {
-    clip-path: url(#clip-path-3);
-  }
-  .cls-16 {
-    fill: #daa663;
-  }
-  .cls-17 {
-    clip-path: url(#clip-path-4);
-  }
-  .cls-18 {
-    fill: #6d4045;
-  }
-  .cls-19 {
-    fill: #6b3f44;
-  }
-  .cuplogo {
-    filter: url(#dropshadow);
-  }
-}
 </style>
