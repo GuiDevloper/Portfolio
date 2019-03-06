@@ -1,29 +1,27 @@
 <template>
   <div id="contact">
     <div class="email">
-      <form>
-        <legend>Email</legend>
-        <input placeholder="Seu email"/>
-        <input placeholder="Sobre o que deseja conversar?"/>
-        <textarea placeholder="Sua mensagem"/>
-      </form>
+      <p>Vamos conversar?</p>
+      <p>
+        <i class="material-icons">email</i> guicorrea384@gmail.com
+      </p>
     </div>
     <div class="social">
-      <p>Likes to see me and my experiments?</p>
+      <p>Gostou de me ver experimentando coisas?</p>
       <div class="git">
-				<a target="_blank" href="https://github.com/GuiDevloper">
-					<img src="../assets/img/GitHub.png">
-					<span>/GuiDevloper</span>
-				</a>
-        <span> - See me on GitHub</span>
-		  </div>
-			<div class="insta">
-				<a target="_blank" href="https://instagram.com/GuiDevloper">
-			  	<img src="../assets/img/insta.png">
-					<span>/GuiDevloper</span>
-				</a>
-        <span> - Follow me on Instagram</span>
-			</div>
+        <span>Veja mais em</span>
+        <a target="_blank" href="https://github.com/GuiDevloper">
+          <img src="../assets/img/GitHub.png">
+          <span>/GuiDevloper</span>
+        </a>
+      </div>
+      <div class="insta">
+        <span>Me siga</span>
+        <a target="_blank" href="https://instagram.com/GuiDevloper">
+          <img src="../assets/img/insta.png">
+          <span>/GuiDevloper</span>
+        </a>
+      </div>
     </div>
   </div>
 </template>
@@ -35,48 +33,37 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$black: #20272f;
 #contact {
   min-height: 300px;
   z-index: 3;
   position: relative;
-  .email,
-  .social {
-    height: 100%;
-    float: left;
-    padding: 3% 5% 0%;
-    width: 50%;
-  }
 }
-$black: #20272f;
-input,
-textarea, legend, a {
-  color: $black !important;
+.email p {
+  color: #e5e5e5;
+  background: #20272f;
+  padding: 2px 0;
+  margin: 30px 20% 0;
+  margin: 30px calc(30% - 85px) 0;
 }
-a,
-legend {
-  font-weight: bold;
+.email i {
+  vertical-align: middle;
+  padding: 0 5px;
+}
+.email,
+.social {
+  height: 100%;
+  float: left;
+  padding: 3% 5% 0%;
+  width: 50%;
 }
 a {
+  color: $black !important;
+  font-weight: bold;
   background: #e5e5e5;
   padding: 0 1px;
 }
-input,
-textarea {
-  width: 50%;
-  margin: 1vh 5%;
-  background-color: transparent;
-  border: 0;
-  caret-color: red;
-  border-radius: 2px;
-  border-bottom: solid #3b4b5f;
-}
-textarea {
-  height: 60px;
-  resize: none;
-}
 .social {
-  height: 20vh;
-  padding-bottom: 3%;
   img {
     height: 15px;
   }
@@ -88,7 +75,7 @@ textarea {
     padding-top: 4%;
   }
 }
-@import '../assets/CSS/breakpoints';
+@import "../assets/CSS/breakpoints";
 @include for-phone-tablet {
   .email,
   .social {
@@ -98,11 +85,6 @@ textarea {
   #contact {
     min-height: 330px;
     margin-top: 20px;
-  }
-  input,
-  textarea {
-    width: 100%;
-    margin: 2% 0;
   }
 }
 </style>
