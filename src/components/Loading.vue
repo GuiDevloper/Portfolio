@@ -1,16 +1,18 @@
 <template>
-  <div id="loading" :style="back">
-    <div id="placa">
-      <logo width="160px"></logo>
-      <p id="type" v-text="typed"></p>
-      <p id="nameNeon" :style="animNeon">グイデベロッパー</p>
+  <section class="loading" :style="back">
+    <div class="placa">
+      <figure>
+        <logo width="160px"></logo>
+      </figure>
+      <p class="type" v-text="typed"></p>
+      <p class="nameNeon" :style="animNeon">グイデベロッパー</p>
       <svg width="100%">
-        <text x="50%" y="60%" id="text-logo" text-archor="middle" :style="animDraw">
+        <text x="50%" y="60%" class="text-logo" text-archor="middle" :style="animDraw">
           GuiDevloper
         </text>
       </svg>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -80,7 +82,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#loading {
+.loading {
   z-index: 9999;
   width: 100vw;
   height: 100vh;
@@ -88,11 +90,11 @@ export default {
   position: fixed;
   transition: 500ms ease-in;
 }
-#placa {
+.placa {
   margin-top: 20vh;
   text-align: center;
 }
-#text-logo, #placa p {
+.text-logo, .placa p {
   stroke: white;
   stroke-width: 2px;
   stroke-dashoffset: 150%;
@@ -106,20 +108,20 @@ export default {
   font-family: "Special Elite";
   text-shadow: 0px 0px 5px #cc4e4e;
 }
-#nameNeon {
+.nameNeon {
   color: #388E3C;
   transform-origin: center;
   font-family: 'Raleway' !important;
   text-shadow: 0px 0px 5px #388E3C !important;
   animation-name: vanishIn;
 }
-#text-logo {
+.text-logo {
   text-anchor: middle;
   font-family: 'Great Vibes';
   animation-name: draw;
   font-size: 3.5rem;
 }
-#text-logo, #nameNeon {
+.text-logo, .nameNeon {
   opacity: 0;
   animation-fill-mode: forwards;
   animation-timing-function: ease-In-Out;
@@ -156,7 +158,7 @@ export default {
   }
 }
 @media screen and (min-width: 899px) {
-  #text-logo, #placa p {
+  .text-logo, .placa p {
     font-size: 4rem;
     margin-top: 30px;
   }

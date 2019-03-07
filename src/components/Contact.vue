@@ -1,29 +1,29 @@
 <template>
-  <div id="contact">
-    <div class="email">
-      <p>Vamos conversar?</p>
+  <article id="contact">
+    <section class="email">
+      <h4>Vamos conversar?</h4>
       <p>
         <i class="material-icons">email</i> guicorrea384@gmail.com
       </p>
-    </div>
-    <div class="social">
-      <p>Gostou de me ver experimentando coisas?</p>
+    </section>
+    <section class="social">
+      <h4>Gostou de ver meus experimentos?</h4>
       <div class="git">
-        <span>Veja mais em</span>
+        <span>Veja mais em </span>
         <a target="_blank" href="https://github.com/GuiDevloper">
           <img src="../assets/img/GitHub.png">
           <span>/GuiDevloper</span>
         </a>
       </div>
       <div class="insta">
-        <span>Me siga</span>
+        <span>Me siga no </span>
         <a target="_blank" href="https://instagram.com/GuiDevloper">
           <img src="../assets/img/insta.png">
           <span>/GuiDevloper</span>
         </a>
       </div>
-    </div>
-  </div>
+    </section>
+  </article>
 </template>
 
 <script>
@@ -39,7 +39,7 @@ $black: #20272f;
   z-index: 3;
   position: relative;
 }
-.email p {
+.email p, .email h4 {
   color: #e5e5e5;
   background: #20272f;
   padding: 2px 0;
@@ -70,7 +70,7 @@ a {
   div {
     padding-top: 5%;
   }
-  p {
+  p, h4 {
     margin: 0;
     padding-top: 4%;
   }

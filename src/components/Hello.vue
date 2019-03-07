@@ -1,18 +1,14 @@
 <template>
-  <div class="all">
+  <section class="all">
     <loading :loaded="Loaded"/>
-    <div class="nome">GuiDevloper</div>
-    <div class="row r1">
-      <div class="column c1"></div>
-      <div class="column c2"></div>
-    </div>
-    <div class="row r2">
-      <div class="post c-1o3 m-1o1"
+    <section class="row r1">
+      <article class="post c-1o3 m-1o1"
         :class="{mostrado: show.description}">
-        <div class="blur">
-          <img src="../assets/img/shapes.jpg" height="100%">
-        </div>
-        <div class="text">
+        <figure class="blur">
+          <img src="../assets/img/shapes.jpg" height="100%" alt="Círculos e triangulos coloridos desenhados">
+          <figcaption>Versatilidade do Design</figcaption>
+        </figure>
+        <section class="text">
           <p class="author"> {{ titulo }} </p>
           <p class="postText" v-html="subTitulo"></p>
           <div id="btns" :class="{list: !show.project}">
@@ -23,24 +19,27 @@
                 {backgroundImage: `url(${imgs[op[0] < 2 ? op[0]*2 : 2][1]})`} : '']"
               :href="parse(op[3])">a</a>
           </div>
-        </div>
-      </div>
-      <div class="column c1" :class="{borrado: show.description}">
-        <p class="type">Design está em tudo</p>
+        </section>
+      </article>
+      <section class="column c1" :class="{borrado: show.description}">
+        <h1 class="type">Design está em tudo</h1>
         <div class="neon n1"></div>
         <shapes></shapes>
-      </div>
-      <div id="menu">
-        <div class="menu">
-          <div id="item1" @click="openWorks(0)">Trabalhos</div>
-          <div></div>
-          <div></div>
-        </div>
-        <div class="logo-center">
-          <logo></logo>
-          <p class="t-menu">Menu</p>
-        </div>
-      </div>
+      </section>
+      <nav id="menu">
+        <ul class="menu">
+          <li id="item1" @click="openWorks(0)">
+            <i class="material-icons">local_cafe</i>
+            <p>Trabalhos</p>
+          </li>
+          <li></li>
+          <li></li>
+        </ul>
+        <section class="logo-center">
+          <logo width="60%"></logo>
+          <h1 class="t-menu">Menu</h1>
+        </section>
+      </nav>
       <div class="column c2">
         <div class="bg-r">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1409 2749"><path d="M110 10c-1-1-10 22-19 47a1336 1336 0 0 0-52 168 648 648 0 0 0-9 366c14 59 27 80 44 128 32 93 38 169 43 243 7 94 12 167-11 260-19 77-45 114-62 220-3 23-9 59-10 105-4 229 91 267 77 527-6 117-30 127-37 246-4 63 12 218 64 422l1264-3-3-2731-1289 2z" class="cls-2"/><path d="M104 4a1600 1600 0 0 0-21 52l-21 58c-17 53-31 107-43 161a642 642 0 0 0 36 416 741 741 0 0 1 43 159c8 50 11 102 14 153 4 55 6 112-3 167-7 45-21 89-36 132s-28 87-35 133c-14 88-16 177 3 265 15 68 41 133 54 202 16 91 15 188-6 278-16 69-26 136-21 207 6 91 23 181 42 270l21 87a8 8 0 0 0 7 5l986-2 278-1a8 8 0 0 0 7-7v-617l-1-703-1-668V83 11 7a8 8 0 0 0-8-7h-128L964 1 592 2H112c-1 0-4 0 0 0-10-2-14 13-4 15 11 2 24 0 36 0h401l372-1 323-1h157a10 10 0 0 1 2 0l-7-7v670l1 654 1 705v702l8-8-986 2-278 1 7 6c-25-100-46-202-57-305-8-70-9-139 6-209 7-35 17-70 21-106a795 795 0 0 0 3-156c-6-72-27-141-47-210a680 680 0 0 1-2-390c10-38 25-75 37-113a582 582 0 0 0 24-154c2-53-3-107-7-160-4-49-9-98-20-146-12-49-30-94-47-140-34-90-48-189-38-284 6-54 20-108 33-160A1344 1344 0 0 1 93 70l12-30a1154 1154 0 0 1 10-25c6-7-4-18-11-11z" class="cls-2"/></svg>
@@ -49,7 +48,7 @@
           :class="['img-pro' + img[0], { direitado: toBool(i) }]"
           :src="imgs[i][1]" @load="addLoad">
         <div id="colr" :class="{direitado: show.project}">
-          <div class="codes">
+          <section class="codes">
             <div v-for="(code, i) of codes" :key="code[0][0]"
               :class="{ up: i == 0 ? upMargin : false }">
               <p v-for="c of code" :key="c[0]"
@@ -57,16 +56,17 @@
                 v-text="c[1]">
               </p>
             </div>
-          </div>
+          </section>
           <div class="neon"></div>
           <div class="neon n2">
             <img class="Dev-center" src="../assets/img/GuiDevloper.png" @load="addLoad">
+            <title>GuiDevloper desenhado</title>
           </div>
-          <p class="type tw">Código também</p>
+          <h1 class="type tw">Código também</h1>
         </div>
       </div>
-    </div>
-  </div>
+    </section>
+  </section>
 </template>
 
 <script>
@@ -256,11 +256,6 @@ export default {
   min-height: 98vh;
   height: 790px;
 }
-.back-inicial-anim {
-  transform: translateX(-100%) translateY(0px) translateZ(0px) scaleX(1)
-    scaleY(1) scaleZ(1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skewX(0deg)
-    skewY(0deg);
-}
 $black: #20272f;
 $white: #e5e5e5;
 $darken: #405165;
@@ -274,6 +269,7 @@ $darken: #405165;
   text-shadow: 15px 8px 10px rgba(0, 0, 0, 0.2);
   padding: 0 5% 5% 0;
   &.tw {
+    letter-spacing: 1px;
     margin: 730px 0 0 5%;
     color: inherit;
     text-shadow: 15px 8px 10px #171717;
@@ -304,8 +300,6 @@ $darken: #405165;
 .img-pro2 {
   margin-top: 31%;
 }
-
-
 
 .codes {
   z-index: 1;
@@ -471,13 +465,6 @@ $darken: #405165;
   width: 100%;
   position: absolute;
 }
-.r1 .c1,
-.r1 .c2 {
-  width: 50%;
-  background: #ff9e67;
-  height: 100%;
-  border-radius: 0;
-}
 $neon-color: "rgba(240, 74, 74";
 .neon {
   position: absolute;
@@ -512,14 +499,6 @@ $neon-color: "rgba(240, 74, 74";
   height: 810px;
 }
 .r1 {
-  z-index: 6;
-  display: none;
-  height: 100vh;
-  width: 100vw;
-  position: fixed !important;
-  margin-top: -8px;
-}
-.r2 {
   .c1 {
     z-index: 1;
   }
@@ -531,19 +510,9 @@ $neon-color: "rgba(240, 74, 74";
     transition: all 400ms;
   }
 }
-.nome,
 .t-menu {
   color: #c35b53;
   font-family: "Great Vibes";
-}
-.nome {
-  position: absolute;
-  z-index: 7;
-  margin: 250px 0 0 40%;
-  font-size: 70px;
-  font-weight: 700;
-  opacity: 0;
-  display: none;
 }
 .t-menu {
   margin-top: -10px;
@@ -581,8 +550,17 @@ $neon-color: "rgba(240, 74, 74";
   transition: 250ms ease-in;
   display: flex;
   flex-direction: column;
+  padding: 0;
   div {
     flex: 1;
+  }
+  i {
+    font-size: 2rem;
+    padding: 30px 0 0;
+    transition: 200ms;
+  }
+  div:hover i {
+    color: #FFF59D;
   }
 }
 #menu {
@@ -641,7 +619,7 @@ $neon-color: "rgba(240, 74, 74";
   .all {
     height: 960px;
   }
-  .r2 {
+  .r1 {
     .c1 {
       height: 600px;
       position: absolute;

@@ -1,5 +1,5 @@
 <template>
-  <div class="image">
+  <figure class="image">
     <svg xmlns="http://www.w3.org/2000/svg" class="i1" viewBox="0 0 144 149"><title>Triangulo amarelo</title><path d="M110 10l27 132-127-41 100-91m3-10l-7 6L6 97l-6 6 8 3 128 41 8 2-2-8-9-46-18-86-2-9z" class="cls-1"/><path d="M110 10l28 132-128-41z" class="cls-2"/></svg>
     <svg xmlns="http://www.w3.org/2000/svg" class="i2" viewBox="0 0 33 115"><title>Traço verde</title><path d="M10 111c-4-10-5-20-3-30a37 37 0 0 1 6-14l10-11c13-15 13-36 6-54-2-4-8-2-6 2 4 9 6 20 4 31a37 37 0 0 1-7 15l-9 10C-2 75-2 95 4 113c1 3 7 2 6-2z" class="cls-1"/></svg>
     <svg xmlns="http://www.w3.org/2000/svg" class="i3" viewBox="0 -20 228 235"><title>Triangulo azul</title><path d="M27 10l91 77L6 128 27 10M24 0l-2 9L1 127l-1 8 8-3 89-32 23-8 8-3-7-5-31-27L30 6l-6-6z" class="cls-1"/><path d="M27 9l91 78L6 127 27 9z" class="cls-2"/></svg>
@@ -10,7 +10,7 @@
     <svg xmlns="http://www.w3.org/2000/svg" class="i8" viewBox="0 -20 200 150"><title>Quadrado azul</title><path d="M34 6l84 28-28 84L6 90 34 6m-3-6l-2 5L2 89l-2 4 5 2 84 27 4 2 2-5 27-84 2-4-5-2L35 2l-4-2z" class="cls-1"/><path d="M6 90L34 6l84 28-28 83z" class="cls-2"/></svg>
     <svg xmlns="http://www.w3.org/2000/svg" class="i9" viewBox="0 0 112 112"><title>Circulo vermelho e amarelo</title><path d="M56 5a51 51 0 1 1-18 3 51 51 0 0 1 18-3m0-5a56 56 0 1 0 31 10A56 56 0 0 0 56 0z" class="cls-1"/><circle cx="56" cy="56" r="51" class="cls-2" transform="rotate(-19 56 56)"/><circle cx="56" cy="56" r="51" class="cls-3" transform="rotate(-19 56 56)"/></svg>
     <svg xmlns="http://www.w3.org/2000/svg" class="i10" viewBox="0 0 93 96"><title>Traço vermelho</title><path d="M6 94c3-11 8-22 17-30a42 42 0 0 1 14-9l16-4c22-6 35-26 40-47 0-4-5-6-6-2-3 12-7 23-16 31-8 9-18 12-30 14C19 52 5 72 0 93c-1 3 5 5 6 1z" class="cls-1"/></svg>
-  </div>
+  </figure>
 </template>
 
 <script>
