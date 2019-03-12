@@ -35,21 +35,11 @@ export default {
 <style lang="scss" scoped>
 $black: #20272f;
 #contact {
-  min-height: 300px;
+  min-height: 285px;
   z-index: 3;
   position: relative;
 }
-.email p, .email h4 {
-  color: #e5e5e5;
-  background: #20272f;
-  padding: 2px 0;
-  margin: 30px 20% 0;
-  margin: 30px calc(30% - 85px) 0;
-}
-.email i {
-  vertical-align: middle;
-  padding: 0 5px;
-}
+
 .email,
 .social {
   height: 100%;
@@ -57,12 +47,27 @@ $black: #20272f;
   padding: 3% 5% 0%;
   width: 50%;
 }
+.email {
+  p, h4 {
+    color: #e5e5e5;
+    background: #20272f;
+    padding: 2px 0;
+    margin: 30px 20% 0;
+    margin: 30px calc(30% - 85px) 0;
+  }
+  i {
+    vertical-align: middle;
+    padding: 0 5px;
+  }
+}
+
 a {
-  color: $black !important;
+  color: $black;
   font-weight: bold;
   background: #e5e5e5;
   padding: 0 1px;
 }
+
 .social {
   img {
     height: 15px;
@@ -72,19 +77,30 @@ a {
   }
   p, h4 {
     margin: 0;
-    padding-top: 4%;
+    padding-top: 0;
   }
 }
+
 @import "../assets/CSS/breakpoints";
+
 @include for-phone-tablet {
   .email,
   .social {
-    width: 100% !important;
-    padding: 30px 5% 0% !important;
+    width: 100%;
+    padding: 30px 5% 0%;
+  }
+  .email {
+    padding-top: 0;
+    padding-bottom: 25px;
   }
   #contact {
     min-height: 330px;
-    margin-top: 20px;
+    margin-top: 15px;
+  }
+  .social {
+    p, h4 {
+      padding-top: calc(50px - 3%);
+    }
   }
 }
 </style>
