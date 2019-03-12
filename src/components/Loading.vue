@@ -157,7 +157,10 @@ export default {
     filter: blur(0px);
   }
 }
-@media screen and (min-width: 899px) {
+
+@import '../assets/CSS/breakpoints';
+
+@include for-phone-tablet {
   .text-logo, .placa p {
     font-size: 4rem;
     margin-top: 30px;
