@@ -1,28 +1,31 @@
 <template>
   <section class="all">
-    <loading :loaded="Loaded"/>
+    <loading :loaded="Loaded[0]"/>
     <section class="row r1">
       <article class="post c-1o3 m-1o1"
-        :class="{mostrado: show.description}">
+        :class="{ mostrado: show.projects > -1 }">
         <figure class="blur">
           <img src="../assets/img/shapes.jpg" height="100%"
             alt="Círculos e triangulos coloridos desenhados">
           <figcaption>Versatilidade do Design</figcaption>
         </figure>
         <section class="text">
-          <p class="author">{{ titulo }}</p>
-          <p class="postText" v-html="subTitulo"></p>
-          <div class="btns" :class="{list: !show.project}">
-            <a v-for="op of options" :key="op[0]"
-              @click="op[1].indexOf('Ver') === -1 ? openProject(op[0]) : ''"
-              v-html="op[1]" target="_blank"
+          <p class="author">{{ projeto.titulo }}</p>
+          <p class="postText" v-html="projeto.subTitulo"></p>
+          <div class="btns" :class="{ list: !show.project }">
+            <a v-for="(op, i) of options" :key="i"
+              @click="op.indexOf('Ver') === -1 ? openProject(i) : ''"
+              v-html="op" target="_blank"
               :style="[ !show.project ? {
-                backgroundImage: `url(${imgs[ op[0] < 2 ? op[0] * 2 : 2 ][1]})`
-              } : '']" :href="parse(op[2])">a</a>
+                backgroundImage: `url(${
+                  projeto.imgs[show.projects < 0 ? 0 : show.projects]
+                    [ i < 2 ? i * 2 : 2 ][1]
+                })`
+              } : '']" :href="parse(op, i)">a</a>
           </div>
         </section>
       </article>
-      <section class="column c1" :class="{borrado: show.description}">
+      <section class="column c1" :class="{ borrado: show.projects > -1 }">
         <h1 class="type">Design está em tudo</h1>
         <div class="neon n1"></div>
         <shapes></shapes>
@@ -84,13 +87,13 @@
             </path>
           </svg>
         </div>
-        <img v-for="(img, i) of imgs" :key="img[1]"
-          :class="['img-pro' + img[0], { direitado: toBool(i) }]"
-          :src="imgs[i][1]" @load="addLoad">
-        <div id="colr" :class="{direitado: show.project}">
+        <img v-for="(img, i) of projeto.imgs[show.projects < 0 ? 0 : show.projects]"
+          :key="i" :class="['img-pro' + img[0], { direitado: toBool(i) }]"
+          :src="img[1]" @load="addLoad">
+        <div id="colr" :class="{ direitado: show.project }">
           <section class="codes">
-            <div v-for="(code, i) of codes" :key="code[0][0]"
-              :class="{ up: i == 0 ? upMargin : false }">
+            <div v-for="(code, i) of codes.text" :key="code[0][0]"
+              :class="{ up: i == 0 ? codes.upMargin : false }">
               <p v-for="c of code" :key="c[0]"
                 :class="[{ cd: i < 5 }, c[0]]"
                 v-text="c[1]">
@@ -125,28 +128,31 @@ export default {
   data: function() {
     return {
       show: {
-        description: false,
-        project: false
+        projects: -1,
+        project: false,
+        img: -1
       },
-      titulo: "Projetos",
-      subTitulo: "",
+      projeto: {
+        titulo: "Projetos",
+        subTitulo: "",
+        descriptions: data.descriptions,
+        imgs: data.imgs
+      },
+      codes: {
+        text: data.codes,
+        upMargin: false
+      },
       options1: data.options1,
       options: [],
-      anterior: 0,
-      descriptions: data.descriptions,
-      upMargin: false,
-      codes: data.codes,
-      imgs: data.imgs,
-      loadeds: 0,
-      Loaded: false
+      Loaded: [false, 0]
     };
   },
   created() {
     this.options = this.options1[0];
-    /*for (let [i, img] of this.imgs.entries()) {
-      this.imgs[i][1] = this.bring(img[1]);
+    /*for (let [i, img] of this.projeto.imgs.entries()) {
+      this.projeto.imgs[i][1] = this.bring(img[1]);
     }
-    console.log(this.imgs);*/
+    console.log(this.projeto.imgs);*/
   },
   methods: {
     openWorks(key) {
@@ -160,34 +166,32 @@ export default {
       this.show.project = !this.show.project;
       if (this.show.project) {
         // troca subT pela desc
-        this.subTitulo = this.descriptions[key];
+        this.projeto.subTitulo = this.projeto.descriptions[this.show.projects][key];
         // troca title
-        this.titulo = this.options1[0][key][1];
+        this.projeto.titulo = this.options[key];
         setTimeout(() => {
           // troca options pela especifica
-          this.options = this.options1[1];
+          this.options = this.options1[1][0];
         }, 100);
-        this.anterior = key;
-        this.options1[0][key][2] = true;
+        this.show.img = key;
       } else {
-        this.restart();
+        this.restart(this.show.projects);
       }
     },
-    restart() {
-      this.subTitulo = "";
-      this.titulo = "Projetos";
-      this.options = this.options1[0];
+    restart(key) {
+      let titulos = ['Projetos', 'Multimidia', 'Outros'];
+      this.projeto.subTitulo = "";
+      this.projeto.titulo = titulos[key || 0];
+      this.options = this.options1[0][key || 0];
       // Esconde imagens
-      this.options1[0][this.anterior][2] = false;
+      this.show.img = -1;
     },
     // Mescla titulo e url pro git e online
-    parse(op = "") {
-      if (typeof op !== "boolean" && op.includes("/")) {
-        const title = this.titulo;
-        const old = title.includes("Sea") ? " " : "The ";
-        return `${op + title.replace(old, "")}`;
-      }
-      return null;
+    parse(op, key) {
+      const title = this.projeto.titulo;
+      const old = title.includes("Sea") ? " " : "The ";
+      const url = op[key];
+      return Array.isArray(op) ? `${url + title.replace(old, "")}` : null;
     },
     toBool(i) {
       // Sendo par, diminui caso != 0
@@ -195,11 +199,11 @@ export default {
       // sendo impar, diminui a divisão arredondada
         i - Math.round(i / 2);
       // retorna booleano armazenado
-      return !this.options1[0][i][2];
+      return this.show.img !== i;
     },
     addLoad() {
       // Acrescenta e testa se todas imgs carregaram
-      this.Loaded = ++this.loadeds > 4;
+      this.Loaded[0] = ++this.Loaded[1] > 4;
     },
     bring(file) {
       return require(`@/assets/img/${file}.jpg`);
