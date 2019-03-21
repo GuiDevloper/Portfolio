@@ -10,6 +10,7 @@
           <figcaption>Versatilidade do Design</figcaption>
         </figure>
         <section class="text">
+          <h1 class="close" @click="openWorks(null)">X</h1>
           <p class="author">{{ projeto.titulo }}</p>
           <p class="postText" v-html="projeto.subTitulo"></p>
           <div class="btns" :class="{ list: !show.project }">
@@ -156,10 +157,15 @@ export default {
   },
   methods: {
     openWorks(key) {
+      let sh = this.show;
+      if (sh.projects > -1 && key != null && sh.projects !== key) {
+        setTimeout(() => { this.openWorks(key) }, 500)
+      }
       // inverte showDesc
-      this.show.description = !this.show.description;
-      this.restart();
-      this.show.project = false;
+      sh.projects = sh.projects > -1 ? -1 : key;
+      sh.project = false;
+      this.show = sh;
+      this.restart(key)
     },
     openProject(key) {
       // inverte showProj
@@ -287,6 +293,14 @@ $darken: #405165;
     color: $black;
     height: 95%;
     width: 94%;
+  }
+  .close {
+    cursor: pointer;
+    margin: 2% 3%;
+    width: auto;
+    font-size: 1.3rem;
+    color: #c35b53;
+    position: absolute;
   }
   .author {
     font-size: 1.3rem;
