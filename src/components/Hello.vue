@@ -34,16 +34,16 @@
       <nav class="nav-menu">
         <ul class="menu">
           <li @click="openWorks(0)">
-            <i class="material-icons">local_cafe</i>
-            <p>Trabalhos</p>
+            <i class="material-icons">code</i>
+            <p>Code</p>
           </li>
-          <li @click="openWorks(0)">
+          <li @click="openWorks(1)">
             <i class="material-icons">local_cafe</i>
-            <p>Trabalhos</p>
+            <p>Media</p>
           </li>
-          <li @click="openWorks(0)">
+          <li @click="openWorks(2)">
             <i class="material-icons">local_cafe</i>
-            <p>Trabalhos</p>
+            <p>Outros</p>
           </li>
         </ul>
         <section class="logo-center">
@@ -165,7 +165,12 @@ export default {
       sh.projects = sh.projects > -1 ? -1 : key;
       sh.project = false;
       this.show = sh;
-      this.restart(key)
+      setTimeout(() => {
+        this.restart(key);
+        if (key !== null) {
+          this.options = this.options1[0][key];
+        }
+      }, 200);
     },
     openProject(key) {
       // inverte showProj
