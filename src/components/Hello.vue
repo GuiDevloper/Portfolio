@@ -210,25 +210,25 @@ export default {
     addLoad() {
       // Acrescenta e testa se todas imgs carregaram
       this.Loaded[0] = ++this.Loaded[1] > 4;
+      if (this.Loaded[0]) setTimeout(this.startCodes, 5000);
     },
     bring(file) {
       return require(`@/assets/img/${file}.jpg`);
-    }
-  },
-  mounted() {
-    var tis = this;
-    setInterval(() => {
-      tis.upMargin = true;
-      var last = tis.codes[0];
+    },
+    startCodes() {
+      let tis = this;
+      tis.codes.upMargin = true;
+      const last = tis.codes.text[0];
       setTimeout(() => {
-        tis.codes.shift();
+        tis.codes.text.shift();
         // ao alterar data
         tis.$nextTick(() => {
-          tis.codes.push(last);
-          tis.upMargin = false;
-        }, 200);
-      }, 500);
-    }, 5000);
+          tis.codes.text.push(last);
+          tis.codes.upMargin = false;
+          setTimeout(tis.startCodes, 3500);
+        }, 500);
+      }, 1000);
+    }
   }
 };
 </script>
