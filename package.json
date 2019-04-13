@@ -1,24 +1,39 @@
 {
-  "name": "guidevloper-portfolio",
-  "version": "0.8.5",
-  "private": false,
+  "name": "portfolio",
+  "version": "0.9.0",
+  "description": "A project that contains all other projects",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GuiDevloper/portfolio.git"
+  },
+  "keywords": [
+    "guidevloper",
+    "portfolio",
+    "collection",
+    "projects"
+  ],
+  "author": {
+    "name": "GuiDevloper",
+    "url": "https://guidevloper.me/"
+  },
+  "homepage": "https://github.com/GuiDevloper/portfolio",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "vue": "^2.5.17",
-    "vue-router": "^3.0.1"
+    "vue": "^2.6.10",
+    "vue-router": "^3.0.3"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.5.0",
-    "@vue/cli-plugin-eslint": "^3.5.0",
-    "@vue/cli-service": "^3.5.0",
-    "autoprefixer": "^9.4.10",
+    "@vue/cli-plugin-babel": "^3.5.5",
+    "@vue/cli-plugin-eslint": "^3.5.1",
+    "@vue/cli-service": "^3.5.3",
+    "autoprefixer": "^9.5.1",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.0.1",
-    "vue-template-compiler": "^2.5.17"
+    "vue-template-compiler": "^2.6.10"
   },
   "eslintConfig": {
     "root": true,
