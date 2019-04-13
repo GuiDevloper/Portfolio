@@ -43,11 +43,11 @@ export default {
         setTimeout(() => {
           this.typeWriter(txtArray);
           // tempo dinamico
-        }, this.loaded ? 100 : 150);
+        }, this.loaded[1] ? 100 : 150);
       } else {
         this.typed = "";
         // durações dinamicas
-        var dur = this.loaded ? [0.7, 0.7, 1400] : [2, 3, 4500];
+        var dur = this.loaded[1] ? [0.7, 0.7, 1400] : [2, 3, 4500];
         // ativa animações
         var anim = [
           "animation-delay:",
@@ -58,7 +58,7 @@ export default {
         this.animDraw = `${anim[1]} ${dur[1]}s; ${anim[0]} ${dur[0]}s; ${anim[2]}`;
         // espera fim das animações
         setTimeout(() => {
-          if (!this.loaded) {
+          if (!this.loaded[0]) {
             // restart
             this.pos = 0;
             this.animNeon = `animation: initial;`;
