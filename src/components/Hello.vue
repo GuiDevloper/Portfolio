@@ -1,6 +1,6 @@
 <template>
   <section class="all">
-    <loading :loaded="Loaded[0]"/>
+    <loading :loaded="Loaded"/>
     <section class="row r1">
       <article class="post c-1o3 m-1o1"
         :class="{ mostrado: show.projects > -1 }">
@@ -11,18 +11,17 @@
         </figure>
         <section class="text">
           <h1 class="close" @click="openWorks(null)">X</h1>
-          <p class="author">{{ projeto.titulo }}</p>
-          <p class="postText" v-html="projeto.subTitulo"></p>
+          <p class="author">
+            {{ projeto.titulo }}
+          </p>
+          <p class="postText" v-html="projeto.subTitulo">
+          </p>
           <div class="btns" :class="{ list: !show.project }">
             <a v-for="(op, i) of options" :key="i"
-              @click="op.indexOf('Ver') === -1 ? openProject(i) : ''"
+              @click="op.indexOf('Ver') === 0 ?'': openProject(i)"
               v-html="op" target="_blank"
-              :style="[ !show.project ? {
-                backgroundImage: `url(${
-                  projeto.imgs[show.projects < 0 ? 0 : show.projects]
-                    [ i < 2 ? i * 2 : 2 ][1]
-                })`
-              } : '']" :href="parse(op, i)">a</a>
+              :style="bgIsShow(i)"
+              :href="parse(i)">a</a>
           </div>
         </section>
       </article>
@@ -150,8 +149,10 @@ export default {
   },
   created() {
     this.options = this.options1[0];
-    /*for (let [i, img] of this.projeto.imgs.entries()) {
-      this.projeto.imgs[i][1] = this.bring(img[1]);
+    /*for (let [i, proj] of this.projeto.imgs.entries()) {
+      for (let [j, img] of proj.entries()) {
+        this.projeto.imgs[i][j] = this.bring(img[1]);
+      }
     }
     console.log(this.projeto.imgs);*/
   },
@@ -175,9 +176,10 @@ export default {
     openProject(key) {
       // inverte showProj
       this.show.project = !this.show.project;
+      const sh = this.show.projects;
       if (this.show.project) {
         // troca subT pela desc
-        this.projeto.subTitulo = this.projeto.descriptions[this.show.projects][key];
+        this.projeto.subTitulo = this.projeto.descriptions[sh][key];
         // troca title
         this.projeto.titulo = this.options[key];
         setTimeout(() => {
@@ -186,7 +188,7 @@ export default {
         }, 100);
         this.show.img = key;
       } else {
-        this.restart(this.show.projects);
+        this.restart(sh);
       }
     },
     restart(key) {
@@ -214,11 +216,11 @@ export default {
     },
     addLoad() {
       // Acrescenta e testa se todas imgs carregaram
-      this.Loaded[0] = ++this.Loaded[1] > 4;
-      if (this.Loaded[0]) setTimeout(this.startCodes, 5000);
+      this.Loaded[0] = ++this.Loaded[1] > 12;
+      if (this.Loaded[0]) if (this.Loaded[0]) setTimeout(this.startCodes, 5000);
     },
     bring(file) {
-      return require(`@/assets/img/${file}.jpg`);
+      return require(`@/assets/img/${file}`);
     },
     startCodes() {
       let tis = this;
@@ -233,6 +235,25 @@ export default {
           setTimeout(tis.startCodes, 3500);
         }, 500);
       }, 1000);
+    },
+    bgIsShow(id) {
+      const sh = this.show;
+      const pj = sh.project, pjs = sh.projects;
+      const opt = [[4, 5, 6], [1, 2]];
+      const vals = [[3.5, 4.5, 5], [0.5, 1]];
+      if (pjs >= 0 && pjs < 2) {
+        for (let i = 0; i < opt[pjs].length; i++) {
+          if (id == opt[pjs][i]) {
+            id = vals[pjs][i];
+            break;
+          }
+        }
+      }
+      return !pj ? {
+        backgroundImage: `url(${
+          (this.projeto.imgs[pjs < 0 ? 0 : pjs][ id * 2 ] || '')[1]
+        })`
+      } : '';
     }
   }
 };
