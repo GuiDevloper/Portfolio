@@ -93,12 +93,12 @@
           poster: show.projects == 1 && i == 1,
           readyShadow: show.projects == 2 && i == 1 }]"
           :src="img[1]" @load="addLoad">
-        <video class="img-pro1" src="/media/strange.df42db99.mp4"
+        <video class="img-pro1" src="https://www.dropbox.com/s/ko44euyqrhl7rmm/strange.mp4?dl=1"
           :class="[{
             direitado: show.projects == 1 ? (toBool(0)) : true
           }]" controls loop>
           Desculpe, o seu navegador não suporta vídeos incorporados,
-          mas você pode <a href="/media/strange.df42db99.mp4">baixá-lo</a>
+          mas você pode <a href="https://www.dropbox.com/s/ko44euyqrhl7rmm/strange.mp4?dl=1">baixá-lo</a>
           e assistir pelo seu reprodutor de mídia!
         </video>
         <div id="colr" :class="{ direitado: show.project }">
