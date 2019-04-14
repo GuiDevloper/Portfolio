@@ -148,7 +148,12 @@ export default {
       },
       options1: data.options1,
       options: [],
-      Loaded: [false, 0]
+      Loaded: [false, 0],
+      timerId: 0,
+      start: 0,
+      timer: null,
+      remaining: 0,
+      delay: 0
     };
   },
   created() {
@@ -162,6 +167,7 @@ export default {
   },
   methods: {
     openWorks(key) {
+      this.pause();
       let sh = this.show;
       if (sh.projects > -1 && key != null && sh.projects !== key) {
         setTimeout(() => { this.openWorks(key) }, 500)
@@ -175,9 +181,11 @@ export default {
         if (key !== null) {
           this.options = this.options1[0][key];
         }
+        this.resume();
       }, 200);
     },
     openProject(key) {
+      this.pause();
       // inverte showProj
       this.show.project = !this.show.project;
       const sh = this.show.projects;
@@ -190,10 +198,12 @@ export default {
           // troca options pela especifica
           this.options = this.options1[1][0];
           this.projeto.id = key;
+          this.resume();
         }, 100);
         this.show.img = key;
       } else {
         this.restart(sh);
+        this.resume();
       }
     },
     restart(key) {
@@ -230,7 +240,10 @@ export default {
     addLoad() {
       // Acrescenta e testa se todas imgs carregaram
       this.Loaded[0] = ++this.Loaded[1] > 12;
-      if (this.Loaded[0]) if (this.Loaded[0]) setTimeout(this.startCodes, 5000);
+      if (this.Loaded[0]) {
+        this.timer = this.startCodes;
+        this.resume(1, 5000);
+      }
     },
     bring(file) {
       return require(`@/assets/img/${file}`);
@@ -238,16 +251,28 @@ export default {
     startCodes() {
       let tis = this;
       tis.codes.upMargin = true;
-      const last = tis.codes.text[0];
-      setTimeout(() => {
-        tis.codes.text.shift();
-        // ao alterar data
-        tis.$nextTick(() => {
+      tis.timer = () => {
+        tis.codes.upMargin = false;
+        tis.timer = () => {
+          const last = tis.codes.text.shift();
           tis.codes.text.push(last);
-          tis.codes.upMargin = false;
-          setTimeout(tis.startCodes, 3500);
-        }, 500);
-      }, 1000);
+          tis.startCodes();
+        }
+        tis.resume(1, 1000);
+      }
+      tis.resume(1, 4000);
+    },
+    pause() {
+      this.remaining = this.delay
+      clearTimeout(this.timerId);
+      this.remaining -= Date.now() - this.start;
+    },
+    resume(i = 0, delay) {
+      this.delay = delay || this.delay;
+      this.remaining = i === 0 ? this.remaining : this.delay;
+      this.start = Date.now();
+      clearTimeout(this.timerId);
+      this.timerId = setTimeout(this.timer, this.remaining);
     },
     bgIsShow(id) {
       const sh = this.show;
