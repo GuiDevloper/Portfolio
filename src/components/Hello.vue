@@ -10,7 +10,7 @@
           <figcaption>Versatilidade do Design</figcaption>
         </figure>
         <section class="text">
-          <h1 class="close" @click="openWorks(null)">X</h1>
+          <i class="material-icons close" @click="openWorks(null)">close</i>
           <p class="author">
             {{ projeto.titulo }}
           </p>
@@ -37,11 +37,11 @@
             <p>Code</p>
           </li>
           <li @click="openWorks(1)">
-            <i class="material-icons">local_cafe</i>
+            <i class="material-icons">video_library</i>
             <p>Media</p>
           </li>
           <li @click="openWorks(2)">
-            <i class="material-icons">local_cafe</i>
+            <i class="material-icons">more</i>
             <p>Outros</p>
           </li>
         </ul>
@@ -93,6 +93,14 @@
           poster: show.projects == 1 && i == 1,
           readyShadow: show.projects == 2 && i == 1 }]"
           :src="img[1]" @load="addLoad">
+        <video class="img-pro1" src="/media/strange.df42db99.mp4"
+          :class="[{
+            direitado: show.projects == 1 ? (toBool(0)) : true
+          }]" controls loop>
+          Desculpe, o seu navegador não suporta vídeos incorporados,
+          mas você pode <a href="/media/strange.df42db99.mp4">baixá-lo</a>
+          e assistir pelo seu reprodutor de mídia!
+        </video>
         <div id="colr" :class="{ direitado: show.project }">
           <section class="codes">
             <div v-for="(code, i) of codes.text" :key="code[0][0]"
