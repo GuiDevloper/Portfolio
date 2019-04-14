@@ -87,8 +87,11 @@
             </path>
           </svg>
         </div>
-        <img v-for="(img, i) of projeto.imgs[show.projects < 0 ? 0 : show.projects]"
-          :key="i" :class="['img-pro' + img[0], { direitado: toBool(i) }]"
+        <img v-for="(img, i) of projeto.imgs
+          [show.projects < 0 ? 0 : show.projects]"
+          :key="i" :class="['img-pro' + img[0], { direitado: toBool(i),
+          poster: show.projects == 1 && i == 1,
+          readyShadow: show.projects == 2 && i == 1 }]"
           :src="img[1]" @load="addLoad">
         <div id="colr" :class="{ direitado: show.project }">
           <section class="codes">
@@ -136,7 +139,8 @@ export default {
         titulo: "Projetos",
         subTitulo: "",
         descriptions: data.descriptions,
-        imgs: data.imgs
+        imgs: data.imgs,
+        id: -1
       },
       codes: {
         text: data.codes,
@@ -185,6 +189,7 @@ export default {
         setTimeout(() => {
           // troca options pela especifica
           this.options = this.options1[1][0];
+          this.projeto.id = key;
         }, 100);
         this.show.img = key;
       } else {
@@ -198,6 +203,7 @@ export default {
       this.options = this.options1[0][key || 0];
       // Esconde imagens
       this.show.img = -1;
+      this.projeto.id = -1;
     },
     // Mescla titulo e url pro git e online
     parse(op, key) {
@@ -206,13 +212,20 @@ export default {
       const url = op[key];
       return Array.isArray(op) ? `${url + title.replace(old, "")}` : null;
     },
-    toBool(i) {
-      // Sendo par, diminui caso != 0
-      i = i % 2 == 0 ? (i == 0 ? 0 : --i) :
-      // sendo impar, diminui a divisão arredondada
-        i - Math.round(i / 2);
-      // retorna booleano armazenado
-      return this.show.img !== i;
+    toBool(id) {
+      const sh = this.show.projects;
+      const opt = [[7, 9, 10, 11], [1, 2], [1]];
+      const vals = [[8, 10, 12, 12], [2, 4], [2]];
+      if (sh > -1) {
+        for (let i = 0; i < opt[sh].length; i++) {
+          if (id == opt[sh][i]) {
+            id = vals[sh][i];
+            break;
+          }
+        }
+      }
+      id = Math.floor(id / 2);
+      return this.show.img !== id;
     },
     addLoad() {
       // Acrescenta e testa se todas imgs carregaram
@@ -637,6 +650,13 @@ $neon-color: "rgba(240, 74, 74";
   }
 }
 
+.poster {
+  max-width: 480px;
+}
+.readyShadow {
+  box-shadow: unset;
+}
+
 @import "../assets/CSS/breakpoints";
 
 @include for-greater-desktop {
@@ -788,6 +808,10 @@ $neon-color: "rgba(240, 74, 74";
     margin-left: 200px;
     width: 500px;
     height: 1000px;
+  }
+  .poster {
+    max-width: 290px;
+    margin-left: 10vw;
   }
 }
 
