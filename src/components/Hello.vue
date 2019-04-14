@@ -224,11 +224,25 @@ export default {
       this.projeto.id = -1;
     },
     // Mescla titulo e url pro git e online
-    parse(op, key) {
-      const title = this.projeto.titulo;
-      const old = title.includes("Sea") ? " " : "The ";
-      const url = op[key];
-      return Array.isArray(op) ? `${url + title.replace(old, "")}` : null;
+    parse(key) {
+      let title = this.projeto.titulo;
+      const id = this.projeto.id;
+      const sh = this.show.projects;
+      let url = this.options1[2][0][key];
+      if (sh !== 1 && id > -1) {
+        const old = id + sh === 0 ? " " : "The ";
+        title = id == 1 && key == 2 && sh === 0 ? 'Inspirate' : (
+          id == 6 && key == 1 && sh == 0 ? 'universe-verses' :
+          title.replace(old, ""));
+        url = sh == 0 && id == 5 ? this.options1[2][2][key] : (
+          sh == 2 && id == 0 ? this.options1[2][1][key] : (
+          sh == 2 && id == 1 ? this.options1[2][3][key] : (
+          key == 2 ? `https://${title + url}` : (
+            key === 1 ? `${url + title}` : null))));
+      } else {
+        url = null;
+      }
+      return url;
     },
     toBool(id) {
       const sh = this.show.projects;
