@@ -204,7 +204,13 @@ export default {
         this.projeto.titulo = this.options[key];
         setTimeout(() => {
           // troca options pela especifica
-          this.options = this.options1[1][0];
+          this.options = Array.from(this.options1[1][0]);
+          if (sh == 2 && key == 1 || sh == 0 && key == 3) {
+            this.options.pop();
+          }
+          if (sh == 1 || sh == 0 && key == 4) {
+            this.options.splice(1, 2);
+          }
           this.projeto.id = key;
           this.resume();
         }, 100);
@@ -382,9 +388,10 @@ $darken: #405165;
   }
   .close {
     cursor: pointer;
-    margin: 2% 3%;
+    margin: 2% 2%;
+    left: 0;
     width: auto;
-    font-size: 1.3rem;
+    font-size: 1.7rem;
     color: #c35b53;
     position: absolute;
   }
@@ -425,7 +432,7 @@ $darken: #405165;
     }
   }
   &.list {
-    height: 70%;
+    height: auto;
     top: 50px;
     flex-direction: column;
     p,
@@ -440,6 +447,7 @@ $darken: #405165;
         color: $white;
         background: center / cover;
         background-blend-mode: lighten;
+        text-shadow: 0px 0px 5px #000000, 0px 0px 10px #000000;
       }
     }
     /*a:nth-child(1):hover {
@@ -577,7 +585,8 @@ $neon-color: "rgba(240, 74, 74";
     margin-top: 70px;
     margin-left: 10%;
     border-radius: 300px;
-    box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.1),
+      inset 7px 7px 20px rgba(0, 0, 0, 0.1);
   }
   &.n2 {
     filter: none;
@@ -606,7 +615,7 @@ $neon-color: "rgba(240, 74, 74";
       height: 50vh;
     }
     li {
-      height: 7.4vh;
+      height: 8vh;
     }
   }
   * {
@@ -656,9 +665,10 @@ $neon-color: "rgba(240, 74, 74";
   height: 100px;
   width: 100px;
   background: linear-gradient(
-    rgba(215, 65, 119, 0.8),
-    rgba(255, 233, 138, 0.8)
-  );
+    to left bottom,
+    rgba(0, 117, 0, .8),
+    rgba(255, 238, 88, .8)
+  ) 100% center;
   position: fixed;
   border-radius: 100px;
   margin-top: -10px;
@@ -702,6 +712,17 @@ $neon-color: "rgba(240, 74, 74";
 }
 .readyShadow {
   box-shadow: unset;
+}
+@media (max-height: 590px) {
+  .nav-menu {
+    height: 90vh;
+    &:hover .menu {
+      height: 80vh;
+    }
+    &:hover li {
+      height: 20%;
+    }
+  }
 }
 
 @import "../assets/CSS/breakpoints";
