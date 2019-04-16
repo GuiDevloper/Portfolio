@@ -93,7 +93,7 @@ const data = {
     [
       [1, "/img/TheSea1.e121d4c7.jpg"], [2, "/img/TheSea2.b2f0d16a.jpg"],
       [1, "/img/inspiration1.ab8299c5.jpg"], [2, "/img/inspiration2.74a3fd39.jpg"],
-      [1, "/img/dreamity1.14a762b9.png"], [2, "/img/dreamity2.6bd42d72.png"],
+      [1, "/img/dreamity1.3ec2532f.jpg"], [2, "/img/dreamity2.944c3814.jpg"],
       [1, "/img/shapes.530c8e2f.jpg"],
       [1, "/img/medway1.8a2440bd.jpg"], [2, "/img/medway2.b674a0e4.jpg"],
       [1, "/img/minimalista1.de5a97f2.jpg"],
