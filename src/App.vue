@@ -54,11 +54,16 @@ body {
   }
 }
 
-* {
+*,
+*::before,
+*::after {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  overflow: hidden auto;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
   border-radius: 5px;
 }
 i,
@@ -136,7 +141,7 @@ footer {
   min-height: 1158px;
   height: auto;
   position: absolute;
-  z-index: -5;
+  z-index: -10;
   margin-top: -2px;
   margin-bottom: -5px;
   width: 60%;
@@ -145,11 +150,10 @@ footer {
   svg {
     min-height: 1158px;
     height: 138vh;
-    flex: 1;
+    flex: 1 auto;
   }
 }
 .bg-r {
-  z-index: 0;
   margin-left: 47vw;
   background: linear-gradient(to left, $black 70%, transparent 50%);
   display: flex;
@@ -158,6 +162,15 @@ footer {
   svg {
     .cls-2 {
       fill: $black;
+    }
+  }
+}
+@supports (-ms-ime-align:auto) {
+  .bg-l,
+  .bg-r {
+    img,
+    svg {
+      flex: 1 1%;
     }
   }
 }

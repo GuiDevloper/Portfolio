@@ -5,8 +5,9 @@
       <article class="post c-1o3 m-1o1"
         :class="{ mostrado: show.projects > -1 }">
         <figure class="blur">
-          <img src="../assets/img/shapes.jpg" height="100%"
-            alt="Círculos e triangulos coloridos desenhados">
+          <img src="/img/shapes.530c8e2f.jpg" height="100%"
+            alt="Círculos e triangulos coloridos desenhados"
+            @load="addLoad">
           <figcaption>Versatilidade do Design</figcaption>
         </figure>
         <section class="text">
@@ -32,6 +33,12 @@
       </section>
       <nav class="nav-menu">
         <ul class="menu">
+          <section class="logo-center">
+            <figure>
+              <img width="60%" src="../assets/img/logo.png">
+            </figure>
+            <h1 class="t-menu">Menu</h1>
+          </section>
           <li @click="openWorks(0)">
             <i class="material-icons">code</i>
             <p>Code</p>
@@ -45,10 +52,6 @@
             <p>Outros</p>
           </li>
         </ul>
-        <section class="logo-center">
-          <logo width="60%"></logo>
-          <h1 class="t-menu">Menu</h1>
-        </section>
       </nav>
       <div class="column c2">
         <div class="bg-r">
@@ -126,15 +129,13 @@
 <script>
 import loading from "@/components/Loading.vue";
 import shapes from "@/components/Shapes.vue";
-import logo from "@/components/Logo.vue";
 import data from "../assets/data.js";
 
 export default {
   name: "Hello",
   components: {
     loading,
-    shapes,
-    logo
+    shapes
   },
   data: function() {
     return {
@@ -267,7 +268,7 @@ export default {
     },
     addLoad() {
       // Acrescenta e testa se todas imgs carregaram
-      this.Loaded[0] = ++this.Loaded[1] > 12;
+      this.Loaded[0] = ++this.Loaded[1] > 13;
       if (this.Loaded[0]) {
         this.timer = this.startCodes;
         this.resume(1, 5000);
@@ -420,7 +421,7 @@ $darken: #405165;
   a {
     color: $white;
     background-color: $black;
-    transition: 400ms;
+    transition: 500ms ease-out;
     cursor: pointer;
     border-radius: 0px;
     flex: 1;
@@ -630,15 +631,12 @@ $neon-color: "rgba(240, 74, 74";
   }
   li {
     height: 20px;
-    &:last-of-type {
-      margin-bottom: 70px;
-    }
-    li:first-of-type {
-      margin: 0;
-    }
     &:hover i {
       color: yellow;
     }
+  }
+  img {
+    margin-top: 5%;
   }
 }
 .logo-center,
@@ -648,9 +646,9 @@ $neon-color: "rgba(240, 74, 74";
   box-shadow: 5px 5px 20px 0px rgba(0, 0, 0, 0.3);
 }
 .logo-center {
-  width: 90px;
-  height: 90px;
-  margin: 15px 5px;
+  width: 80px;
+  height: 80px;
+  margin: 5px;
   border-radius: 100%;
   overflow: hidden;
   background: #e5e5e5;
@@ -658,12 +656,11 @@ $neon-color: "rgba(240, 74, 74";
 .t-menu {
   color: #c35b53;
   font-family: "Great Vibes";
-  margin-top: -10px;
-  font-size: 20px;
+  font-size: 18px;
 }
 .menu {
-  height: 100px;
-  width: 100px;
+  height: 90px;
+  width: 90px;
   background: linear-gradient(
     to left bottom,
     rgba(0, 117, 0, .8),
@@ -671,9 +668,10 @@ $neon-color: "rgba(240, 74, 74";
   ) 100% center;
   position: fixed;
   border-radius: 100px;
-  margin-top: -10px;
   transition: 250ms ease-in;
   padding: 0;
+  list-style-type: none;
+  bottom: 47vh;
   i {
     font-size: 2vh;
     padding: 20px 0 0;
@@ -690,7 +688,7 @@ $neon-color: "rgba(240, 74, 74";
   display: none;
   img,
   svg {
-    flex: 1;
+    flex: 1 auto;
   }
 }
 .bg2 {
@@ -698,12 +696,21 @@ $neon-color: "rgba(240, 74, 74";
 }
 .bg-l {
   margin-top: 100px;
-  z-index: 0;
   margin-left: 200px;
   width: 500px;
   height: 1000px;
   svg * {
     fill: $white;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .bg-l,
+  .bg-r {
+    img,
+    svg {
+      flex: 1 1%;
+    }
   }
 }
 
@@ -803,23 +810,15 @@ $neon-color: "rgba(240, 74, 74";
     .t-menu {
       font-size: 16px;
     }
-    li:last-of-type {
-      margin: 0;
-    }
-    li:first-of-type {
-      margin-top: 70px;
-    }
   }
   .menu {
     height: 80px;
     width: 80px;
-    top: 15px;
+    top: 5px;
   }
   .logo-center {
     height: 70px;
     width: 70px;
-    top: -5px;
-    position: absolute;
   }
   .post {
     height: 400px;

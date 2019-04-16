@@ -2,7 +2,8 @@
   <section class="loading" :style="back">
     <div class="placa">
       <figure>
-        <logo width="160px"></logo>
+        <img src="../assets/img/logo.png"
+          @load="typeWriter('GuiDevloper')"></img>
       </figure>
       <p class="type" v-text="typed"></p>
       <p class="nameNeon" :style="animNeon">グイデベロッパー</p>
@@ -16,14 +17,9 @@
 </template>
 
 <script>
-import logo from '@/components/Logo.vue';
-
 export default {
   name: 'loading',
   props: ['loaded'],
-  components: {
-    logo
-  },
   data: function() {
     return {
       typed: '',
@@ -74,9 +70,6 @@ export default {
         }, dur[2]);
       }
     }
-  },
-  mounted() {
-    this.typeWriter("GuiDevloper");
   }
 }
 </script>
@@ -91,7 +84,7 @@ export default {
   transition: 500ms ease-in;
 }
 .placa {
-  margin-top: 20vh;
+  margin-top: 30vh;
   text-align: center;
 }
 .text-logo, .placa p {
@@ -161,9 +154,21 @@ export default {
 @import '../assets/CSS/breakpoints';
 
 @include for-phone-tablet {
+  img {
+    width: 120px;
+  }
+  svg {
+    height: 10vh;
+  }
   .text-logo, .placa p {
-    font-size: 4rem;
+    font-size: 1.7rem;
     margin-top: 30px;
+  }
+  .nameNeon {
+    font-size: 1.3rem
+  }
+  .text-logo {
+    font-size: 2.7rem;
   }
 }
 </style>
