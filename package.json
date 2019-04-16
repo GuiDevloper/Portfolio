@@ -1,6 +1,6 @@
 {
   "name": "portfolio",
-  "version": "0.9.5",
+  "version": "0.9.7",
   "description": "A project that contains all other projects",
   "repository": {
     "type": "git",
@@ -19,7 +19,7 @@
   "homepage": "https://github.com/GuiDevloper/portfolio",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build --mode production",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
@@ -55,7 +55,7 @@
     }
   },
   "browserslist": [
-    "> 1%",
-    "last 30 versions"
+    "> 0.2%",
+    "last 10 versions"
   ]
 }
