@@ -104,7 +104,7 @@
           mas você pode <a href="https://www.dropbox.com/s/ko44euyqrhl7rmm/strange.mp4?dl=1">baixá-lo</a>
           e assistir pelo seu reprodutor de mídia!
         </video>
-        <div id="colr" :class="{ direitado: show.project }">
+        <div id="colr" :class="{ direitado: show.img > -1 && projeto.id != 3 }">
           <section class="codes">
             <div v-for="(code, i) of codes.text" :key="code[0][0]"
               :class="{ up: i == 0 ? codes.upMargin : false }">
@@ -198,6 +198,7 @@ export default {
       // inverte showProj
       this.show.project = !this.show.project;
       const sh = this.show.projects;
+      this.show.img = -1;
       if (this.show.project) {
         // troca subT pela desc
         this.projeto.subTitulo = this.projeto.descriptions[sh][key];
@@ -213,9 +214,9 @@ export default {
             this.options.splice(1, 2);
           }
           this.projeto.id = key;
+          this.show.img = sh == 0 && key == 3 ? -1 : key;
           this.resume();
         }, 100);
-        this.show.img = key;
       } else {
         this.restart(sh);
         this.resume();
@@ -405,10 +406,14 @@ $darken: #405165;
   .postText {
     text-align: justify;
     line-height: 1.6rem;
-    padding: 8%;
+    padding: 0 8%;
+    margin: 5% 0;
     color: #143a61;
     max-height: 70%;
   }
+}
+.postText .material-icons {
+  vertical-align: middle !important;
 }
 .btns {
   height: 60px;
@@ -825,6 +830,10 @@ $neon-color: "rgba(240, 74, 74";
     width: 85%;
     .blur {
       width: 94%;
+    }
+    .postText {
+      margin: 0;
+      padding-bottom: 8%;
     }
   }
   .codes {
