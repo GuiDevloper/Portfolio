@@ -55,7 +55,8 @@ const data = {
       <p> Desenvolvido expressando minha arte de codar com <i class="material-icons" data-v-361a4bd2>favorite</i> </p>`,
 
         `<i> Turn your dreams real, in others mind </i>
-        <b> Ideia </b>
+      <br>
+      <b> Ideia </b>
       <p> Este projeto foi criado baseado em um sonho,<br>
       o sonho de pessoas compartilharem seus sonhos,<br>
       com outras mentes. </p>
@@ -90,7 +91,7 @@ const data = {
       <p> Em um trio, fiquei responsável pela escrita do código focando tornar o sistema mais confiável e resiliente possível, até em alto uso. Criei e testei cada função com qual cada usuário teria acesso direto. </p>
       <br>
       <b> Ferramentas que usamos </b>
-      <p> O sistema além de ser responsivo tinha o tema Material em uma união com o Bootstrap. JQuery foi usado como biblioteca JS e auxiliou muito na, por exemplo, manipulação de dados via AJAX onde o cliente se comunicava com nossa base de dados escrita em MySQL.</p>`,
+      <p> O sistema além de ser responsivo tinha o tema Material em uma união com o Bootstrap. JQuery foi usado como biblioteca JS e auxiliou muito na, por exemplo, manipulação de dados via AJAX onde o cliente se comunicava por meio da linguagem <i>server-side</i> PHP com nossa base de dados escrita em MySQL. </p>`,
 
         `<i> A old-school based library acting minimalist </i>
       <br>
@@ -100,7 +101,7 @@ const data = {
       <b> Conteúdo </b>
       <p> Sendo menor que 2kb pode se tornar difícil acreditar que este módulo contém AJAX, manipulação de DOM, definição de linhas de CSS em múltiplos elementos, medição de SVG, gerador de cor contrastante para acessibilidade e vários outros. </p>`,
 
-      `<i> Universe of verses crafted using Ionic + Angular </i>
+        `<i> Universe of verses crafted using Ionic + Angular </i>
       <br>
       <b> Ideia </b>
       <p> Inspirado pela coleção de versos de uma amiga e o sonho dela de compartilha-los, decidi desenvolver uma galeria viva onde ela pode versar o que vier à mente criativa, de onde quer que esteja</p>
@@ -109,9 +110,28 @@ const data = {
       <p> Além da forte inspiração decidi levar meus conhecimentos de Angular ao desenvolvimento de app híbrido usando Ionic, que possibilita a geração de um app, site e PWA com apenas uma base de código. </p>`
     ],
     [
-      `Actually i work with diverse tools and continually learn others,`,
-      `Missão é principalmente oferecer uma forma de pessoas compartilharem o que tem sonhado,<br>`,
-      `<code>Sonho Bem Imaginado -> Pode Ser Realizado</code>.`
+        `<i> Desenvolvedor inspirado em quadrinhos </i>
+      <br>
+      <b> Ideia </b>
+      <p> De volta ao início de 2017, pensando em apresentar habilidades de edição por meio de efeitos desenhados, edição de cenário, iluminação e coloração, decidi me basear em poderes de épicos personagens atualmente famosos. </p>
+      <br>
+      <b> Ferramentas </b>
+      <p> Logo aprendi todo o conceito necessário para realizar esta ideia no After Effects, incluíndo manipulação de Keyframes, criação de formas e <i>glows</i>, adição de animação seguindo um <i>path</i> e renderização final otimizada. </p>`,
+
+        `<i> Estilo retrô inspirado no mistério de uma pantera </i>
+      <br>
+      <b> Ideia </b>
+      <p> De volta à 2016 quando percebi meu gosto por neon, retrofuturismo e ficção científica evoluir e quase ao mesmo tempo assistir a trilogia De Volta Para o Futuro, senti a necessidade de expressar um pouco de cada, usando Photoshop e evoluindo minhas habilidades. </p>
+      <br>
+      <b> Ferramenta </b>
+      <p> Desenvolvi minha ideia e aptidão editando imagens, cores, contrastes e alinhando ao estilo que desejava, chegando à este poster final. </p>
+      <i> Nenhum animal foi perturbado no desenvolvimento desta peça </i>`,
+
+        `<i> A beleza marinha tentando ser ilustrada por mim </i>
+      <br>
+      <b> História </b>
+      <p> Há um bom tempo desejava saber mais dos detalhes destes animais fascinantes e qual nível de profundidade era o mais curioso. Após boa pesquisa, tentei reproduzir as aparências dos representantes escolhidos com toda sua variação de cores, traços e tamanhos, via Illustrator, tentando que cada um tentasse despertar até a curiosidade de crianças em uma aula de biologia. </p>
+      <i> Nenhum representante foi tirado de seu lar no desenvolvimento desta coleção </i>`
     ],
     [
       `Actually i work with diverse tools and continually learn others,`,
