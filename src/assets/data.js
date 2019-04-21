@@ -28,26 +28,25 @@ const data = {
       <p> O plano é unir o máximo possível de representantes da natureza marinha, organizando-os em grupos baseados na profundidade de onde eles consideram seu lar. Assim sendo, os mais conhecidos por mim, da superfície, os que curiosamente vivem mais profundamente e os que ficam bem no escuro, abissais. Apresentados por sua informação e ilustração</p>
       <br>
       <b> Conhecimento por trás do projeto </b>
+      <p> Eu decidi encarar o desafio de expressar minha paixão também com desenhos, melhorando minha habilidade com Illustrator.
       <br>
-      <p> Eu decidi encarar o desafio de expressar minha paixão também com desenhos, melhorando minha habilidade com Illustrator. </p>
+      Busquei uma escrita dos estilos mais otimizada com o uso de <a href="https://sass-lang.com/documentation/file.SCSS_FOR_SASS_USERS.html" target="_blank">SCSS</a> um estilo de escrita de <a href="https://sass-lang.com" target="_blank">Sass</a>, que é um pré-processador de CSS que facilita o foco na compatibilidade entre <i>browsers</i>.
       <br>
-      <p> Busquei uma escrita dos estilos mais otimizada com o uso de <a href="https://sass-lang.com/documentation/file.SCSS_FOR_SASS_USERS.html" target="_blank">SCSS</a>. </p>
-      <br>
-      <p> Automatizei tarefas de transformação de código usando <a href="https://gulpjs.com/" target="_blank">Gulp</a>. </p>
+      Automatizei tarefas de transformação de código usando <a href="https://gulpjs.com/" target="_blank">Gulp</a>. </p>
       <br>
       <p> E construído com <i class="material-icons" data-v-361a4bd2>code</i> um bom <i class="material-icons" data-v-361a4bd2>local_cafe</i> e todo o <i class="material-icons" data-v-361a4bd2>favorite</i> necessário. </p>`,
 
         `<i> Um projeto marcante onde design e inspiração se unem em imagens culturais e 100 frases selecionadas em português-BR </i>
       <br>
       <b> Ideia </b>
-      <p> O projeto nasceu de um momento de inspiração no desenvolvimento, qual eu desejei compartilhar em um formato que eu me identifico e que poderia ser acessado por qualquer pessoa, com um link. </p>
+      <p> O projeto nasceu de um momento de inspiração no desenvolvimento, qual eu desejei compartilhar em um formato que eu me identifico e que pode ser acessado por qualquer pessoa, com um link. </p>
       <br>
       <b> Tecnologias </b>
-      <p> Uma biblioteca que desenvolvi chamada <a href="https://github.com/GuiDevloper/minimalista" target="_blank">Minimalista</a> está ajudando na manipulação do <a href="https://pt.wikipedia.org/wiki/Modelo_de_Objeto_de_Documentos" target="_blank">DOM</a> e carregamento assincrono via <a href="https://pt.wikipedia.org/wiki/AJAX_(programa%C3%A7%C3%A3o)" target="_blank">AJAX</a>.</p>
+      <p> Uma biblioteca que desenvolvi chamada <a href="https://github.com/GuiDevloper/minimalista" target="_blank">Minimalista</a> está ajudando na manipulação do <a href="https://pt.wikipedia.org/wiki/Modelo_de_Objeto_de_Documentos" target="_blank">DOM</a> e carregamento assincrono via <a href="https://pt.wikipedia.org/wiki/AJAX_(programa%C3%A7%C3%A3o)" target="_blank">AJAX</a>.
       <br>
-      <p> O <a href="https://webpack.js.org/" target="_blank">Webpack</a> está sendo usado para otimizar as <em>builds</em> finais.</p>
+      O <a href="https://webpack.js.org/" target="_blank">Webpack</a> está sendo usado para otimizar as <em>builds</em> finais.
       <br>
-      <a href="http://sass-lang.com/documentation/file.SCSS_FOR_SASS_USERS.html" target="_blank">SCSS</a>, um pré-processador de CSS, está sendo usado para melhorar a escrita do design e focar na compatibilidade de <em>browsers</em>. </p>
+      O <a href="https://sass-lang.com/documentation/file.SCSS_FOR_SASS_USERS.html" target="_blank">SCSS</a> usado aqui é um estilo de escrita de <a href="https://sass-lang.com" target="_blank">Sass</a>, que é um pré-processador de CSS que otimiza a escrita de todo o design e a compatibilidade entre <i>browsers</i>. </p>
       <br>
       <b> Fonte das Imagens </b>
       <p> As imagens originais são encontradas em meu <a href="https://pinterest.com/GuiDevloper" target="_blank">Pinterest</a>. </p>
@@ -63,29 +62,29 @@ const data = {
       <br>
       <b> Missão </b>
       <p> A missão é principalmente oferecer uma forma de pessoas compartilharem o que tem sonhado,<br>
-      dormindo ou não.</p><br>
+      dormindo ou não. </p><br>
       <p> O sonhador cria sua conta e customizará seu perfil.<br>
       Após isso, pode escrever seus sonhos em estilo de post, podendo adicionar imagem de fundo.<br>
-      Outros sonhadores ao lerem este sonho, podem demonstrar simples opiniões com um slider estilo:</p><br>
+      Outros sonhadores ao lerem este sonho, podem demonstrar simples opiniões com um slider estilo: </p>
       <code>Sonho Bem Imaginado -&gt; Pode Ser Realizado</code>.<br>
       <p> Ou com comentários possivelmente complexos usando texto. </p>
       <br>
       <b> Tecnologias </b>
-      <p> O bom uso do framework <a href="http://angular.io" target="_blank">Angular</a> é um conhecimento aprimorado neste desenvolvimento. </p><br>
-      <p> O <a href="https://sass-lang.com/documentation/file.SCSS_FOR_SASS_USERS.html" target="_blank">SCSS</a> é um pré processador de CSS que otimiza a escrita de todo esse design. </p>`,
+      <p> O bom uso do framework <a href="http://angular.io" target="_blank">Angular</a> é um conhecimento aprimorado neste desenvolvimento. <br>
+      O <a href="https://sass-lang.com/documentation/file.SCSS_FOR_SASS_USERS.html" target="_blank">SCSS</a> usado aqui é um estilo de escrita de <a href="https://sass-lang.com" target="_blank">Sass</a>, que é um pré-processador de CSS que otimiza a escrita de todo o design e a compatibilidade entre <i>browsers</i>. </p>`,
 
         `<i> A project that contains all other projects </i>
       <br>
       <b> História </b>
-      <p> A ideia de ter algo para contar aquece o meu coração desde os dias que eu inventava desenhos e os guardava, como toda criança, imaginando um dia expo-los para o mundo. Ao me tornar adepto do desenvolvimento, a minha arte se transformou em código e aqui estou eu, expondo-a para você, caríssimo leitor que faz parte desse incrível mundo que vivemos. </p>
+      <p> A ideia de ter algo para contar aquece o meu coração desde os dias em que eu inventava desenhos e os guardava, como toda criança, imaginando um dia expô-los para o mundo. Ao me tornar adepto do desenvolvimento, a minha arte se transformou em código e aqui estou eu, expondo-a para você, caríssimo leitor que faz parte desse incrível mundo que vivemos. </p>
       <br>
       <b> Ferramentas </b>
-      <p> Com a ajuda de alguma energia divina pela qual sou grato, desenvolvi esta galeria ('de arte' para quem já se aconchegou) usando o Vue framework (que orgulhosamente ajudei em traduções), SCSS, minha <a href="https://github.com/guidevloper/minimalista" target="_blank">Minimalista</a>, Illustrator para desenhar as formas, <i>Logo</i> e até arriscar, eu mesmo. </p>`,
+      <p> Com a ajuda de alguma energia divina pela qual sou grato, desenvolvi esta galeria ('de arte' para quem já se aconchegou) usando o Vue framework (que orgulhosamente ajudei em traduções), SCSS e Illustrator para desenhar as formas, <i>Logo</i> e até arriscar, eu mesmo. </p>`,
 
         `<i> Tornando pacientes e clínicas, mais próximos </i>
       <br>
       <b> Ideia </b>
-      <p> Minha equipe de desenvolvimento de TCC na Etec Dra Ruth Cardoso, motivados pela lentidão e desorganização vista em clínicas que conhecíamos, pensamos em um sistema multiplataforma envolvendo agendamento de consultas, hieraquia de contas administrador/ atendente/ paciente, gerenciamento de dados de médicos, atendentes e clínicas, geração de relatório contendo a movimentação da clínica, entre outras funções. </p>
+      <p> Minha equipe de desenvolvimento de TCC na Etec Dra Ruth Cardoso, motivados pela lentidão e desorganização vistas em clínicas que conhecíamos, pensamos em um sistema multiplataforma envolvendo agendamento de consultas, hieraquia de contas administrador/ atendente/ paciente, gerenciamento de dados de médicos, atendentes e clínicas, geração de relatório contendo a atividade da clínica, entre outras funções. </p>
       <br>
       <b> Desenvolvimento </b>
       <p> Em um trio, fiquei responsável pela escrita do código focando tornar o sistema mais confiável e resiliente possível, até em alto uso. Criei e testei cada função com qual cada usuário teria acesso direto. </p>
@@ -96,15 +95,16 @@ const data = {
         `<i> A old-school based library acting minimalist </i>
       <br>
       <b> Ideia </b>
-      <p> Desenvolvendo outros projetos percebi que uma série de funções simples se repetia, com isso adicionado a vontade de desenvolver apps com uma biblioteca mínima, refatorei e criei este módulo. </p>
+      <p> Desenvolvendo outros projetos percebi que uma série de funções simples se repetia, com isso somado a vontade de desenvolver <i>apps</i> com uma biblioteca mínima, refatorei e criei este módulo. </p>
       <br>
       <b> Conteúdo </b>
-      <p> Sendo menor que 2kb pode se tornar difícil acreditar que este módulo contém AJAX, manipulação de DOM, definição de linhas de CSS em múltiplos elementos, medição de SVG, gerador de cor contrastante para acessibilidade e vários outros. </p>`,
+      <p> Sendo menor que 2kb pode se tornar difícil acreditar que este módulo contém AJAX, manipulação de DOM, definição de linhas de CSS em múltiplos elementos, medição de SVG, gerador de cor contrastante para acessibilidade e vários outros. </p>
+      <i> O screenshot ao lado mostra o módulo sendo usado na extensão <a href="https://github.com/GuiDevloper/what-have-you-made-today" target="_blank">What Have You Made Today?</a> </i>`,
 
         `<i> Universe of verses crafted using Ionic + Angular </i>
       <br>
       <b> Ideia </b>
-      <p> Inspirado pela coleção de versos de uma amiga e o sonho dela de compartilha-los, decidi desenvolver uma galeria viva onde ela pode versar o que vier à mente criativa, de onde quer que esteja</p>
+      <p> Inspirado pela coleção de versos de uma amiga e o sonho dela de compartilhá-los, decidi desenvolver uma galeria viva onde ela pode versar o que vier à mente criativa, de onde quer que esteja. </p>
       <br>
       <b> Ferramentas </b>
       <p> Além da forte inspiração decidi levar meus conhecimentos de Angular ao desenvolvimento de app híbrido usando Ionic, que possibilita a geração de um app, site e PWA com apenas uma base de código. </p>`
@@ -123,20 +123,32 @@ const data = {
       <b> Ideia </b>
       <p> De volta à 2016 quando percebi meu gosto por neon, retrofuturismo e ficção científica evoluir e quase ao mesmo tempo assistir a trilogia De Volta Para o Futuro, senti a necessidade de expressar um pouco de cada, usando Photoshop e evoluindo minhas habilidades. </p>
       <br>
-      <b> Ferramenta </b>
+      <b> Resultado final </b>
       <p> Desenvolvi minha ideia e aptidão editando imagens, cores, contrastes e alinhando ao estilo que desejava, chegando à este poster final. </p>
       <i> Nenhum animal foi perturbado no desenvolvimento desta peça </i>`,
 
         `<i> A beleza marinha tentando ser ilustrada por mim </i>
       <br>
       <b> História </b>
-      <p> Há um bom tempo desejava saber mais dos detalhes destes animais fascinantes e qual nível de profundidade era o mais curioso. Após boa pesquisa, tentei reproduzir as aparências dos representantes escolhidos com toda sua variação de cores, traços e tamanhos, via Illustrator, tentando que cada um tentasse despertar até a curiosidade de crianças em uma aula de biologia. </p>
+      <p> Há um bom tempo desejava saber mais dos detalhes destes animais fascinantes e qual nível de profundidade era o mais curioso. Após boa pesquisa, tentei reproduzir as aparências dos representantes escolhidos com toda sua variação de cores, traços e tamanhos, via Illustrator, tentando que cada um despertasse até a curiosidade de crianças em uma aula de biologia. </p>
       <i> Nenhum representante foi tirado de seu lar no desenvolvimento desta coleção </i>`
     ],
     [
-      `Actually i work with diverse tools and continually learn others,`,
-      `Missão é principalmente oferecer uma forma de pessoas compartilharem o que tem sonhado,<br>`,
-      `<code>Sonho Bem Imaginado -> Pode Ser Realizado</code>.`
+      `<i> Contribuições além do código </i>
+      <br>
+      <b> Motivação </b>
+      <p> Quanto mais conhecia Vue, meu gosto por ele se expandia e com isto um desejo por contribuir com o aprimoramento desta ferramenta, também. </p>
+      <br>
+      <b> Contribuição </b>
+      <p> Decidi usar meu aprendizado em inglês para que o framework alcançasse mais desenvolvedores, os quais sentissem-se mais a vontade com sua documentação. E por enquanto traduzi 2 páginas inteiras, que podem ser encontradas no site oficial ou no próprio GitHub. </p>`,
+
+      `<i> Contribuição com uma página inicial customizada </i>
+      <br>
+      <b> Ideia </b>
+      <p> Após obter a extensão What Have You Made Today? do <a href="https://github.com/tholman" target="_blank">Tim Holman</a>, que muda a página inicial do Chrome para uma minimalista com <i>speed dial</i>, comecei a achá-la muito estática e clara, com isso meu olhar de desenvolvedor tomou-a como um novo projeto. </p>
+      <br>
+      <b> Mudanças </b>
+      <p> Além de adicionar um ciclo dia/noite alteranto o fundo melhorei a visualização dos sites favoritos, das configurações e adicionei minha biblioteca <a href="https://github.com/GuiDevloper/minimalista" target="_blank">Minimalista</a>, para manipulação de cores e geração de uma cor de texto contrastrante com o fundo do <i>speed dial</i> escolhido pelo usuário. As diferenças estão nos <i>screenshots</i> apresentados. </p>`
     ]
   ],
   codes: [
