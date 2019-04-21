@@ -11,18 +11,27 @@
           <figcaption>Versatilidade do Design</figcaption>
         </figure>
         <section class="text">
-          <i class="material-icons close" @click="openWorks(null)">close</i>
+          <i class="material-icons close"
+            @click="openWorks(null)"
+            @keyup.enter="openWorks(null)"
+            :tabindex="show.projects > -1 ? 0 : -1">
+            close
+          </i>
           <p class="author">
             {{ projeto.titulo }}
           </p>
-          <p class="postText" v-html="projeto.subTitulo">
+          <p class="postText" v-html="projeto.subTitulo"
+            :tabindex="show.project ? 0 : -1">
           </p>
           <div class="btns" :class="{ list: !show.project }">
             <a v-for="(op, i) of options" :key="i"
               @click="op.indexOf('Ver') === 0 ?'': openProject(i)"
-              v-html="op" target="_blank"
+              @focus="focus = false"
+              @keyup.enter="op.indexOf('Ver') === 0 ?'': openProject(i)"
+              v-html="op"
               :style="bgIsShow(i)"
-              :href="parse(i)">a</a>
+              :href="parse(i)" target="_blank"
+              :tabindex="show.projects > -1 ? 0 : -1">a</a>
           </div>
         </section>
       </article>
@@ -32,24 +41,21 @@
         <shapes></shapes>
       </section>
       <nav class="nav-menu">
-        <ul class="menu">
+        <ul class="menu" :class=" { focused: focus } ">
           <section class="logo-center">
             <figure>
               <img width="60%" src="../assets/img/logo.png">
             </figure>
             <h1 class="t-menu">Menu</h1>
           </section>
-          <li @click="openWorks(0)">
-            <i class="material-icons">code</i>
-            <p>Code</p>
-          </li>
-          <li @click="openWorks(1)">
-            <i class="material-icons">video_library</i>
-            <p>Media</p>
-          </li>
-          <li @click="openWorks(2)">
-            <i class="material-icons">more</i>
-            <p>Outros</p>
+          <li v-for="(li, i) of [
+            ['code', 'Code'],
+            ['video_library', 'Media'],
+            ['more', 'Outros']]" :key="i"
+            @click="openWorks(i)" @focus="focus = true"
+            @keyup.enter="openWorks(i)" tabindex="0">
+            <i class="material-icons"> {{ li[0] }} </i>
+            <p> {{ li[1] }} </p>
           </li>
         </ul>
       </nav>
@@ -99,7 +105,7 @@
         <video class="img-pro1" src="https://www.dropbox.com/s/ko44euyqrhl7rmm/strange.mp4?dl=1"
           :class="[{
             direitado: show.projects == 1 ? (toBool(0)) : true
-          }]" controls loop>
+          }]" :controls="show.projects == 1 ? !(toBool(0)) : false" loop>
           Desculpe, o seu navegador não suporta vídeos incorporados,
           mas você pode <a href="https://www.dropbox.com/s/ko44euyqrhl7rmm/strange.mp4?dl=1">baixá-lo</a>
           e assistir pelo seu reprodutor de mídia!
@@ -155,14 +161,17 @@ export default {
         text: data.codes,
         upMargin: false
       },
+      timer: {
+        timerId: 0,
+        start: 0,
+        T: null,
+        remain: 0,
+        delay: 0
+      },
       options1: data.options1,
       options: [],
       Loaded: [false, 0],
-      timerId: 0,
-      start: 0,
-      timer: null,
-      remaining: 0,
-      delay: 0
+      focus: false
     };
   },
   created() {
@@ -215,7 +224,9 @@ export default {
           }
           this.projeto.id = key;
           this.show.img = sh == 0 && key == 3 ? -1 : key;
-          this.resume();
+          if (sh == 0 && key == 3){
+            this.resume();
+          }
         }, 100);
       } else {
         this.restart(sh);
@@ -271,7 +282,7 @@ export default {
       // Acrescenta e testa se todas imgs carregaram
       this.Loaded[0] = ++this.Loaded[1] > 13;
       if (this.Loaded[0]) {
-        this.timer = this.startCodes;
+        this.timer.T = this.startCodes;
         this.resume(1, 5000);
       }
     },
@@ -281,9 +292,9 @@ export default {
     startCodes() {
       let tis = this;
       tis.codes.upMargin = true;
-      tis.timer = () => {
+      tis.timer.T = () => {
         tis.codes.upMargin = false;
-        tis.timer = () => {
+        tis.timer.T = () => {
           const last = tis.codes.text.shift();
           tis.codes.text.push(last);
           tis.startCodes();
@@ -293,16 +304,20 @@ export default {
       tis.resume(1, 4000);
     },
     pause() {
-      this.remaining = this.delay
-      clearTimeout(this.timerId);
-      this.remaining -= Date.now() - this.start;
+      let ti = this.timer;
+      const rest = Date.now() - ti.start;
+      if ( ti.remain !== (ti.remain - rest) ) {
+        ti.remain = ti.delay - rest;
+      }
+      clearTimeout(ti.timerId);
     },
     resume(i = 0, delay) {
-      this.delay = delay || this.delay;
-      this.remaining = i === 0 ? this.remaining : this.delay;
-      this.start = Date.now();
-      clearTimeout(this.timerId);
-      this.timerId = setTimeout(this.timer, this.remaining);
+      let ti = this.timer;
+      ti.delay = delay || ti.delay;
+      ti.remain = i === 0 ? ti.remain : ti.delay;
+      ti.start = Date.now();
+      clearTimeout(ti.timerId);
+      ti.timerId = setTimeout(ti.T, ti.remain);
     },
     bgIsShow(id) {
       const sh = this.show;
@@ -432,7 +447,7 @@ $darken: #405165;
     flex: 1;
     font-weight: 600;
     padding-top: 9px;
-    &:hover {
+    &:hover, &:focus {
       color: $black;
       background-color: transparent;
     }
@@ -449,7 +464,7 @@ $darken: #405165;
       padding: 20px 0;
       min-height: 70px;
       max-height: 70px;
-      &:hover {
+      &:hover, &:focus {
         color: $white;
         background: center / cover;
         background-blend-mode: lighten;
@@ -616,10 +631,7 @@ $neon-color: "rgba(240, 74, 74";
   position: fixed;
   display: flex;
   align-items: flex-end;
-  &:hover {
-    .menu {
-      height: 50vh;
-    }
+  &:hover, .focused {
     li {
       height: 8vh;
     }
@@ -636,7 +648,7 @@ $neon-color: "rgba(240, 74, 74";
   }
   li {
     height: 20px;
-    &:hover i {
+    &:hover i, &:focus i {
       color: yellow;
     }
   }
@@ -682,9 +694,9 @@ $neon-color: "rgba(240, 74, 74";
     padding: 20px 0 0;
     transition: 200ms;
   }
-  div:hover i {
-    color: #fff59d;
-  }
+}
+.nav-menu:hover .menu, .focused {
+  height: 50vh;
 }
 
 // back
@@ -728,10 +740,10 @@ $neon-color: "rgba(240, 74, 74";
 @media (max-height: 590px) {
   .nav-menu {
     height: 90vh;
-    &:hover .menu {
+    &:hover .menu, .focused {
       height: 80vh;
     }
-    &:hover li {
+    &:hover li, .focused li {
       height: 20%;
     }
   }
