@@ -174,6 +174,9 @@ footer {
     }
   }
 }
+.postText .material-icons {
+  vertical-align: middle;
+}
 
 @import "./assets/CSS/breakpoints";
 

@@ -34,7 +34,7 @@ const data = {
       <br>
       Automatizei tarefas de transformação de código usando <a href="https://gulpjs.com/" target="_blank">Gulp</a>. </p>
       <br>
-      <p> E construído com <i class="material-icons" data-v-361a4bd2>code</i> um bom <i class="material-icons" data-v-361a4bd2>local_cafe</i> e todo o <i class="material-icons" data-v-361a4bd2>favorite</i> necessário. </p>`,
+      <p> E construído com <i class="material-icons">code</i> um bom <i class="material-icons">local_cafe</i> e todo o <i class="material-icons">favorite</i> necessário. </p>`,
 
         `<i> Um projeto marcante onde design e inspiração se unem em imagens culturais e 100 frases selecionadas em português-BR </i>
       <br>
@@ -51,7 +51,7 @@ const data = {
       <b> Fonte das Imagens </b>
       <p> As imagens originais são encontradas em meu <a href="https://pinterest.com/GuiDevloper" target="_blank">Pinterest</a>. </p>
       <br>
-      <p> Desenvolvido expressando minha arte de codar com <i class="material-icons" data-v-361a4bd2>favorite</i> </p>`,
+      <p> Desenvolvido expressando minha arte de codar com <i class="material-icons">favorite</i> </p>`,
 
         `<i> Turn your dreams real, in others mind </i>
       <br>

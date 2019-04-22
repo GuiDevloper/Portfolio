@@ -427,9 +427,7 @@ $darken: #405165;
     max-height: 70%;
   }
 }
-.postText .material-icons {
-  vertical-align: middle !important;
-}
+
 .btns {
   height: 60px;
   width: 94%;
