@@ -19,7 +19,8 @@
           <p class="author">
             {{ projeto.titulo }}
           </p>
-          <p class="postText" v-html="projeto.subTitulo"
+          <p class="postText" v-if="show.project"
+            v-html="projeto.subTitulo"
             :tabindex="show.project ? 0 : -1">
           </p>
           <div class="btns" :class="{ list: !show.project }">
@@ -50,7 +51,8 @@
           <li v-for="(li, i) of [
             ['code', 'Code'],
             ['video_library', 'Media'],
-            ['more', 'Outros']]" :key="i"
+            ['more', 'Outros'],
+            ['account_box', 'Currículo']]" :key="i"
             @click="openWorks(i)" @focus="focus = true"
             @keyup.enter="openWorks(i)" tabindex="0">
             <i class="material-icons"> {{ li[0] }} </i>
@@ -203,9 +205,9 @@ export default {
     },
     openProject(key) {
       this.pause();
-      // inverte showProj
-      this.show.project = !this.show.project;
       const sh = this.show.projects;
+      // inverte showProj
+      this.show.project = sh == 3 ? false : !this.show.project;
       this.show.img = -1;
       if (this.show.project) {
         // troca subT pela desc
@@ -233,7 +235,7 @@ export default {
       }
     },
     restart(key) {
-      let titulos = ['Projetos', 'Multimidia', 'Outros'];
+      let titulos = ['Projetos', 'Multimidia', 'Outros', 'Currículo'];
       this.projeto.subTitulo = "";
       this.projeto.titulo = titulos[key || 0];
       this.options = this.options1[0][key || 0];
@@ -258,14 +260,14 @@ export default {
           key == 2 ? `https://${title + url}` : (
             key === 1 ? `${url + title}` : null))));
       } else {
-        url = null;
+        url = sh == 3 ? this.options1[2][5][key] : null;
       }
       return url;
     },
     toBool(id) {
       const sh = this.show.projects;
-      const opt = [[7, 9, 10, 11], [1, 2], [1]];
-      const vals = [[8, 10, 12, 12], [2, 4], [2]];
+      const opt = [[7, 9, 10, 11], [1, 2], [1], [1]];
+      const vals = [[8, 10, 12, 12], [2, 4], [2], [2]];
       if (sh > -1) {
         for (let i = 0; i < opt[sh].length; i++) {
           if (id == opt[sh][i]) {
@@ -321,9 +323,9 @@ export default {
     bgIsShow(id) {
       const sh = this.show;
       const pj = sh.project, pjs = sh.projects;
-      const opt = [[4, 5, 6], [1, 2]];
-      const vals = [[3.5, 4.5, 5], [0.5, 1]];
-      if (pjs >= 0 && pjs < 2) {
+      const opt = [[4, 5, 6], [1, 2], 0, [1, 2, 3]];
+      const vals = [[3.5, 4.5, 5], [0.5, 1], 0, [0.5, 1, 1.5]];
+      if (pjs >= 0 && pjs !== 2) {
         for (let i = 0; i < opt[pjs].length; i++) {
           if (id == opt[pjs][i]) {
             id = vals[pjs][i];
@@ -469,12 +471,6 @@ $darken: #405165;
         text-shadow: 0px 0px 5px #000000, 0px 0px 10px #000000;
       }
     }
-    /*a:nth-child(1):hover {
-      background-image: url('../assets/img/TheSea.jpg');
-    }
-    a:nth-child(2):hover {
-      background-image: url('../assets/img/Inspiration-d.jpg');
-    }*/
   }
 }
 
@@ -738,11 +734,15 @@ $neon-color: "rgba(240, 74, 74";
 @media (max-height: 590px) {
   .nav-menu {
     height: 90vh;
+    .menu * {
+      font-size: 3vh;
+    }
     &:hover .menu, .focused {
       height: 80vh;
+      bottom: 12vh;
     }
     &:hover li, .focused li {
-      height: 20%;
+      height: 15%;
     }
   }
 }

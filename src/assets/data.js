@@ -3,7 +3,8 @@ const data = {
     [
       ['The Sea', 'The Inspiration', 'The Dreamity', 'The Portfolio', 'MedWay', 'Minimalista', 'UniversoVersos'],
       ['Strange\'s Effect', 'The Panther', 'The Sea Ilustrations'],
-      ['Tradução no vuejs.org', 'What You Made Today?']
+      ['Tradução no vuejs.org', 'What You Made Today?'],
+      ['Ver Currículo', 'Download Currículo', 'Ver Certificados', 'Download Certificados']
     ],
     [
       ['<-', 'Ver no GitHub', 'Ver Online']
@@ -13,7 +14,13 @@ const data = {
       [null, 'https://github.com/vuejs-br/br.vuejs.org/pulls?q=author%3AGuiDevloper', 'https://br.vuejs.org/v2/cookbook/unit-testing-vue-components'],
       [null, 'https://github.com/guidevloper/minimalista', 'https://www.npmjs.com/package/minimalista'],
       [null, 'https://github.com/GuiDevloper/what-have-you-made-today', null],
-      [null, null, null]
+      [null, null, null],
+      [
+        'https://www.dropbox.com/s/q5bxttvoqxs8lsc/GuiDevloper%20Resume.pdf',
+        'https://www.dropbox.com/s/q5bxttvoqxs8lsc/GuiDevloper%20Resume.pdf?dl=1',
+        'https://www.dropbox.com/s/kfqu85790pn7uwk/GuiDevloper%20-%20Certificados.pdf',
+        'https://www.dropbox.com/s/kfqu85790pn7uwk/GuiDevloper%20-%20Certificados.pdf?dl=1'
+      ]
     ]
   ],
   descriptions: [
@@ -212,6 +219,12 @@ const data = {
     [
       [1, "/img/vueDoc1.d9cfe047.jpg"],
       [1, "/img/whymt1.cece6f83.png"], [2, "/img/whymt2.bf1fbc85.png"]
+    ],
+    [
+      [1, "/img/Resume.a6b8c2bb.jpg"],
+      [1, "/img/Resume.a6b8c2bb.jpg"],
+      [1, "/img/Diploma.c0795ec0.jpg"],
+      [1, "/img/Diploma.c0795ec0.jpg"]
     ]
   ]
 };
