@@ -2,8 +2,7 @@
   <section class="all">
     <loading :loaded="Loaded"/>
     <section class="row r1">
-      <article class="post c-1o3 m-1o1"
-        :class="{ mostrado: show.projects > -1 }">
+      <article class="post" :class="{ mostrado: show.projects > -1 }">
         <figure class="blur">
           <img src="/img/shapes.530c8e2f.jpg" height="100%"
             alt="Círculos e triangulos coloridos desenhados"
@@ -375,6 +374,7 @@ $darken: #405165;
 
 .post {
   height: 620px;
+  width: 33.33%;
   margin: 60px 10%;
   position: absolute;
   padding-right: 0px !important;
