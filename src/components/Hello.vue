@@ -44,7 +44,9 @@
         <ul class="menu" :class=" { focused: focus } ">
           <section class="logo-center">
             <figure>
-              <img width="60%" src="../assets/img/logo.png">
+              <img width="60%" src="../assets/img/logo.png"
+                alt="Logo do GuiDevloper"
+                title="Logo do GuiDevloper">
             </figure>
             <h1 class="t-menu">Menu</h1>
           </section>
@@ -97,12 +99,13 @@
             </path>
           </svg>
         </div>
-        <img v-for="(img, i) of projeto.imgs
-          [show.projects < 0 ? 0 : show.projects]"
-          :key="i" :class="['img-pro' + img[0], { direitado: toBool(i),
-          poster: show.projects == 1 && i == 1,
-          readyShadow: show.projects == 2 && i == 1 }]"
-          :src="img[1]" @load="addLoad">
+        <img v-for="(img, i) of projeto.imgs[0].concat(
+          projeto.imgs[1], projeto.imgs[2], projeto.imgs[3])"
+          :key="i" :class="['img-pro' + img[0], {
+            direitado: toBool(i),
+            poster: i == 13, readyShadow: i == 16 }]"
+          :src="img[1]" @load="addLoad"
+          :alt="titleImg(i)" :title="titleImg(i)">
         <video class="img-pro1" src="https://www.dropbox.com/s/ko44euyqrhl7rmm/strange.mp4?dl=1"
           :class="[{
             direitado: show.projects == 1 ? (toBool(0)) : true
@@ -111,7 +114,7 @@
           mas você pode <a href="https://www.dropbox.com/s/ko44euyqrhl7rmm/strange.mp4?dl=1">baixá-lo</a>
           e assistir pelo seu reprodutor de mídia!
         </video>
-        <div id="colr" :class="{ direitado: show.img > -1 && projeto.id != 3 }">
+        <div id="colr" :class="{ direitado: show.img[0] > -1 && projeto.id != 3 }">
           <section class="codes">
             <div v-for="(code, i) of codes.text" :key="code[0][0]"
               :class="{ up: i == 0 ? codes.upMargin : false }">
@@ -123,8 +126,10 @@
           </section>
           <div class="neon"></div>
           <div class="neon n2">
-            <img class="Dev-center" src="../assets/img/GuiDevloper.png" @load="addLoad">
-            <title>GuiDevloper desenhado</title>
+            <img class="Dev-center" src="../assets/img/GuiDevloper.png"
+              @load="addLoad"
+              alt="GuiDevloper desenhado"
+              title="GuiDevloper desenhado">
           </div>
           <h1 class="type tw">Código também</h1>
         </div>
@@ -149,7 +154,7 @@ export default {
       show: {
         projects: -1,
         project: false,
-        img: -1
+        img: [-1, -1]
       },
       projeto: {
         titulo: "Projetos",
@@ -208,7 +213,7 @@ export default {
       const sh = this.show.projects;
       // inverte showProj
       this.show.project = sh == 3 ? false : !this.show.project;
-      this.show.img = -1;
+      this.show.img = [-1, -1];
       if (this.show.project) {
         // troca subT pela desc
         this.projeto.subTitulo = this.projeto.descriptions[sh][key];
@@ -224,7 +229,7 @@ export default {
             this.options.splice(1, 2);
           }
           this.projeto.id = key;
-          this.show.img = sh == 0 && key == 3 ? -1 : key;
+          this.show.img = [sh == 0 && key == 3 ? -1 : key, sh];
           if (sh == 0 && key == 3){
             this.resume();
           }
@@ -240,7 +245,7 @@ export default {
       this.projeto.titulo = titulos[key || 0];
       this.options = this.options1[0][key || 0];
       // Esconde imagens
-      this.show.img = -1;
+      this.show.img = [-1, -1];
       this.projeto.id = -1;
     },
     // Mescla titulo e url pro git e online
@@ -265,23 +270,15 @@ export default {
       return url;
     },
     toBool(id) {
-      const sh = this.show.projects;
-      const opt = [[7, 9, 10, 11], [1, 2], [1], [1]];
-      const vals = [[8, 10, 12, 12], [2, 4], [2], [2]];
-      if (sh > -1) {
-        for (let i = 0; i < opt[sh].length; i++) {
-          if (id == opt[sh][i]) {
-            id = vals[sh][i];
-            break;
-          }
-        }
+      let sh = this.sh(id)[1];
+      if (this.show.img[1] === sh) {
+        return this.show.img[0] !== this.specificShow(id);
       }
-      id = Math.floor(id / 2);
-      return this.show.img !== id;
+      return true;
     },
     addLoad() {
       // Acrescenta e testa se todas imgs carregaram
-      this.Loaded[0] = ++this.Loaded[1] > 13;
+      this.Loaded[0] = ++this.Loaded[1] > 23;
       if (this.Loaded[0]) {
         this.timer.T = this.startCodes;
         this.resume(1, 5000);
@@ -338,6 +335,35 @@ export default {
           (this.projeto.imgs[pjs < 0 ? 0 : pjs][ id * 2 ] || '')[1]
         })`
       } : '';
+    },
+    titleImg(id) {
+      let sh = this.sh(id)[1];
+      id = this.specificShow(id);
+      // title dos iniciais
+      let title = this.options1[0][sh][id];
+      title = sh == 0 && id == 3 ?
+        'Círculos e triangulos coloridos desenhados' :
+          title + ' Screenshot';
+      return title;
+    },
+    specificShow(id) {
+      const opt = [[7, 9, 10, 11], [1, 2], [1], [1]];
+      const vals = [[8, 10, 12, 12], [2, 4], [2], [2]];
+      id = this.sh(id);
+      for (let i = 0; i < opt[id[1]].length; i++) {
+        if (id[0] == opt[id[1]][i]) {
+          id[0] = vals[id[1]][i];
+          break;
+        }
+      }
+      return Math.floor(id[0] / 2);
+    },
+    sh(id) {
+      return id > 17 ? [id - 18, 3] : (
+        id > 14 ? [id - 15, 2] : (
+          id > 11 ? [id - 12, 1] : [id, 0]
+        )
+      );
     }
   }
 };
@@ -611,8 +637,8 @@ $neon-color: "rgba(240, 74, 74";
 }
 
 .Dev-center {
-  height: 130%;
-  margin: 50px 0 0 -30px;
+  height: 90%;
+  margin-top: 50px;
   z-index: -1;
   position: relative;
 }
@@ -818,6 +844,10 @@ $neon-color: "rgba(240, 74, 74";
     margin-left: 45%;
     max-width: 200px;
   }
+  .Dev-center {
+    margin-top: 30px;
+    margin-left: -10px;
+  }
   .nav-menu {
     margin: 0;
     right: 0;
@@ -908,9 +938,6 @@ $neon-color: "rgba(240, 74, 74";
       width: 50vw;
       height: 50vw;
     }
-  }
-  .Dev-center {
-    height: 120%;
   }
   body {
     width: 100vw;
