@@ -10,14 +10,16 @@
       <h4>Gostou de ver meus experimentos?</h4>
       <div class="git">
         <span>Veja mais em </span>
-        <a target="_blank" href="https://github.com/GuiDevloper">
+        <a target="_blank" href="https://github.com/GuiDevloper"
+          rel="nofollow noopener noreferrer">
           <img src="../assets/img/GitHub.png">
           <span>/GuiDevloper</span>
         </a>
       </div>
       <div class="insta">
         <span>Me siga no </span>
-        <a target="_blank" href="https://instagram.com/GuiDevloper">
+        <a target="_blank" href="https://instagram.com/GuiDevloper"
+          rel="nofollow noopener noreferrer">
           <img src="../assets/img/insta.png">
           <span>/GuiDevloper</span>
         </a>

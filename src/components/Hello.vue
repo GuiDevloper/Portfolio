@@ -31,6 +31,7 @@
               v-html="op"
               :style="bgIsShow(i)"
               :href="parse(i)" target="_blank"
+              rel="nofollow noopener noreferrer"
               :tabindex="show.projects > -1 ? 0 : -1">a</a>
           </div>
         </section>
