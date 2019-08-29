@@ -11,7 +11,7 @@ const data = {
     ],
     [
       [null, 'https://github.com/guidevloper/', '.netlify.com/'],
-      [null, 'https://github.com/vuejs-br/br.vuejs.org/pulls?q=author%3AGuiDevloper', 'https://br.vuejs.org/v2/cookbook/unit-testing-vue-components'],
+      [null, 'https://github.com/vuejs-br/br.vuejs.org/issues?q=author%3AGuiDevloper', 'https://br.vuejs.org/v2/cookbook/unit-testing-vue-components'],
       [null, 'https://github.com/guidevloper/minimalista', 'https://www.npmjs.com/package/minimalista'],
       [null, 'https://github.com/GuiDevloper/what-have-you-made-today', null],
       [null, null, null],
@@ -144,10 +144,10 @@ const data = {
       `<i> Contribuições além do código </i>
       <br>
       <b> Motivação </b>
-      <p> Quanto mais conhecia Vue, meu gosto por ele se expandia e com isto um desejo por contribuir com o aprimoramento desta ferramenta, também. </p>
+      <p> Quanto mais conheço Vue, meu gosto por ele se expande e com isto um desejo por contribuir com o aprimoramento desta ferramenta, também. </p>
       <br>
       <b> Contribuição </b>
-      <p> Decidi usar meu aprendizado em inglês para que o framework alcançasse mais desenvolvedores, os quais sentissem-se mais a vontade com sua documentação. E por enquanto traduzi 2 páginas inteiras, que podem ser encontradas no site oficial ou no próprio GitHub. </p>`,
+      <p> Decidi usar minha habilidade em inglês para que o framework alcançasse mais desenvolvedores, os quais sentissem-se mais à vontade com sua documentação. Resultado disso é a importância das minhas traduções para atualizar grande parte da documentação, o que me deu a oportunidade de ser um Colaborador oficial do repositório. </p>`,
 
       `<i> Contribuição com uma página inicial customizada </i>
       <br>
