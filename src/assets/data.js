@@ -1,7 +1,7 @@
 const data = {
   options1: [
     [
-      ['The Sea', 'The Inspiration', 'The Dreamity', 'The Portfolio', 'MedWay', 'Minimalista', 'UniversoVersos'],
+      ['The Sea', 'The Inspiration', 'The Dreamity', 'The Portfolio', 'MedWay', 'Minimalista', 'UniversoVersos', 'DevloperMe'],
       ['Strange\'s Effect', 'The Panther', 'The Sea Ilustrations'],
       ['Tradução no vuejs.org', 'What You Made Today?'],
       ['Ver Currículo', 'Download Currículo', 'Ver Certificados', 'Download Certificados']
@@ -114,7 +114,15 @@ const data = {
       <p> Inspirado pela coleção de versos de uma amiga e o sonho dela de compartilhá-los, decidi desenvolver uma galeria viva onde ela pode versar o que vier à mente criativa, de onde quer que esteja. </p>
       <br>
       <b> Ferramentas </b>
-      <p> Além da forte inspiração decidi levar meus conhecimentos de Angular ao desenvolvimento de app híbrido usando Ionic, que possibilita a geração de um app, site e PWA com apenas uma base de código. </p>`
+      <p> Além da forte inspiração decidi levar meus conhecimentos de Angular ao desenvolvimento de app híbrido usando Ionic, que possibilita a geração de um app, site e PWA com apenas uma base de código. </p>`,
+
+        `<i> A journey developing the self-development </i>
+      <br>
+      <b> Ideia </b>
+      <p> Decidi criar uma ferramenta pessoal personalizada, focada no autodesenvolvimento diário e incluindo lista de objetivos com exercícios e contabilização do tempo investido para cada um. </p>
+      <br>
+      <b> Ferramentas </b>
+      <p> Sendo o meu primeiro projeto completo em React, se mostrou um desafio no começo, mas logo evoluí para investir outros conhecimentos como o uso de Charts para mostrar desempenho, Bootstrap 4, Jest e Enzyme para fazer <i>TDD</i> com testes unitários e <i>mock</i> do Firebase usado como base de dados. </p>`
     ],
     [
         `<i> Desenvolvedor inspirado em quadrinhos </i>
@@ -209,7 +217,8 @@ const data = {
       [1, "/img/shapes.530c8e2f.jpg"],
       [1, "/img/medway1.8a2440bd.jpg"], [2, "/img/medway2.b674a0e4.jpg"],
       [1, "/img/minimalista1.de5a97f2.jpg"],
-      [1, "/img/universe1.280e09b1.png"], [2, "/img/universe2.43876a53.png"]
+      [1, "/img/universe1.280e09b1.png"], [2, "/img/universe2.43876a53.png"],
+      [1, "/img/DevloperMe.f10820ef.jpg"]
     ],
     [
       [1, "/img/strange1.1c46d9f3.jpg"],
