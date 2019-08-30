@@ -223,7 +223,8 @@ export default {
         setTimeout(() => {
           // troca options pela especifica
           this.options = Array.from(this.options1[1][0]);
-          if (sh == 2 && key == 1 || sh == 0 && key == 3) {
+          if (sh == 2 && key == 1 || sh == 0 && key == 3 ||
+            sh == 0 && key == 7) {
             this.options.pop();
           }
           if (sh == 1 || sh == 0 && key == 4) {
@@ -321,8 +322,8 @@ export default {
     bgIsShow(id) {
       const sh = this.show;
       const pj = sh.project, pjs = sh.projects;
-      const opt = [[4, 5, 6], [1, 2], 0, [1, 2, 3]];
-      const vals = [[3.5, 4.5, 5], [0.5, 1], 0, [0.5, 1, 1.5]];
+      const opt = [[4, 5, 6, 7], [1, 2], 0, [1, 2, 3]];
+      const vals = [[3.5, 4.5, 5, 6], [0.5, 1], 0, [0.5, 1, 1.5]];
       if (pjs >= 0 && pjs !== 2) {
         for (let i = 0; i < opt[pjs].length; i++) {
           if (id == opt[pjs][i]) {
@@ -348,8 +349,8 @@ export default {
       return title;
     },
     specificShow(id) {
-      const opt = [[7, 9, 10, 11], [1, 2], [1], [1]];
-      const vals = [[8, 10, 12, 12], [2, 4], [2], [2]];
+      const opt = [[7, 9, 10, 11, 12], [1, 2], [1], [1]];
+      const vals = [[8, 10, 12, 12, 14], [2, 4], [2], [2]];
       id = this.sh(id);
       for (let i = 0; i < opt[id[1]].length; i++) {
         if (id[0] == opt[id[1]][i]) {
@@ -360,9 +361,9 @@ export default {
       return Math.floor(id[0] / 2);
     },
     sh(id) {
-      return id > 17 ? [id - 18, 3] : (
-        id > 14 ? [id - 15, 2] : (
-          id > 11 ? [id - 12, 1] : [id, 0]
+      return id > 18 ? [id - 19, 3] : (
+        id > 15 ? [id - 16, 2] : (
+          id > 12 ? [id - 13, 1] : [id, 0]
         )
       );
     }
