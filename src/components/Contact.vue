@@ -3,7 +3,10 @@
     <section class="email">
       <h4>Vamos conversar?</h4>
       <p>
-        <i class="material-icons">email</i> guicorrea384@gmail.com
+        <a target="_blank" href="https://linkedin.com/in/GuiDevloper"
+          rel="nofollow noopener noreferrer">
+          Linkedin/GuiDevloper
+        </a>
       </p>
     </section>
     <section class="social">
@@ -50,7 +53,7 @@ $black: #20272f;
   width: 50%;
 }
 .email {
-  p, h4 {
+  p, h4, a {
     color: #e5e5e5;
     background: #20272f;
     padding: 2px 0;
