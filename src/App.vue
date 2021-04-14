@@ -35,8 +35,8 @@ export default {
 </script>
 
 <style lang="scss">
-$black: #20272f;
-$white: #e5e5e5;
+@import "./assets/CSS/variables";
+
 body {
   background: $white;
   margin: 0;

@@ -1,3 +1,6 @@
+@mixin for-phone-height {
+  @media (max-height: 590px) { @content; }
+}
 @mixin for-phone {
   @media (max-width: 599px) { @content; }
 }
