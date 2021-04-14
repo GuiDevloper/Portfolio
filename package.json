@@ -16,6 +16,7 @@
     "name": "GuiDevloper",
     "url": "https://guidevloper.netlify.com/"
   },
+  "license": "ISC",
   "homepage": "https://github.com/GuiDevloper/portfolio",
   "scripts": {
     "serve": "vue-cli-service serve",
