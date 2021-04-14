@@ -23,7 +23,7 @@
 
 <script>
 export default {
-  name: 'loading',
+  name: 'Loading',
   props: ['loaded'],
   data: function() {
     return {
