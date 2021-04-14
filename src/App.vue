@@ -83,7 +83,7 @@ textarea,
 legend,
 a {
   font-size: 1rem;
-  font-family: "Raleway";
+  font-family: "Raleway", sans-serif;
   text-decoration: none;
 }
 .lik {

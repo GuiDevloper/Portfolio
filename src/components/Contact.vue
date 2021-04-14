@@ -1,29 +1,48 @@
 <template>
   <article id="contact">
     <section class="email">
-      <h4>Vamos conversar?</h4>
+      <p>Vamos conversar?</p>
       <p>
-        <a target="_blank" href="https://linkedin.com/in/GuiDevloper"
-          rel="nofollow noopener noreferrer">
+        <a
+          target="_blank"
+          href="https://linkedin.com/in/GuiDevloper"
+          rel="nofollow noopener noreferrer"
+        >
           Linkedin/GuiDevloper
         </a>
       </p>
     </section>
     <section class="social">
-      <h4>Gostou de ver meus experimentos?</h4>
+      <p>Gostou de ver meus experimentos?</p>
       <div class="git">
         <span>Veja mais em </span>
-        <a target="_blank" href="https://github.com/GuiDevloper"
-          rel="nofollow noopener noreferrer">
-          <img src="../assets/img/GitHub.png">
+        <a
+          target="_blank"
+          href="https://github.com/GuiDevloper"
+          rel="nofollow noopener noreferrer"
+        >
+          <img
+            height="15px"
+            width="15px"
+            src="../assets/img/GitHub.png"
+            alt="Github logo"
+          >
           <span>/GuiDevloper</span>
         </a>
       </div>
       <div class="insta">
         <span>Me siga no </span>
-        <a target="_blank" href="https://instagram.com/GuiDevloper"
-          rel="nofollow noopener noreferrer">
-          <img src="../assets/img/insta.png">
+        <a
+          target="_blank"
+          href="https://instagram.com/GuiDevloper"
+          rel="nofollow noopener noreferrer"
+        >
+          <img
+            height="15px"
+            width="15px"
+            src="../assets/img/insta.png"
+            alt="Instagram logo"
+          >
           <span>/GuiDevloper</span>
         </a>
       </div>
@@ -83,6 +102,7 @@ a {
   p, h4 {
     margin: 0;
     padding-top: 0;
+    font-weight: bold;
   }
 }
 

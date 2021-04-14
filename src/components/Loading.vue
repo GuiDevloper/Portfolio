@@ -2,8 +2,13 @@
   <section class="loading" :style="back">
     <div class="placa">
       <figure>
-        <img src="../assets/img/logo.png"
-          @load="typeWriter('GuiDevloper')"></img>
+        <img
+          height="40px"
+          width="40px"
+          src="../assets/img/logo.png"
+          @load="typeWriter('GuiDevloper')"
+          class="logo"
+        >
       </figure>
       <p class="type" v-text="typed"></p>
       <p class="nameNeon" :style="animNeon">グイデベロッパー</p>
@@ -98,19 +103,23 @@ export default {
   position: absolute;
   margin-top: 52px;
   margin-top: 20px;
-  font-family: "Special Elite";
+  font-family: "Special Elite", cursive;
   text-shadow: 0px 0px 5px #cc4e4e;
+}
+.logo {
+  width: auto;
+  height: auto;
 }
 .nameNeon {
   color: #388E3C;
   transform-origin: center;
-  font-family: 'Raleway' !important;
+  font-family: 'Raleway', sans-serif !important;
   text-shadow: 0px 0px 5px #388E3C !important;
   animation-name: vanishIn;
 }
 .text-logo {
   text-anchor: middle;
-  font-family: 'Great Vibes';
+  font-family: 'Great Vibes', cursive;
   animation-name: draw;
   font-size: 3.5rem;
 }
