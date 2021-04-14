@@ -4,60 +4,81 @@
     <section class="row r1">
       <article class="post" :class="{ mostrado: show.projects > -1 }">
         <figure class="blur">
-          <img src="/img/shapes.530c8e2f.jpg" height="100%"
+          <img
+            src="/img/shapes.530c8e2f.jpg"
+            height="100%"
+            width="100%"
             alt="Círculos e triangulos coloridos desenhados"
-            @load="addLoad">
+            @load="addLoad"
+          >
           <figcaption>Versatilidade do Design</figcaption>
         </figure>
         <section class="text">
-          <i class="material-icons close"
+          <i
+            class="material-icons close"
             @click="openWorks(null)"
             @keyup.enter="openWorks(null)"
-            :tabindex="show.projects > -1 ? 0 : -1">
+            :tabindex="show.projects > -1 ? 0 : -1"
+          >
             close
           </i>
           <p class="author">
             {{ projeto.titulo }}
           </p>
-          <p class="postText" v-if="show.project"
+          <p
+            class="postText" v-if="show.project"
             v-html="projeto.subTitulo"
-            :tabindex="show.project ? 0 : -1">
+            :tabindex="show.project ? 0 : -1"
+          >
           </p>
           <div class="btns" :class="{ list: !show.project }">
-            <a v-for="(op, i) of options" :key="i"
-              @click="op.indexOf('Ver') === 0 ?'': openProject(i)"
+            <a
+              v-for="(op, i) of options" :key="i"
+              @click="!op.noOpen && openProject(i)"
               @focus="focus = false"
-              @keyup.enter="op.indexOf('Ver') === 0 ?'': openProject(i)"
-              v-html="op"
-              :style="bgIsShow(i)"
-              :href="parse(i)" target="_blank"
+              @keyup.enter="!op.noOpen && openProject(i)"
+              v-html="op.title"
+              :style="bgIsShow([i, op])"
+              :href="getUrl(op, i)"
+              target="_blank"
               rel="nofollow noopener noreferrer"
-              :tabindex="show.projects > -1 ? 0 : -1">a</a>
+              :tabindex="show.projects > -1 ? 0 : -1"
+            >a</a>
           </div>
         </section>
       </article>
       <section class="column c1" :class="{ borrado: show.projects > -1 }">
         <h1 class="type">Design está em tudo</h1>
         <div class="neon n1"></div>
-        <shapes></shapes>
+        <Shapes/>
       </section>
       <nav class="nav-menu">
         <ul class="menu" :class=" { focused: focus } ">
-          <section class="logo-center">
+          <li class="logo-center">
             <figure>
-              <img width="60%" src="../assets/img/logo.png"
+              <img
+                width="60%"
+                height="48px"
+                src="../assets/img/logo.png"
                 alt="Logo do GuiDevloper"
-                title="Logo do GuiDevloper">
+                title="Logo do GuiDevloper"
+              >
             </figure>
             <h1 class="t-menu">Menu</h1>
-          </section>
-          <li v-for="(li, i) of [
-            ['code', 'Code'],
-            ['video_library', 'Media'],
-            ['more', 'Outros'],
-            ['account_box', 'Currículo']]" :key="i"
-            @click="openWorks(i)" @focus="focus = true"
-            @keyup.enter="openWorks(i)" tabindex="0">
+          </li>
+          <li
+            v-for="(li, i) of [
+              ['code', 'Code'],
+              ['video_library', 'Media'],
+              ['more', 'Outros'],
+              ['account_box', 'Currículo']
+            ]"
+            :key="i"
+            @click="openWorks(i)"
+            @focus="focus = true"
+            @keyup.enter="openWorks(i)"
+            tabindex="0"
+          >
             <i class="material-icons"> {{ li[0] }} </i>
             <p> {{ li[1] }} </p>
           </li>
@@ -100,37 +121,53 @@
             </path>
           </svg>
         </div>
-        <img v-for="(img, i) of projeto.imgs[0].concat(
-          projeto.imgs[1], projeto.imgs[2], projeto.imgs[3])"
-          :key="i" :class="['img-pro' + img[0], {
-            direitado: toBool(i),
-            poster: i == 13, readyShadow: i == 16 }]"
-          :src="img[1]" @load="addLoad"
-          :alt="titleImg(i)" :title="titleImg(i)">
-        <video class="img-pro1" src="https://www.dropbox.com/s/ko44euyqrhl7rmm/strange.mp4?dl=1"
-          :class="[{
-            direitado: show.projects == 1 ? (toBool(0)) : true
-          }]" :controls="show.projects == 1 ? !(toBool(0)) : false" loop>
-          Desculpe, o seu navegador não suporta vídeos incorporados,
-          mas você pode <a href="https://www.dropbox.com/s/ko44euyqrhl7rmm/strange.mp4?dl=1">baixá-lo</a>
-          e assistir pelo seu reprodutor de mídia!
-        </video>
-        <div id="colr" :class="{ direitado: show.img[0] > -1 && projeto.id != 3 }">
+        <template v-for="(pjsImgs, pjsId) of projeto.imgs">
+          <template v-for="(pjImgs, pjId) of pjsImgs">
+            <img
+              v-for="(img, j) of pjImgs.imgs"
+              :key="`${pjsId}${pjId}${j}`"
+              :class="[`img-pro${j + 1}`, {
+                direitado: pjImgs.notShown || toBool([pjsId, pjId]),
+                poster: pjImgs.poster,
+                readyShadow: pjImgs.readyShadow,
+              }]"
+              :src="img"
+              @load="addLoad"
+              :alt="pjImgs.alt"
+              :title="pjImgs.alt"
+            >
+          </template>
+        </template>
+        <div
+          id="colr"
+          :class="{ direitado: show.img[0] > -1 && projeto.id != 3 }"
+        >
           <section class="codes">
-            <div v-for="(code, i) of codes.text" :key="code[0][0]"
-              :class="{ up: i == 0 ? codes.upMargin : false }">
-              <p v-for="c of code" :key="c[0]"
+            <div
+              v-for="(code, i) of codes.text"
+              :key="code[0][0]"
+              :class="{ up: i == 0 ? codes.upMargin : false }"
+            >
+              <p
+                v-for="c of code"
+                :key="c[0]"
                 :class="[{ cd: i < 5 }, c[0]]"
-                v-text="c[1]">
+                v-text="c[1]"
+              >
               </p>
             </div>
           </section>
           <div class="neon"></div>
           <div class="neon n2">
-            <img class="Dev-center" src="../assets/img/GuiDevloper.png"
+            <img
+              class="Dev-center"
+              src="../assets/img/GuiDevloper.png"
               @load="addLoad"
               alt="GuiDevloper desenhado"
-              title="GuiDevloper desenhado">
+              title="GuiDevloper desenhado"
+              height="90%"
+              width="210px"
+            >
           </div>
           <h1 class="type tw">Código também</h1>
         </div>
@@ -141,14 +178,14 @@
 
 <script>
 import loading from "@/components/Loading.vue";
-import shapes from "@/components/Shapes.vue";
+import Shapes from "@/components/Shapes.vue";
 import data from "../assets/data.js";
 
 export default {
   name: "Hello",
   components: {
     loading,
-    shapes
+    Shapes
   },
   data: function() {
     return {
@@ -194,8 +231,14 @@ export default {
     openWorks(key) {
       this.pause();
       let sh = this.show;
-      if (sh.projects > -1 && key != null && sh.projects !== key) {
-        setTimeout(() => { this.openWorks(key) }, 500)
+      if (
+        sh.projects > -1 &&
+        key != null &&
+        sh.projects !== key
+      ) {
+        setTimeout(() => {
+          this.openWorks(key);
+        }, 500);
       }
       // inverte showDesc
       sh.projects = sh.projects > -1 ? -1 : key;
@@ -212,27 +255,24 @@ export default {
     openProject(key) {
       this.pause();
       const sh = this.show.projects;
+      const project = this.options1[0][sh][key];
       // inverte showProj
-      this.show.project = sh == 3 ? false : !this.show.project;
+      this.show.project = project.noProject ? false : !this.show.project;
       this.show.img = [-1, -1];
       if (this.show.project) {
-        // troca subT pela desc
         this.projeto.subTitulo = this.projeto.descriptions[sh][key];
-        // troca title
-        this.projeto.titulo = this.options[key];
+        this.projeto.titulo = this.options[key].title;
         setTimeout(() => {
-          // troca options pela especifica
-          this.options = Array.from(this.options1[1][0]);
-          if (sh == 2 && key == 1 || sh == 0 && key == 3 ||
-            sh == 0 && key == 7) {
+          this.options = Array.from(this.options1[1]);
+          if (project.noOnline) {
             this.options.pop();
           }
-          if (sh == 1 || sh == 0 && key == 4) {
+          if (project.noGit) {
             this.options.splice(1, 2);
           }
           this.projeto.id = key;
-          this.show.img = [sh == 0 && key == 3 ? -1 : key, sh];
-          if (sh == 0 && key == 3){
+          this.show.img = [project.noImg ? -1 : key, sh];
+          if (project.noImg){
             this.resume();
           }
         }, 100);
@@ -250,31 +290,25 @@ export default {
       this.show.img = [-1, -1];
       this.projeto.id = -1;
     },
-    // Mescla titulo e url pro git e online
-    parse(key) {
-      let title = this.projeto.titulo;
-      const id = this.projeto.id;
-      const sh = this.show.projects;
-      let url = this.options1[2][0][key];
-      if (sh !== 1 && id > -1) {
-        const old = id + sh === 0 ? " " : "The ";
-        title = id == 1 && key == 2 && sh === 0 ? 'Inspirate' : (
-          id == 6 && key == 1 && sh == 0 ? 'universe-verses' :
-          title.replace(old, ""));
-        url = sh == 0 && id == 5 ? this.options1[2][2][key] : (
-          sh == 2 && id == 0 ? this.options1[2][1][key] : (
-          sh == 2 && id == 1 ? this.options1[2][3][key] : (
-          key == 2 ? `https://${title + url}` : (
-            key === 1 ? `${url + title}` : null))));
-      } else {
-        url = sh == 3 ? this.options1[2][5][key] : null;
+    getUrl(op, key) {
+      if (!op.back && !op.noOpen && !op.noProject) {
+        return null;
       }
-      return url;
+      if (op.noProject) {
+        return op.links[0];
+      }
+      const sh = this.show.projects;
+      let id = this.projeto.id;
+      const opt = this.options1[0][sh];
+      const links = ((opt || [])[id] || {}).links;
+      if (links) {
+        return links[key - 1];
+      }
     },
     toBool(id) {
-      let sh = this.sh(id)[1];
-      if (this.show.img[1] === sh) {
-        return this.show.img[0] !== this.specificShow(id);
+      let sh = this.show;
+      if (sh.projects === id[0] && this.projeto.id === id[1]) {
+        return false;
       }
       return true;
     },
@@ -319,53 +353,18 @@ export default {
       clearTimeout(ti.timerId);
       ti.timerId = setTimeout(ti.T, ti.remain);
     },
-    bgIsShow(id) {
-      const sh = this.show;
-      const pj = sh.project, pjs = sh.projects;
-      const opt = [[4, 5, 6, 7], [1, 2], 0, [1, 2, 3]];
-      const vals = [[3.5, 4.5, 5, 6], [0.5, 1], 0, [0.5, 1, 1.5]];
-      if (pjs >= 0 && pjs !== 2) {
-        for (let i = 0; i < opt[pjs].length; i++) {
-          if (id == opt[pjs][i]) {
-            id = vals[pjs][i];
-            break;
-          }
-        }
-      }
-      return !pj ? {
+    bgIsShow(op) {
+      if (typeof op[1].thumb !== 'number') return '';
+      const pjs = this.show.projects;
+      const imgs = this.projeto.imgs || [];
+      const pjsImgs = imgs[pjs < 0 ? 0 : pjs] || [];
+      const pjImgs = (pjsImgs[op[0]] || {}).imgs || [];
+
+      return !this.show.project ? {
         backgroundImage: `url(${
-          (this.projeto.imgs[pjs < 0 ? 0 : pjs][ id * 2 ] || '')[1]
+          (pjImgs[op[1].thumb] || '')
         })`
       } : '';
-    },
-    titleImg(id) {
-      let sh = this.sh(id)[1];
-      id = this.specificShow(id);
-      // title dos iniciais
-      let title = this.options1[0][sh][id];
-      title = sh == 0 && id == 3 ?
-        'Círculos e triangulos coloridos desenhados' :
-          title + ' Screenshot';
-      return title;
-    },
-    specificShow(id) {
-      const opt = [[7, 9, 10, 11, 12], [1, 2], [1], [1]];
-      const vals = [[8, 10, 12, 12, 14], [2, 4], [2], [2]];
-      id = this.sh(id);
-      for (let i = 0; i < opt[id[1]].length; i++) {
-        if (id[0] == opt[id[1]][i]) {
-          id[0] = vals[id[1]][i];
-          break;
-        }
-      }
-      return Math.floor(id[0] / 2);
-    },
-    sh(id) {
-      return id > 18 ? [id - 19, 3] : (
-        id > 15 ? [id - 16, 2] : (
-          id > 12 ? [id - 13, 1] : [id, 0]
-        )
-      );
     }
   }
 };
@@ -420,6 +419,7 @@ $darken: #405165;
     img {
       filter: blur(6px);
       opacity: 0.95;
+      width: auto;
     }
   }
   p {
@@ -511,7 +511,7 @@ $darken: #405165;
 }
 
 .type {
-  font-family: "Special Elite", Raleway;
+  font-family: "Special Elite", Raleway, sans-serif;
   font-size: 2rem;
   color: $black;
   position: absolute;
@@ -640,6 +640,7 @@ $neon-color: "rgba(240, 74, 74";
 
 .Dev-center {
   height: 90%;
+  width: auto;
   margin-top: 50px;
   z-index: -1;
   position: relative;
@@ -654,7 +655,7 @@ $neon-color: "rgba(240, 74, 74";
   display: flex;
   align-items: flex-end;
   &:hover, .focused {
-    li {
+    li:not(.logo-center) {
       height: 8vh;
     }
   }
@@ -668,7 +669,7 @@ $neon-color: "rgba(240, 74, 74";
   #item1 {
     margin-bottom: 60px;
   }
-  li {
+  li:not(.logo-center) {
     height: 20px;
     &:hover i, &:focus i {
       color: yellow;
@@ -676,6 +677,7 @@ $neon-color: "rgba(240, 74, 74";
   }
   img {
     margin-top: 5%;
+    height: auto;
   }
 }
 .logo-center,
@@ -693,8 +695,8 @@ $neon-color: "rgba(240, 74, 74";
   background: #e5e5e5;
 }
 .t-menu {
-  color: #c35b53;
-  font-family: "Great Vibes";
+  color: #a34c45;
+  font-family: "Great Vibes", cursive;
   font-size: 18px;
 }
 .menu {
