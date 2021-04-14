@@ -1,31 +1,143 @@
 const data = {
   options1: [
     [
-      ['The Sea', 'The Inspiration', 'The Dreamity', 'The Portfolio', 'MedWay', 'Minimalista', 'UniversoVersos', 'DevloperMe'],
-      ['Strange\'s Effect', 'The Panther', 'The Sea Ilustrations'],
-      ['Tradução no vuejs.org', 'What You Made Today?'],
-      ['Ver Currículo', 'Download Currículo', 'Ver Certificados', 'Download Certificados']
-    ],
-    [
-      ['<-', 'Ver no GitHub', 'Ver Online']
-    ],
-    [
-      [null, 'https://github.com/guidevloper/', '.netlify.com/'],
-      [null, 'https://github.com/vuejs-br/br.vuejs.org/issues?q=author%3AGuiDevloper', 'https://br.vuejs.org/v2/cookbook/unit-testing-vue-components'],
-      [null, 'https://github.com/guidevloper/minimalista', 'https://www.npmjs.com/package/minimalista'],
-      [null, 'https://github.com/GuiDevloper/what-have-you-made-today', null],
-      [null, null, null],
       [
-        'https://www.dropbox.com/s/q5bxttvoqxs8lsc/GuiDevloper%20Resume.pdf',
-        'https://www.dropbox.com/s/q5bxttvoqxs8lsc/GuiDevloper%20Resume.pdf?dl=1',
-        'https://www.dropbox.com/s/kfqu85790pn7uwk/GuiDevloper%20-%20Certificados.pdf',
-        'https://www.dropbox.com/s/kfqu85790pn7uwk/GuiDevloper%20-%20Certificados.pdf?dl=1'
+        {
+          title: 'The Sea',
+          thumb: 0,
+          links: [
+            'https://github.com/guidevloper/TheSea',
+            'https://thesea.netlify.com/'
+          ]
+        },
+        {
+          title: 'The Inspiration',
+          thumb: 0,
+          links: [
+            'https://github.com/guidevloper/Inspiration',
+            'https://inspirate.netlify.com/'
+          ]
+        },
+        {
+          title: 'The Dreamity',
+          thumb: 0,
+          links: [
+            'https://github.com/guidevloper/Dreamity',
+            'https://dreamity.netlify.com/'
+          ]
+        },
+        {
+          title: 'The Portfolio',
+          noOnline: true,
+          noImg: true,
+          thumb: 0,
+          links: ['https://github.com/guidevloper/Portfolio']
+        },
+        {
+          title: 'MedWay',
+          noGit: true,
+          thumb: 0
+        },
+        {
+          title: 'Minimalista',
+          thumb: 0,
+          links: [
+            'https://github.com/guidevloper/minimalista',
+            'https://www.npmjs.com/package/minimalista'
+          ]
+        },
+        {
+          title: 'UniversoVersos',
+          thumb: 0,
+          links: [
+            'https://github.com/guidevloper/universe-verses',
+            'https://universoversos.netlify.com/'
+          ]
+        },
+        {
+          title: 'DevloperMe',
+          noOnline: true,
+          thumb: 0,
+          noGit: true
+        }
+      ],
+      [
+        {
+          title: 'Strange\'s Effect',
+          noGit: true,
+          thumb: 0
+        },
+        {
+          title: 'The Panther',
+          noGit: true,
+          thumb: 0
+        },
+        {
+          title: 'The Sea Ilustrations',
+          noGit: true,
+          thumb: 0
+        }
+      ],
+      [
+        {
+          title: 'Tradução no vuejs.org',
+          thumb: 0,
+          links: [
+            'https://github.com/vuejs-br/br.vuejs.org/commits?author=GuiDevloper',
+            'https://br.vuejs.org/v2/cookbook/unit-testing-vue-components'
+          ]
+        },
+        {
+          title: 'What You Made Today?',
+          noOnline: true,
+          thumb: 1,
+          links: ['https://github.com/GuiDevloper/what-have-you-made-today']
+        }
+      ],
+      [
+        {
+          title: 'Ver Currículo',
+          noProject: true,
+          thumb: 0,
+          links: [
+            'https://www.dropbox.com/s/q5bxttvoqxs8lsc/GuiDevloper%20Resume.pdf'
+          ]
+        },
+        {
+          title: 'Download Currículo',
+          noProject: true,
+          thumb: 0,
+          links: [
+            'https://www.dropbox.com/s/q5bxttvoqxs8lsc/GuiDevloper%20Resume.pdf?dl=1'
+          ]
+        },
+        {
+          title: 'Ver Certificados',
+          noProject: true,
+          thumb: 0,
+          links: [
+            'https://www.dropbox.com/s/kfqu85790pn7uwk/GuiDevloper%20-%20Certificados.pdf'
+          ]
+        },
+        {
+          title: 'Download Certificados',
+          noProject: true,
+          thumb: 0,
+          links: [
+            'https://www.dropbox.com/s/kfqu85790pn7uwk/GuiDevloper%20-%20Certificados.pdf?dl=1'
+          ]
+        }
       ]
+    ],
+    [
+      { title: '<-', back: true },
+      { title: 'Ver no GitHub', noOpen: true },
+      { title: 'Ver Online', noOpen: true }
     ]
   ],
   descriptions: [
     [
-        `<i> A maritime adventure through the sea nature </i>
+      `<i> A maritime adventure through the sea nature </i>
       <br>
       <b> A Inspiração </b>
       <br>
@@ -211,29 +323,59 @@ const data = {
   ],
   imgs: [
     [
-      [1, "/img/TheSea1.e121d4c7.jpg"], [2, "/img/TheSea2.b2f0d16a.jpg"],
-      [1, "/img/inspiration1.ab8299c5.jpg"], [2, "/img/inspiration2.74a3fd39.jpg"],
-      [1, "/img/dreamity1.3ec2532f.jpg"], [2, "/img/dreamity2.944c3814.jpg"],
-      [1, "/img/shapes.530c8e2f.jpg"],
-      [1, "/img/medway1.8a2440bd.jpg"], [2, "/img/medway2.b674a0e4.jpg"],
-      [1, "/img/minimalista1.de5a97f2.jpg"],
-      [1, "/img/universe1.280e09b1.png"], [2, "/img/universe2.43876a53.png"],
-      [1, "/img/DevloperMe.f10820ef.jpg"]
+      {
+        imgs: ["/img/TheSea1.e121d4c7.jpg", "/img/TheSea2.b2f0d16a.jpg"]
+      },
+      {
+        imgs: ["/img/inspiration1.ab8299c5.jpg", "/img/inspiration2.74a3fd39.jpg"]
+      },
+      {
+        imgs: ["/img/dreamity1.3ec2532f.jpg", "/img/dreamity2.944c3814.jpg"]
+      },
+      {
+        imgs: ["/img/shapes.530c8e2f.jpg"],
+        alt: "Círculos e triangulos coloridos desenhados",
+        notShown: true,
+      },
+      {
+        imgs: ["/img/medway1.8a2440bd.jpg", "/img/medway2.b674a0e4.jpg"]
+      },
+      {
+        imgs: ["/img/minimalista1.de5a97f2.jpg"]
+      },
+      {
+        imgs: ["/img/universe1.280e09b1.png", "/img/universe2.43876a53.png"]
+      },
+      {
+        imgs: ["/img/DevloperMe.f10820ef.jpg"]
+      }
     ],
     [
-      [1, "/img/strange1.1c46d9f3.jpg"],
-      [1, "/img/ThePanther1.b3b83f53.jpg"],
-      [1, "/img/Illustrations.5ee7857c.jpg"]
+      {
+        imgs: ["/img/strange1.1c46d9f3.jpg"]
+      },
+      {
+        imgs: ["/img/ThePanther1.b3b83f53.jpg"],
+        poster: true
+      },
+      {
+        imgs: ["/img/Illustrations.5ee7857c.jpg"]
+      }
     ],
     [
-      [1, "/img/vueDoc1.d9cfe047.jpg"],
-      [1, "/img/whymt1.cece6f83.png"], [2, "/img/whymt2.bf1fbc85.png"]
+      {
+        imgs: ["/img/vueDoc1.d9cfe047.jpg"]
+      },
+      {
+        imgs: ["/img/whymt1.cece6f83.png", "/img/whymt2.bf1fbc85.png"],
+        readyShadow: true
+      }
     ],
     [
-      [1, "/img/Resume.a6b8c2bb.jpg"],
-      [1, "/img/Resume.a6b8c2bb.jpg"],
-      [1, "/img/Diploma.c0795ec0.jpg"],
-      [1, "/img/Diploma.c0795ec0.jpg"]
+      { imgs: ["/img/Resume.a6b8c2bb.jpg"] },
+      { imgs: ["/img/Resume.a6b8c2bb.jpg"] },
+      { imgs: ["/img/Diploma.c0795ec0.jpg"] },
+      { imgs: ["/img/Diploma.c0795ec0.jpg"] }
     ]
   ]
 };
