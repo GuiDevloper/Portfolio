@@ -16,9 +16,9 @@
     <contact/>
     <footer>
       <p class="p1">Construído com</p>
-      <i class="material-icons p2">local_cafe</i>
-      <p>&&</p>
-      <i class="material-icons p2 i2">favorite</i>
+      <i class="material-icons p2" alt="café">local_cafe</i>
+      <p alt="e">&&</p>
+      <i class="material-icons p2 i2" alt="amor">favorite</i>
       <p class="p3">por GuiDevloper</p>
     </footer>
   </main>

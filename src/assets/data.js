@@ -275,7 +275,7 @@ const data = {
       <p> Após obter a extensão What Have You Made Today? do <a href="https://github.com/tholman" target="_blank">Tim Holman</a>, que muda a página inicial do Chrome para uma minimalista com <i>speed dial</i>, comecei a achá-la muito estática e clara, com isso meu olhar de desenvolvedor tomou-a como um novo projeto. </p>
       <br>
       <b> Mudanças </b>
-      <p> Além de adicionar um ciclo dia/noite alteranto o fundo melhorei a visualização dos sites favoritos, das configurações e adicionei minha biblioteca <a href="https://github.com/GuiDevloper/minimalista" target="_blank">Minimalista</a>, para manipulação de cores e geração de uma cor de texto contrastrante com o fundo do <i>speed dial</i> escolhido pelo usuário. As diferenças estão nos <i>screenshots</i> apresentados. </p>`
+      <p> Além de adicionar um ciclo dia/noite alterando o fundo melhorei a visualização dos sites favoritos, das configurações e adicionei minha biblioteca <a href="https://github.com/GuiDevloper/minimalista" target="_blank">Minimalista</a>, para manipulação de cores e geração de uma cor de texto contrastrante com o fundo do <i>speed dial</i> escolhido pelo usuário. As diferenças estão nos <i>screenshots</i> apresentados. </p>`
     ]
   ],
   codes: [
